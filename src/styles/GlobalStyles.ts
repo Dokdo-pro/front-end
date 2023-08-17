@@ -5,9 +5,6 @@ const GlobalStyles = createGlobalStyle`
      v2.0 | 20110126
      License: none (public domain)
   */
-     * {
-    font-family: Pretendard, 'Noto Sans KR', sans-serif;
-  }
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -37,7 +34,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1;
   }
-  ol, ul, li{
+  ol, ul {
     list-style: none;
   }
   blockquote, q {
