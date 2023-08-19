@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
 * {
     font-family: Pretendard, 'Noto Sans KR', sans-serif;
+    letter-spacing: 2px;
   }
   /* http://meyerweb.com/eric/tools/css/reset/ 
      v2.0 | 20110126
@@ -37,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1;
   }
-  ol, ul {
+  ol, ul, li {
     list-style: none;
   }
   blockquote, q {

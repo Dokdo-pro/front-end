@@ -1,19 +1,17 @@
-// src/App.tsx
 import React from 'react';
-import styled from 'styled-components';
-import GlobalStyles from './styles/GlobalStyles'; // GlobalStyles.ts 파일에서 export한 것을 import합니다.
-
-const StyledApp = styled.div`
-  font-size: 16px;
-  color: blue;
-`;
+import { BrowserRouter as Router } from 'react-router-dom';
+import GlobalStyles from './styles/GlobalStyles';
+import Layout1 from './components/layout/layout1/Layout1';
+import MainRoutes from './routes/Main';
 
 function App() {
   return (
-    <>
-      <GlobalStyles /> {/* 전역 스타일 적용 */}
-      <StyledApp>{/* Your content here */}</StyledApp>
-    </>
+    <Router>
+      <GlobalStyles />
+      <Layout1>
+        <MainRoutes />
+      </Layout1>
+    </Router>
   );
 }
 
