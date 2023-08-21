@@ -1,10 +1,10 @@
 import React from 'react';
 import * as FT from './Footer.styled'; 
-import homeIcon from '../../../assets/image/Home.png';
-import groupIcon from '../../../assets/image/Group.png';
-import boardIcon from '../../../assets/image/Note.png';
-import likeIcon from '../../../assets/image/Favorite.png';
-import userIcon from '../../../assets/image/Person.png';
+import homeIcon from '../../../assets/icon/Home.png';
+import groupIcon from '../../../assets/icon/Group.png';
+import boardIcon from '../../../assets/icon/Note.png';
+import likeIcon from '../../../assets/icon/Favorite.png';
+import userIcon from '../../../assets/icon/Person.png';
 
 function Footer() {
   return (

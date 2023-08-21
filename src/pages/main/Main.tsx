@@ -8,26 +8,31 @@ import Slider from '../../components/common/slider/Slider';
 function Main() {
   return (
     <M.Wrapper>
+      
       <Slider />
       <M.GridContainer>
         <M.ImageRow>
-          <ImageBox />
-          <ImageBox />
-          <ImageBox />
-          <ImageBox />
+          {Array(4)
+            .fill('')
+            .map((v, i) => (
+              <ImageBox key={i} />
+            ))}
         </M.ImageRow>
         <M.ImageRow>
-          <ImageBox />
-          <ImageBox />
-          <ImageBox />
-          <ImageBox />
+          {Array(4)
+            .fill('')
+            .map((v, i) => (
+              <ImageBox key={i} />
+            ))}
         </M.ImageRow>
         <MoreButton />
       </M.GridContainer>
       <M.GroupList>
-        <BoardBox />
-        <BoardBox />
-        <BoardBox />
+        {Array(3)
+          .fill('')
+          .map((v, i) => (
+            <BoardBox key={i} />
+          ))}
         <MoreButton />
       </M.GroupList>
       <Slider />

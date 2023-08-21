@@ -1,6 +1,6 @@
 import React from 'react';
 import * as LS from './LeftScreen.styled';
-
+import { Link } from 'react-router-dom';
 
 function LeftScreen() {
   return (
@@ -20,10 +20,25 @@ function LeftScreen() {
           <li>이 달의 모임</li>
           <li>문해력테스트</li>
         </LS.Tag>
+            <Link to="/">메인</Link>
+            <Link to="/search">검색페이지</Link>
+            <Link to="/group">토론 모임공고</Link>
+            <Link to="/group/list">토론모임 전체보기</Link>
+            <Link to="/freeboard/list">자유 게시판ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ아직못함</Link>
+            <Link to="/books">책 추천ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ아직못함</Link>
+            <Link to="/contest">공모전ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ아직못함</Link>
+            <Link to="/group/detail/:id">토론 모임 상세 페이지</Link>
+            <Link to="/group/board">토론 게시판</Link>
+            <Link to="/group/board/detail/:id">토론 게시물 상세 페이지</Link>
+            <Link to="/group/board/write/:id">토론 게시물 작성</Link>
+            <Link to="/group/photo">토론 사진첩</Link>
+            <Link to="/group/photo/detail/:id">토론 사진 상세 페이지ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ만든거랑비슷함</Link>
+            <Link to="/group/photo/write/:id">토론 사진 페이지ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ만든거랑비슷함</Link>
+            <Link to="/freeboard/detail">자유 게시물 상세 페이지ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ만든거랑비슷함</Link>
+            <Link to="/freeboard/write/:id">자유 게시물 작성ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ만든거랑비슷함</Link>
       </LS.Wrapper>
     </LS.StyledLeftScreen>
   );
 }
 
 export default LeftScreen;
-

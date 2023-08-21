@@ -1,8 +1,8 @@
 import React from 'react';
 import * as HD from './Header.styled';
-import { Link } from 'react-router-dom'; 
-import searchIcon from '../../../assets/image/Search.png';
-import notificationIcon from '../../../assets/image/Bell.png';
+import { Link } from 'react-router-dom';
+import searchIcon from '../../../assets/icon/Search.png';
+import notificationIcon from '../../../assets/icon/Bell.png';
 
 function Header() {
   return (

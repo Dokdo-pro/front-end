@@ -92,3 +92,4 @@ export const Desc = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 `;
+

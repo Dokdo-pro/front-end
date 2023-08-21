@@ -16,22 +16,19 @@ const GroupDetail = () => {
       </GD.GroupInfo>
       <GD.Schedule>
         <div>일정</div>
-        <GD.ScheduleBox>
-          <div> 8/20 (일) D-5</div>
-          <div>북적북적 222번째 (독서와 쓰기)</div>
-          <div>일시 8/20일 (일) 오후 2:00</div>
-          <div>위치 더 숲 2,3,4 세미나 룸</div>
-          <div>금액 회비 2000원 + 세미나 룸 1/n</div>
-          <div>참여 15/18 (3자리 남음)</div>
-        </GD.ScheduleBox>
-        <GD.ScheduleBox>
-          <div> 8/20 (일) D-5</div>
-          <div>북적북적 222번째 (독서와 쓰기)</div>
-          <div>일시 8/20일 (일) 오후 2:00</div>
-          <div>위치 더 숲 2,3,4 세미나 룸</div>
-          <div>금액 회비 2000원 + 세미나 룸 1/n</div>
-          <div>참여 15/18 (3자리 남음)</div>
-        </GD.ScheduleBox>
+  
+        {Array(3)
+          .fill('')
+          .map((v, i) => (
+            <GD.ScheduleBox key={i}>
+              <div> 8/20 (일) D-5</div>
+              <div>북적북적 222번째 (독서와 쓰기)</div>
+              <div>일시 8/20일 (일) 오후 2:00</div>
+              <div>위치 더 숲 2,3,4 세미나 룸</div>
+              <div>금액 회비 2000원 + 세미나 룸 1/n</div>
+              <div>참여 15/18 (3자리 남음)</div>
+            </GD.ScheduleBox>
+          ))}
         <MoreButton />
       </GD.Schedule>
       <GD.MemberBox>

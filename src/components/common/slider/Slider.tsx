@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './styles.css';
+import SlideImg1 from '../../../assets/img/인천독서토론예시이미지.png';
 
 export default function Slider() {
   return (
@@ -19,7 +20,7 @@ export default function Slider() {
         className="mySwiper"
       >
         <SwiperSlide>
-    ㅇㅇㅇㅇ
+          <img src={SlideImg1} alt="토론이미지" />
         </SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>

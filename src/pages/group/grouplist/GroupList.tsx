@@ -33,9 +33,11 @@ const GroupList = () => {
           <div>셀렉트 박스</div>
         </GL.ChoiceSelect>
         <GL.ChoiceGroupBoard>
-          <BoardBox />
-          <BoardBox />
-          <BoardBox />
+          {Array(3)
+            .fill('')
+            .map((v, i) => (
+              <BoardBox key={i} />
+            ))}
           <MoreButton />
         </GL.ChoiceGroupBoard>
       </GL.ChoiceImageGroup>
