@@ -4,7 +4,7 @@ export const StyledLeftScreen = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0;
+  background-color: #fff7ec;
   position: fixed;
 
   left: 0;
@@ -45,7 +45,6 @@ export const Input = styled.input`
   height: 50px;
   border-radius: 30px;
   padding-left: 15px;
-  
 
   &::placeholder {
     color: #999;

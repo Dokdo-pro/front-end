@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const StyleHeader = styled.div`
   background-color: white;
@@ -33,7 +33,7 @@ export const Up = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  background-color: red;
+  background-color: white;
 `;
 
 export const Down = styled.div`
@@ -42,15 +42,25 @@ export const Down = styled.div`
   align-items: center;
   height: 60px;
   padding: 10px;
-  background-color: blue;
-  color: white;
+  background-color: white;
+  color: black;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   padding: 0;
   margin: 0;
   text-decoration: none;
   color: #333;
   list-style: none;
-  color: white;
+  color: black;
+  border-bottom: 2px solid transparent;
+  height: 100%;
+
+  &.active {
+    border-bottom: 5px solid #7c6250;
+  }
+`;
+export const StlyedImg = styled.img`
+  width: 27px;
+  height: 27px;
 `;

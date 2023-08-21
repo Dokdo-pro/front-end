@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const LayoutContainer = styled.div`
   display: flex;
   height: 100%;
@@ -30,5 +29,6 @@ export const Children = styled.div`
   background-color: white;
   min-height: 100vh;
   box-sizing: border-box;
-
 `;
+
+

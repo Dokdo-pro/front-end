@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 88px;
-  height: 88px;
+  width: 104px;
+  height: 104px;
   background-color: #fff7ec;
   border-radius: 20px;
   flex-shrink: 1;

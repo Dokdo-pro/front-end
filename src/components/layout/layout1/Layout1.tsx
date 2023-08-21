@@ -20,6 +20,7 @@ function Layout1({ children }: Layout1Props) {
         <Footer />
       </Right>
     </LayoutContainer>
+    
   );
 }
 

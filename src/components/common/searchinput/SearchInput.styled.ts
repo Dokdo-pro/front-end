@@ -15,11 +15,7 @@ export const Input = styled.input`
   border: 1px soild black;
   border-radius: 25px;
   width: 85%;
-  padding: 10px;
-
-  &::placeholder {
-    padding-left: 10px;
-  }
+  padding: 10px 10px 10px 20px;
 `;
 
 export const Button = styled.button`

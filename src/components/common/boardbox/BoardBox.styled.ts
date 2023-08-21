@@ -5,22 +5,28 @@ export const Container = styled.div`
   justify-content: center;
 
   width: 100%;
-  height: 110px;
+  height: 130px;
   background-color: white;
   margin: 10px 0;
 `;
 
 export const Border = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   border: solid 1px #ddd;
   border-radius: 15px;
   height: 100%;
   width: 100%;
-  padding: 7px;
+  padding: 10px;
 `;
 
 export const TextBox = styled.div`
   margin-left: 10px;
+
+  & div {
+    padding: 4px 0;
+    font-size: 15px;
+  }
 `;

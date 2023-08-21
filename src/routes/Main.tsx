@@ -15,11 +15,13 @@ import PhotoAlbumWrite from '../pages/group/photoalbumwrite/PhotoAlbumWrite';
 import FreeBoardList from '../pages/freeboard/freeboardlist/FreeBoardList';
 import FreeBoardDetail from '../pages/freeboard/freeboardDetail/FreeBoardDetail';
 import FreeBoardWrite from '../pages/freeboard/freeboardwrite/FreeBoardWrite';
-import BookRecommendation from '../pages/bookrecommendation/BookRecommendation';
+import BookRec from '../pages/bookrec/BookRec';
 import Contest from '../pages/contest/Contest';
 import Notifications from '../pages/notifications/Notifications';
 import Likes from '../pages/likes/Likes';
 import Layout1 from '../components/layout/layout1/Layout1';
+import ContestDetail from '../pages/contestdetail/ContestDetail';
+import BookRecDetail from '../pages/bookrecdetail/BookRecDetail';
 
 const MainRoutes = () => {
   return (
@@ -137,18 +139,35 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/books"
+        path="/bookrec"
         element={
           <Layout1>
-            <BookRecommendation />
+            <BookRec />
           </Layout1>
         }
       />
+        <Route
+        path="/bookrec/detail"
+        element={
+          <Layout1>
+            <BookRecDetail />
+          </Layout1>
+        }
+      />
+      
       <Route
         path="/contest"
         element={
           <Layout1>
             <Contest />
+          </Layout1>
+        }
+      />
+        <Route
+        path="/contest/detail"
+        element={
+          <Layout1>
+           <ContestDetail />
           </Layout1>
         }
       />
@@ -168,6 +187,7 @@ const MainRoutes = () => {
           </Layout1>
         }
       />
+      
     </Routes>
   );
 };

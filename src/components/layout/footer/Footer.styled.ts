@@ -6,7 +6,7 @@ export const StyledFooter = styled.footer`
   bottom: 0;
   height: 60px;
   font-size: 13px;
-  background-color: yellow;
+  background-color: white;
   width: 474px;
   z-index: 9999;
 `;

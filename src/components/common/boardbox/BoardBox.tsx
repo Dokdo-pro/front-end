@@ -1,18 +1,18 @@
 import React from 'react';
 import * as BB from './BoardBox.styled';
-import ImageBox from '../imagebox/ImageBox';
+import BoardImgBox from './BoardImgBox';
 
 function BoardBox() {
   return (
     <BB.Container>
       <BB.Border>
-        <ImageBox />
         <BB.TextBox>
-        <div>모임 이름</div>
-        <div>장르</div>
-        <div>날짜/시간</div>
-        <div>프로필</div>
+          <div>해시태그</div>
+          <div>주기적인 독서모임 가지실 분 모십니다.</div>
+          <div>문해력 향상을 위한 독서토론 모입니다.</div>
+          <div>13명 참여중</div>
         </BB.TextBox>
+        <BoardImgBox />
       </BB.Border>
     </BB.Container>
   );

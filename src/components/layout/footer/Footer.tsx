@@ -1,10 +1,10 @@
 import React from 'react';
 import * as FT from './Footer.styled'; 
 import homeIcon from '../../../assets/icon/Home.png';
-import groupIcon from '../../../assets/icon/Group.png';
-import boardIcon from '../../../assets/icon/Note.png';
+import groupIcon from '../../../assets/icon/Person.png';
+import boardIcon from '../../../assets/icon/Plus.png';
 import likeIcon from '../../../assets/icon/Favorite.png';
-import userIcon from '../../../assets/icon/Person.png';
+import userIcon from '../../../assets/icon/User.png';
 
 function Footer() {
   return (
@@ -16,11 +16,11 @@ function Footer() {
         </FT.StyledLink>
         <FT.StyledLink to="/mygroups">
           <img src={groupIcon} alt="내 모임 아이콘" />
-          <div>내 모임보기</div>
+          <div>둘러보기</div>
         </FT.StyledLink>
         <FT.StyledLink to="/freeboard/list">
           <img src={boardIcon} alt="자유 게시판 아이콘" />
-          <div>자유 게시판</div>
+          <div>모임 등록</div>
         </FT.StyledLink>
         <FT.StyledLink to="/likes">
           <img src={likeIcon} alt="좋아요 아이콘" />
