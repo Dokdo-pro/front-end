@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: black;
-  
+
+
   box-sizing: border-box;
   width: 474px;
   margin: 160px auto;
@@ -141,5 +144,11 @@ export const CheckBox = styled.div`
 export const SubmitButton = styled(InputButton)`
   width: 80%;
   display: flex;
- margin: 0 auto;
-`
+ margin: 0 auto 10px auto;
+ 
+`;
+
+export const LinkButton = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
