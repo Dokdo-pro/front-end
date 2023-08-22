@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import * as GBW from './GroupBoardWrite.styled';
+import BoardWriteSection from '../../../components/common/boardwritesection/BoardWriteSection';
+import Camera from '../../../assets/icon/Camera.png';
 
 const GroupBoardWrite = () => {
   const [title, setTitle] = useState('');
@@ -17,6 +19,7 @@ const GroupBoardWrite = () => {
 
   return (
     <GBW.Wrapper>
+      <BoardWriteSection />
       <GBW.TitleWrite>
         <textarea
           placeholder="제목을 입력해주세요. (40자)"
@@ -28,7 +31,7 @@ const GroupBoardWrite = () => {
       </GBW.TitleWrite>
       <GBW.WriteBox>
         <textarea
-          placeholder="글은 여기에 써주세요~~~~"
+          placeholder="내용을 입력해주세요. (1000자)"
           value={content}
           onChange={e => setContent(e.target.value)}
           rows={15}
@@ -39,7 +42,26 @@ const GroupBoardWrite = () => {
         ))}
       </GBW.WriteBox>
       <GBW.ImgUpload>
-        <input type="file" accept="image/*" onChange={handleImageUpload} />
+        <div>
+          <GBW.CameraBox>
+          <GBW.CameraImg>
+            <img src={Camera} alt="카메라 이미지" />
+          </GBW.CameraImg>
+          <GBW.CameraImg>
+            <img src={Camera} alt="카메라 이미지" />
+          </GBW.CameraImg>
+          <GBW.CameraImg>
+            <img src={Camera} alt="카메라 이미지" />
+          </GBW.CameraImg>
+          </GBW.CameraBox>
+          <input
+            type="file"
+            id="image-upload"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+        </div>
+
         <div>{content.length}/1000자</div>
       </GBW.ImgUpload>
     </GBW.Wrapper>

@@ -5,7 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './styles.css';
 import SlideImg1 from '../../../assets/img/인천독서토론예시이미지.png';
-import BoardBox from '../boardbox/BoardBox';
+import MidleBoardBox from '../boardbox/MidleBoardBox';
+import BookSlider from './BookSlider';
 
 export default function Slider() {
   return (
@@ -20,15 +21,17 @@ export default function Slider() {
         modules={[Navigation, Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img src={SlideImg1} alt="토론이미지" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <BoardBox />
-          <BoardBox />
-        </SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>
+            <img src={SlideImg1} alt="토론이미지" />
+          </SwiperSlide>
+          <SwiperSlide>
+          </SwiperSlide>
+          <SwiperSlide>
+            <MidleBoardBox />
+          </SwiperSlide>
+          <SwiperSlide>
+            <BookSlider />
+          </SwiperSlide>
       </Swiper>
     </>
   );

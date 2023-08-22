@@ -13,14 +13,7 @@ const Group = () => {
         <GR.GroupImage>
           <img src={GroupTitleImg} alt="그룹타이틀이미지" />
         </GR.GroupImage>
-        <GR.HashTag>
-          <li>문해력 향상</li>
-          <li>독서 모임</li>
-          <li>친목</li>
-          <li>취미</li>
-          <li>자기계발</li>
-          <li>예술</li>
-        </GR.HashTag>
+        
       </div>
       <GR.Section>
         <GR.DateText>

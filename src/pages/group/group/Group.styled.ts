@@ -21,14 +21,7 @@ export const GroupImage = styled.div`
   }
 `;
 
-export const HashTag = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-  border-bottom: 1px solid #ddd;
-`;
+
 
 export const DateText = styled.div`
   width: 100%;

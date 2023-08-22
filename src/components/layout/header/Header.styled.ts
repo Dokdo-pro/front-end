@@ -5,6 +5,7 @@ export const StyleHeader = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100px;
   width: 474px;
   margin-bottom: 10px;
@@ -28,18 +29,20 @@ export const Nav = styled.nav`
 `;
 
 export const Up = styled.div`
-  padding: 5px 10px;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
   background-color: white;
+  margin: 5px 0;
 `;
 
 export const Down = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  width: 90%;
   height: 60px;
   padding: 10px;
   background-color: white;

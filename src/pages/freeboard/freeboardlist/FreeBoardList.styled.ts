@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
   width: 474px;
 `;
 
+export const Title = styled.div`
+  margin: 30px;
+  font-size: 25px;
+`;
+
 export const FreeBoardBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,17 +20,6 @@ export const FreeBoardBox = styled.div`
   height: 100%;
 `;
 
-export const Region = styled.div`
-  display: flex;
-  align-items: center;
-  height: 50px;
-
-  & li {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-`;
 export const FreeBoardSelectBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -34,6 +28,6 @@ export const FreeBoardSelectBox = styled.div`
 `;
 export const FreeBoardSelect = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 `;

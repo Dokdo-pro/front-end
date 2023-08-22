@@ -17,7 +17,7 @@ const PhotoAlbum = () => {
             .map((v, i) => (
           <PA.PhotoBoardBox key={i}>
             <PA.PhotoImg>
-              <img src="" alt="유저업로드사진" />
+              <img src="" alt="업로드사진" />
             </PA.PhotoImg>
             <PA.PhotoBoxBottom>
               <PA.PhotoBoardTitle>
@@ -25,7 +25,7 @@ const PhotoAlbum = () => {
               </PA.PhotoBoardTitle>
               <PA.Profile>
                 <PA.ProfileImg>
-                  <img src="" alt="프로필 사진" />
+                  <img src="" alt="프로필" />
                 </PA.ProfileImg>
                 <div>최형욱</div>
               </PA.Profile>
@@ -35,7 +35,7 @@ const PhotoAlbum = () => {
           </li>
           <PA.PhotoBoardBox>
             <PA.PhotoImg>
-              <img src="" alt="유저업로드사진" />
+              <img src="" alt="업로드사진" />
             </PA.PhotoImg>
             <PA.PhotoBoxBottom>
               <PA.PhotoBoardTitle>
@@ -43,7 +43,7 @@ const PhotoAlbum = () => {
               </PA.PhotoBoardTitle>
               <PA.Profile>
                 <PA.ProfileImg>
-                  <img src="" alt="프로필 사진" />
+                  <img src="" alt="프로필" />
                 </PA.ProfileImg>
                 <div>최형욱</div>
               </PA.Profile>

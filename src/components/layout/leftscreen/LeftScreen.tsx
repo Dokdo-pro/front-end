@@ -24,9 +24,7 @@ function LeftScreen() {
         <Link to="/search">검색페이지</Link>
         <Link to="/group">토론 모임공고</Link>
         <Link to="/group/list">토론모임 전체보기</Link>
-        <Link to="/freeboard/list">
-          자유 게시판ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ아직못함
-        </Link>
+        <Link to="/freeboard/list">자유 게시판</Link>
         <Link to="/bookrec">책 추천</Link>
 
         <Link to="/contest">공모전</Link>

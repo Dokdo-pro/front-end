@@ -47,6 +47,7 @@ export const ChoiceImageGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #dedede;
 `;
 
 export const ChoiceSelect = styled.div`
@@ -61,4 +62,8 @@ export const ChoiceGroupBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 90%;
+`;
+
+export const ChoiceTitle = styled.div`
+  font-size: 25px;
 `;

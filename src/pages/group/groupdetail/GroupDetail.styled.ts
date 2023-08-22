@@ -15,32 +15,52 @@ export const GroupImage = styled.div`
 export const HashTag = styled.div`
   display: flex;
   align-items: center;
+  text-align: center;
   height: 50px;
-  width: 100%;
-  padding: 10px;
-  border-bottom: solid 1px #ddd;
-  box-sizing: border-box;
 `;
 
 export const GroupInfo = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: blue;
+  align-items: center;
   margin: 20px 0;
-  height: 100%;
+  height: 400px;
+
   box-sizing: border-box;
-  border: solid 1px #ddd;
-  padding: 10px;
-  width: 90%;
-  border-radius: 10px;
+  border-bottom: solid 1px #ddd;
+  width: 100%;
+`;
+
+export const GroupInfoBox = styled.div`
+  width: 100%;
+  height: 400px;
+  background-color: #fff7ec;
+`;
+
+export const GroupInfoTitle = styled.div`
+  width: 95%;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+`;
+
+export const GroupInfoTP = styled.div`
+  display: flex;
+  padding: 5px;
 `;
 
 export const Schedule = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 90%;
 `;
+
+export const ScheduleTitle = styled.div`
+  text-align: left;
+  font-size: 20px;
+`;
+
 export const ScheduleBox = styled.div`
   box-sizing: border-box;
   border: solid 1px #ddd;
@@ -52,6 +72,7 @@ export const ScheduleBox = styled.div`
 
   & div {
     line-height: 20px;
+    padding: 3px;
   }
 `;
 
@@ -59,11 +80,10 @@ export const MemberBox = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px 0;
-  width: 90%;
+  width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  border: solid 1px #ddd;
-  border-radius: 15px;
+  border-top: solid 15px #ddd;
 `;
 
 export const MemberList = styled.li`
@@ -73,9 +93,10 @@ export const MemberList = styled.li`
 `;
 
 export const Member = styled.div`
+  display: flex;
+  align-items: center;
   font-size: 20px;
   height: 40px;
-  border-bottom: solid 1px #ddd;
 `;
 
 export const MemberImg = styled.div`
@@ -92,4 +113,3 @@ export const Desc = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 `;
-

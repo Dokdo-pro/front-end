@@ -11,11 +11,16 @@ export const User = styled.div`
   margin: 20px 10px;
 `;
 
+export const DescDisplay = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const ProfileImg = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: #fff7ec;
   overflow: hidden;
   margin: auto;
 `;
@@ -42,8 +47,8 @@ export const Button = styled.div`
   & button {
     width: 150px;
     height: 40px;
-    border: none;
-    background-color: grey;
+    border: 1px solid black;
+    background-color: white;
     border-radius: 10px;
   }
 `;
@@ -59,7 +64,7 @@ export const CommentProfileImg = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: #fff7ec;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -82,4 +87,9 @@ export const UserCommentBox = styled.div`
   grid-template-columns: 75px auto;
   margin: 20px 10px;
   justify-items: end;
+  padding: 5px;
+
+  & div {
+    padding: 2px;
+  }
 `;

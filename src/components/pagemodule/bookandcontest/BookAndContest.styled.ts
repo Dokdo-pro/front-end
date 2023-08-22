@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 474px;
+  width: 100%;
 `;
 
 export const BoxTitleBox = styled.div`
@@ -12,7 +12,6 @@ export const BoxTitleBox = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
 `;
 
 export const Box = styled.div`
@@ -32,22 +31,34 @@ export const BoxTitle = styled.div`
 
 export const List = styled.div`
   display: flex;
+  padding: 20px;
 `;
 
 export const ImgBox = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
-  margin: 5px;
+  padding: 8px;
 `;
 
 export const Img = styled.div`
-  width: 100%;
-  height: 193px;
+  width: 180px;
+  height: 180px;
 
   background-color: #fff7ec;
 `;
 
 export const Info = styled.div`
   margin: 15px 0;
+  width: 100%;
+  & div {
+    padding: 3px;
+    text-align: start;
+  }
+`;
+
+export const SliederBox = styled.div`
+  display: flex;
+  width: 100%;
 `;

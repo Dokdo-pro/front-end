@@ -23,6 +23,7 @@ export const TitleWrite = styled.div`
     resize: none;
     padding: 20px 20px 0 20px;
     outline: none;
+    font-size: 16px;
   }
 `;
 
@@ -42,6 +43,7 @@ export const WriteBox = styled.div`
     resize: none;
     padding: 20px;
     outline: none;
+    font-size: 16px;
   }
 `;
 
@@ -55,6 +57,31 @@ export const ImgUpload = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 20px 0;
+  width: 90%;
+
+  & input[type='file'] {
+    display: none;
+    width: 100px;
+    height: 100px;
+  }
+`;
+
+export const CameraImg = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+`;
+
+export const CameraBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
 `;
 
 export const FileInput = styled.input`

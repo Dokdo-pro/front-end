@@ -29,7 +29,7 @@ export const PhotoBoardBox = styled.div`
 export const PhotoImg = styled.div`
   width: 100%;
   height: 150px;
-  background-color: #ddd;
+  background-color: #fff7ec;
   overflow: hidden;
   border-radius: 15px;
 `;
@@ -38,7 +38,7 @@ export const ProfileImg = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: #fff7ec;
   overflow: hidden;
 `;
 

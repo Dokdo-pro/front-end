@@ -6,11 +6,17 @@ const GroupBoardDetail = () => {
     <GBD.Wrapper>
       <GBD.User>
         <GBD.ProfileImg>
-          <img src="" alt="프로필 이미지" />
+          <img src="" alt="이미지" />
         </GBD.ProfileImg>
         <GBD.Desc>
-          <div>최형욱</div>
-          <div>글쓴 시간</div>
+          <GBD.DescDisplay>
+            <div>
+            <div>최형욱</div>
+            <div>글쓴 시간</div>
+            </div>
+          <div>수정아이콘</div>
+          </GBD.DescDisplay>
+
         </GBD.Desc>
       </GBD.User>
       <GBD.UserWriteBox>
@@ -27,19 +33,17 @@ const GroupBoardDetail = () => {
       </GBD.Button>
       <GBD.Comment>
         <li>
-          {Array(10)
+          {Array(3)
             .fill('')
             .map((v, i) => (
               <GBD.UserCommentBox key={i}>
                 <GBD.CommentProfileImg>
-                  <img src="" alt="프로필 이미지" />
+                  <img src="" alt="프로필" />
                 </GBD.CommentProfileImg>
                 <GBD.UserReply>
                   <div>최형욱</div>
                   <div>
-                    댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-                    내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
-                    내용댓글 내용댓글 내용댓글 내용댓글 내용댓글 내용댓글
+                    오 좋은 글입니다. 이러쿠저러쿠이러주저러쿠그러쿠알았쿠
                   </div>
                 </GBD.UserReply>
               </GBD.UserCommentBox>
