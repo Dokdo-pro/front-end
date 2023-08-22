@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import LoginComponent from '../pages/login/Login';
 import SignupComponent from '../pages/signup/Signup';
+import SignupSuccessComponent from '../pages/signupsuccess/Signupsuccess';
 import EditProfileComponent from '../pages/mypage/editprofile/EditProfile';
 import InquiredSuccessComponent from '../pages/mypage/inquiredsuccess/InquiredSuccess';
 import InquiryComponent from '../pages/mypage/inquiry/Inquiry';
@@ -19,7 +20,7 @@ const MypageRoutes = () => {
     <Routes>
       {/* 로그인 */}
       <Route
-        path="/user/login"
+        path="/login"
         element={
           <Layout1>
             <LoginComponent />
@@ -28,10 +29,19 @@ const MypageRoutes = () => {
       />
       {/* 회원가입 */}
       <Route
-        path="/user/signup"
+        path="/signup"
         element={
           <Layout1>
             <SignupComponent />
+          </Layout1>
+        }
+      />
+      {/* 회원가입 성공 */}
+      <Route
+        path="/signupsuccess"
+        element={
+          <Layout1>
+            <SignupSuccessComponent />
           </Layout1>
         }
       />
@@ -91,7 +101,7 @@ const MypageRoutes = () => {
       />
       {/* 마이페이지/문의하기 */}
       <Route
-        path="/user/inquiry"
+        path="/user/mypage/inquiry"
         element={
           <Layout1>
             <InquiryComponent />
@@ -100,7 +110,7 @@ const MypageRoutes = () => {
       />
       {/* 마이페이지/문의하기성공페이지 */}
       <Route
-        path="/user/inquiredsuccess"
+        path="/user/mypage/inquiredsuccess"
         element={
           <Layout1>
             <InquiredSuccessComponent />

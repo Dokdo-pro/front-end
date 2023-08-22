@@ -1,15 +1,19 @@
 import React from 'react';
 import {} from 'react-router-dom';
-import * as MyPageStyle from './MyPage.styled'
-import UserIcon from '../../../assets/img/Person.png';
+import * as MyPageStyle from './MyPage.styled';
+import UserIcon from '../../../assets/img/userprofile.png';
 
 function MyPageComponent() {
   return (
     <MyPageStyle.Container>
-      <MyPageStyle.Title>마이페이지</MyPageStyle.Title>
       <MyPageStyle.Wrapper>
         <MyPageStyle.UserIcon src={UserIcon} alt="유저 설정 이미지" />
-        <MyPageStyle.NickName>닉네임</MyPageStyle.NickName>
+        <MyPageStyle.Introduce>
+          <MyPageStyle.NickName>닉네임</MyPageStyle.NickName>
+          <MyPageStyle.SimpleIntro>
+            안녕하세요 저는 에세이가 좋아요
+          </MyPageStyle.SimpleIntro>
+        </MyPageStyle.Introduce>
       </MyPageStyle.Wrapper>
       <MyPageStyle.Group>
         {' '}
@@ -35,7 +39,7 @@ function MyPageComponent() {
       </MyPageStyle.ManageList>
       <MyPageStyle.ManageList>
         <MyPageStyle.ManageTitle>고객센터</MyPageStyle.ManageTitle>
-        <MyPageStyle.ManageLink to="/user/inquiry">
+        <MyPageStyle.ManageLink to="/user/mypage/inquiry">
           문의하기
         </MyPageStyle.ManageLink>
       </MyPageStyle.ManageList>

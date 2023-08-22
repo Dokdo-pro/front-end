@@ -9,81 +9,66 @@ export const Container = styled.div`
   align-items: center;
   color: black;
 
-
   box-sizing: border-box;
   width: 474px;
-  margin: 160px auto;
+  margin: 30px auto 0 auto;
 `;
 
 export const TitleWrap = styled.div`
   width: 420px;
   text-align: left;
 `;
-export const Title = styled.div`
-    display:flex;
-    
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 12px;
+export const Title = styled.p`
+  display: flex;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 5px;
 `;
 
 export const Description = styled.p`
-    font-size: 16px;
-
+  font-size: 25px;
+  font-weight: bold;
 `;
 
 export const Wrapper = styled.form`
   width: 420px;
-  margin: 51px 27px 16px 27px;
+  margin: 15px 27px 16px 27px;
   justify-content: center;
-
 `;
 export const FormTag = styled.div`
-display: flex;
-margin-top: 15px;
-margin-bottom: 3px;
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 7px;
 `;
 export const Tag = styled.div`
-    display: flex;
-    justify-items: left;
-
+  display: flex;
+  justify-items: left;
 `;
-export const TagPlus =  styled.div`
-display: flex;
-    color: red;
-    font-size: 13px;
-    margin-left: 5px;
 
-`;
 export const FormInput = styled.div`
-    display: flex;
-
-
+  display: flex;
 `;
 
 export const Input = styled.input`
   display: flex;
   font-size: 16px;
   width: 100%;
-  height: 37px;
+  height: 50px;
   border-radius: 8px;
-
 `;
 
-export const Egoll = styled.div`
-    margin: 0 5px;
-    font-size: 1.3rem;   
+export const Alert = styled.div`
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #848484;
 `;
 
 export const EmailInput = styled(Input)`
-  width: 130px;
+  width: 100%;
 `;
-
-export const EmailSelect = styled.select`
-    width: 130px;
-    font-size: 16px;
-`;
-
 
 export const InputButton = styled.button`
   display: flex;
@@ -95,60 +80,50 @@ export const InputButton = styled.button`
   cursor: pointer;
 `;
 
-export const DupleButton = styled(InputButton)`
- width: 130px;
- margin-left: 10px;
-`;
-
-export const GenderButton = styled(InputButton)`  
-    width: 50%;
-
- &+& {
-    margin-left: 10px;
- } 
-`;
 
 export const Wrapper2 = styled(Wrapper)`
-margin: 10px 27px 16px 27px;
-
-`
+  margin: 10px 27px 16px 27px;
+`;
 
 export const CheckWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 4px;
   background-color: lightgray;
   padding: 10px 10px 15px 10px;
-
-  
-`
+`;
 export const CheckLabel = styled.label`
-display: flex;
-font-size: 18px;
-padding: 0 10px 20px 10px;
-`
+  display: flex;
+  font-size: 15px;
+  padding: 0 10px 10px 10px;
+  color: #484848;
+  align-items: center;
+`;
 export const CheckInput = styled.input`
   margin-right: 8px;
-`
-
-export const AllCheckLabel = styled(CheckLabel)`
-  font-size: 1.2rem;
-  border-bottom: 1px solid #bcbcbc;
-  padding: 15px 10px;
 `;
 
+export const AllCheckLabel = styled(CheckLabel)`
+  font-size: 16px;
+font-weight: bold;
+ 
+  padding: 10px 10px;
+  color: black;
+`;
 
 export const CheckBox = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const SubmitButton = styled(InputButton)`
-  width: 80%;
+  width: 100%;
+  height: 50px;
   display: flex;
- margin: 0 auto 10px auto;
- 
+  margin: 80px auto 10px auto;
+  background-color: #84614b;
+  border: none;
 `;
 
 export const LinkButton = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: white;
 `;

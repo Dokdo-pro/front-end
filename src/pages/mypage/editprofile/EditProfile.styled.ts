@@ -7,53 +7,50 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 474px;
-  margin: 184px auto;
-`;
-
-export const Title = styled.p`
-  display: flex;
-  color: black;
-  font-weight: bold;
-  justify-content: flex-start;
-  width: 420px;
-  margin: 0 0 0 10px;
-  font-size: 30px;
+  margin: 15px auto 0 auto;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 70px auto 40px auto;
+  margin: 30px auto 0 auto;
   box-sizing: border-box;
   width: 420px;
   justify-content: space-between;
 `;
 
- 
- export const UserIcon = styled.img`
-    width: 150px;
-    height: 150px;
-    border-radius: 80px;
- `
-
+export const UserIcon = styled.img`
+  width: 130px;
+  height: 130px;
+  margin-bottom: 10px;
+`;
+export const IconDes = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: #646464;
+  margin-top: 5px;
+`;
 export const FormTag = styled.div`
   display: flex;
+  width: 100%;
+  font-size: 13px;
   margin-top: 15px;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 `;
 export const Tag = styled.div`
   display: flex;
   justify-items: left;
+  color: #000000;
 `;
 export const TagPlus = styled.div`
   display: flex;
   color: red;
-  font-size: 13px;
   margin-left: 5px;
 `;
 export const FormInput = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 export const Input = styled.input`
@@ -61,49 +58,57 @@ export const Input = styled.input`
   font-size: 16px;
   width: 100%;
   height: 37px;
+  border: none;
   border-radius: 8px;
+  background-color: #a8a8a8;
 `;
 
-export const Egoll = styled.div`
-  margin: 0 5px;
-  font-size: 1.3rem;
+export const Alert = styled.div`
+  display: flex;
+  justify-items: left;
+  margin-top: 10px;
+  padding-right: 130px;
+  font-size: 12px;
+
+  color: #8c8c8c;
 `;
 
 export const Email = styled(Input)`
-  width: 130px;
+  width: 100%;
 `;
-
-export const EmailSelect = styled.select`
-  width: 130px;
-  font-size: 16px;
-`;
-
-export const GenderButton = styled.button`
-  width: 50%;
-
-  & + & {
-    margin-left: 10px;
-  }
-`;
-
 
 export const SubmitButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 42px;
+  height: 50px;
   font-size: 18px;
+  border: none;
   border-radius: 8px;
+  background-color: #84614b;
   cursor: pointer;
-  width: 80%;
-  margin: 0 auto 10px auto;
+  width: 90%;
+  margin: 60px auto 10px auto;
 `;
 
 export const SubmitLink = styled(Link)`
-text-decoration: none;
-color: black;
+  text-decoration: none;
+  color: #ffffff;
 `;
-export const DeleteAccount = styled.p`
-  border-bottom: 1px solid #2e2e2e;
+
+export const DeleteWrap = styled.div`
+  width: 80%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: right;
+`;
+
+export const DeleteAccount = styled(Link)`
+ 
+  border-bottom: 1px solid #8c8c8c;
   font-size: 15px;
+
+  margin: 30px 0 40px 0;
+  color: #8C8C8C;
+
 `;
