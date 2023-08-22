@@ -90,3 +90,16 @@ export const BackButton = styled.button`
     opacity: 0.5;
   }
 `;
+export const ProgressBarContainer = styled.div`
+  width: 100%;
+  height: 10px;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  bottom: 0;
+`;
+
+export const ProgressBarFiller = styled.div<{ progress: number }>`
+  width: ${props => props.progress}%;
+  height: 100%;
+  background-color: #59c4fc;
+`;

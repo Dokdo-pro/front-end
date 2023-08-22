@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import LiteracyTestMain from '../pages/literacytest/LiteracyTestMain';
 import OXTestMain from '../pages/literacytest/OXTestMain';
@@ -9,9 +9,20 @@ import LiteracyTestResult from '../pages/literacytest/LiteracytestResult';
 import Layout1 from '../components/layout/layout1/Layout1';
 
 const LiteracytestRoute = () => {
-  // 임의의 결과 배열
+  // Literacy Test 사용자 답변을 관리할 상태
+  const [literacyUserAnswers, setLiteracyUserAnswers] = useState<number[]>([]);
+  // OX Test 사용자 답변을 관리할 상태
+  const [oxUserAnswers, setOXUserAnswers] = useState<string[]>([]);
+
   const results = ['O', 'X', 'O', 'O', 'X'];
-  const correctAnswers = 3;
+
+  const handleSetLiteracyUserAnswers = (answers: number[]) => {
+    setLiteracyUserAnswers(answers);
+  };
+
+  const handleSetOXUserAnswers = (answers: string[]) => {
+    setOXUserAnswers(answers);
+  };
 
   return (
     <Routes>
@@ -27,7 +38,7 @@ const LiteracytestRoute = () => {
         path="/literacy-test/screen"
         element={
           <Layout1>
-            <LiteracyTestScreen />
+            <LiteracyTestScreen setUserAnswers={handleSetLiteracyUserAnswers} />
           </Layout1>
         }
       />
@@ -35,15 +46,10 @@ const LiteracytestRoute = () => {
         path="/literacy-test/screen/result"
         element={
           <Layout1>
-            <LiteracyTestResult
-              results={results}
-              correctAnswers={correctAnswers}
-            />
+            <LiteracyTestResult userAnswers={literacyUserAnswers} />
           </Layout1>
         }
       />
-
-      {/* 결과 화면 라우트 추가 */}
       <Route
         path="/ox-quiz"
         element={
@@ -56,7 +62,7 @@ const LiteracytestRoute = () => {
         path="/ox-quiz/screen"
         element={
           <Layout1>
-            <OXTestScreen />
+            <OXTestScreen setUserAnswers={handleSetOXUserAnswers} />
           </Layout1>
         }
       />
@@ -64,7 +70,7 @@ const LiteracytestRoute = () => {
         path="/ox-quiz/screen/result"
         element={
           <Layout1>
-            <OXTestResult results={results} />
+            <OXTestResult userAnswers={oxUserAnswers} /> {/* 이 부분 수정 */}
           </Layout1>
         }
       />

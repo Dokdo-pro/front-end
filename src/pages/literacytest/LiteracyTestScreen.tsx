@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import {
   Container,
@@ -12,70 +11,41 @@ import {
   ProgressBarContainer,
   ProgressBarFiller,
 } from './LiteracyTestScreen.Style';
+import { useNavigate } from 'react-router-dom';
+import questionsData from '../../assets/data/questions.json';
 
-const LiteracyTestScreen: React.FC = () => {
+type LiteracyTestScreenProps = {
+  setUserAnswers: (answers: number[]) => void;
+};
+
+const LiteracyTestScreen: React.FC<LiteracyTestScreenProps> = ({
+  setUserAnswers,
+}) => {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  // 현재 문제 인덱스
-  const [questions] = useState([
-    {
-      question: '1',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '2',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '3',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '4',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '5',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '6',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '7',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '8',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '9',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-    {
-      question: '10',
-      options: ['선택지1', '선택지2', '선택지3', '선택지4'],
-    },
-  ]);
+  const [localAnswers, setLocalAnswers] = useState<number[]>([]); // 로컬 상태 추가
+  const questions = questionsData.questions;
 
   const handleNextQuestion = (optionIndex: number) => {
-    // 선택한 옵션 처리 로직 추가
+    const updatedAnswers = [...localAnswers, optionIndex]; // 로컬 상태 사용
+    setLocalAnswers(updatedAnswers);
+
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1); // 다음 문제로 이동
+      setCurrentQuestion(currentQuestion + 1);
     } else {
-      // 마지막 문제의 답을 클릭한 경우, 결과 화면으로 이동합니다.
+      setUserAnswers(updatedAnswers); // 마지막 질문에 대한 답변을 처리한 후, 상위 컴포넌트에 결과를 전달
       navigate('/literacy-test/screen/result');
     }
-    // 마지막 문제인 경우 다른 처리 로직
   };
+
   const handlePreviousQuestion = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1); // 이전 문제로 이동
+      setCurrentQuestion(currentQuestion - 1);
     }
   };
+
   const progress = ((currentQuestion + 1) / questions.length) * 100;
+
   return (
     <Container>
       <QuestionNumber>{`Q ${currentQuestion + 1}`}</QuestionNumber>
