@@ -32,6 +32,7 @@ export const HashTag = styled.ul`
   align-items: center;
   width: 90%;
   height: 40px;
+  margin-top: 20px;
 `;
 
 export const ClickBox = styled.div`
@@ -39,8 +40,9 @@ export const ClickBox = styled.div`
   box-sizing: border-box;
   border: solid 1px #ddd;
   width: 90%;
-  padding: 20px;
-  margin-bottom: 15px;
+  height: 200px;
+  padding: 10px;
+  margin: 20px;
 `;
 
 export const ChoiceImageGroup = styled.div`
@@ -54,7 +56,7 @@ export const ChoiceSelect = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
-  padding: 10px 10px;
+  padding: 10px;
 `;
 
 export const ChoiceGroupBoard = styled.div`
@@ -64,6 +66,31 @@ export const ChoiceGroupBoard = styled.div`
   width: 90%;
 `;
 
+export const ChoiceBoxTitle = styled.div`
+  font-size: 20px;
+  padding: 10px;
+  width: 55%;
+  font-weight: bold;
+`;
+
 export const ChoiceTitle = styled.div`
   font-size: 25px;
+`;
+
+export const ClickedInfoWrapper = styled.div`
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 14px;
+`;
+
+export const DeleteButton = styled.button`
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
 `;

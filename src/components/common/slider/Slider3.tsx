@@ -4,13 +4,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './styles.css';
-import SlideImg1 from '../../../assets/img/독서모임1.jpeg';
-import SlideImg2 from '../../../assets/img/독서모임2.png';
-import SlideImg3 from '../../../assets/img/독서모임3.jpg';
-import SlideImg4 from '../../../assets/img/독서모임4.jpeg';
-import { Link } from 'react-router-dom';
+import MidleBoardBox from '../boardbox/MidleBoardBox';
 
-export default function Slider() {
+// 미들 박스를 사용할 슬라이더
+export default function Slider3() {
   return (
     <>
       <Swiper
@@ -26,22 +23,19 @@ export default function Slider() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <Link to="/bookrec">
-            <img src={SlideImg1} alt="독서모임 이미지1" />
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Link to="/contest">
-            <img src={SlideImg2} alt="독서모임 이미지2" />
-          </Link>
+          <MidleBoardBox />
         </SwiperSlide>
 
         <SwiperSlide>
-          <img src={SlideImg3} alt="독서모임 이미지3" />
+          <MidleBoardBox />
         </SwiperSlide>
 
         <SwiperSlide>
-          <img src={SlideImg4} alt="독서모임 이미지4" />
+          <MidleBoardBox />
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <MidleBoardBox />
         </SwiperSlide>
       </Swiper>
     </>

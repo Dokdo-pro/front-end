@@ -1,9 +1,11 @@
 import React from 'react';
 import SearchInput from '../../../components/common/searchinput/SearchInput';
 import * as GR from './Group.styled';
-import Slider from '../../../components/common/slider/Slider';
-import GroupImg from '../../../assets/img/토론모임 모집글.jpeg';
 import GroupTitleImg from '../../../assets/img/독서토론타이틀이미지예시.jpeg';
+
+import MoreButton from '../../../components/common/morebutton/MoreButton';
+import BoardBox from '../../../components/common/boardbox/BoardBox';
+import BookAndConstBox from '../../../components/common/BookAndContest/BookAndConstBox';
 
 const Group = () => {
   return (
@@ -13,25 +15,26 @@ const Group = () => {
         <GR.GroupImage>
           <img src={GroupTitleImg} alt="그룹타이틀이미지" />
         </GR.GroupImage>
-        
       </div>
-      <GR.Section>
-        <GR.DateText>
-          <div>
-            모집기간 <span>D-9</span>
-          </div>
-          <div>8월24일(월) ~ 8월 31일(목)</div>
-        </GR.DateText>
+      <GR.BookContest>
+        <GR.HotGroup>
+          <GR.HotGroupTitle>
+            <GR.StyledLink to="/group/list">
+              떠오르고 있는 독서 토론 모임✨
+            </GR.StyledLink>
+          </GR.HotGroupTitle>
+          <BoardBox />
+          <BoardBox />
+          <BoardBox />
+          <MoreButton to="/group/list">더보기</MoreButton>
+        </GR.HotGroup>
 
-        <GR.NoticeImage>
-          <img src={GroupImg} alt="" />
-        </GR.NoticeImage>
-        <GR.SectionLink>
-          <div>웹사이트 바로가기</div>
-          <div>공유하기</div>
-        </GR.SectionLink>
-      </GR.Section>
-      <Slider />
+        <GR.BookContestTitle>
+          주기적인 독서토론 모임으로 공모전도 도전 해 봐🔥
+        </GR.BookContestTitle>
+        <BookAndConstBox />
+      </GR.BookContest>
+      <MoreButton to="/contest">더보기</MoreButton>
     </GR.Wrapper>
   );
 };

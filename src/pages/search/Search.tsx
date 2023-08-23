@@ -22,7 +22,7 @@ const Search = () => {
         </S.TagList>
       </S.TagBox>
       <S.BookRecBox>
-        <S.BookRecBoxTitle>도서를 추천</S.BookRecBoxTitle>
+        <S.BookRecBoxTitle>도서 추천</S.BookRecBoxTitle>
         <S.BookRecList>
           <S.BookImgBox>
             <S.BookImg>

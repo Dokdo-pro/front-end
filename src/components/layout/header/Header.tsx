@@ -24,7 +24,6 @@ function Header() {
         <HD.StyledLink to="/group">토론 모임</HD.StyledLink>
         <HD.StyledLink to="/literacy-test">OX퀴즈/테스트</HD.StyledLink>
         <HD.StyledLink to="/freeboard/list">자유게시판</HD.StyledLink>
-        <HD.StyledLink to="/contest">공모전</HD.StyledLink>
       </HD.Down>
     </HD.StyleHeader>
   );

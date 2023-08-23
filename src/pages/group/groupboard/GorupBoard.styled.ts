@@ -36,7 +36,6 @@ export const BoardLeft = styled.div`
   overflow: hidden;
 
   & div {
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 5px;

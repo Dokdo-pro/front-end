@@ -1,7 +1,7 @@
 import React from 'react';
 import * as BC from '../../pagemodule/bookandcontest/BookAndContest.styled';
 
-const BookSlider = () => {
+const BookAndConstBox = () => {
   return (
     <BC.Wrapper>
       {Array(1)
@@ -34,4 +34,4 @@ const BookSlider = () => {
   );
 };
 
-export default BookSlider;
+export default BookAndConstBox;

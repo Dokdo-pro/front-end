@@ -1,25 +1,27 @@
 import React from 'react';
-import * as SelectStyle from './SelectBox.styled';
+import * as SBox from './SelectBox.styled';
 
-function SelectBox() {
+interface Option {
+  value: string;
+  label: string;
+}
 
-return (
-<SelectStyle.Select
-  id="email2_val"
-  name="is_Useremail2"
-  className="select_ty1"
->
-  <option value="">선택하세요</option>
-  <option value="naver.com">naver.com</option>
-  <option value="hanmail.net">hanmail.net</option>
-  <option value="nate.com">nate.com</option>
-  <option value="hotmail.com">hotmail.com</option>
-  <option value="gmail.com">gmail.com</option>
-  <option value="yahoo.co.kr">yahoo.co.kr</option>
-  <option value="yahoo.com">yahoo.com</option>
-</SelectStyle.Select>
-
-);
-};
-
+interface SelectBoxProps {
+  options: Option[];
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+function SelectBox({ options, value, onChange }: SelectBoxProps) {
+  return (
+    <SBox.SelectWrapper>
+      <SBox.StyledSelect value={value} onChange={onChange}>
+        {options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </SBox.StyledSelect>
+    </SBox.SelectWrapper>
+  );
+}
 export default SelectBox;

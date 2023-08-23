@@ -24,4 +24,5 @@ export const Image = styled.img`
 
 export const Genre = styled.div`
   padding: 7px;
+  font-size: 14px;
 `;

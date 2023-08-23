@@ -61,7 +61,5 @@ export const Info = styled.div`
 
 export const SliederBox = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
 `;

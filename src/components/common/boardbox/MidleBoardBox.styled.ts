@@ -7,7 +7,6 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
-  margin-top: 25px;
 `;
 
 export const Border = styled.div`
@@ -20,6 +19,7 @@ export const Border = styled.div`
   border-radius: 15px;
   padding: 10px;
   width: 50%;
+
 `;
 
 export const TextBox = styled.div`

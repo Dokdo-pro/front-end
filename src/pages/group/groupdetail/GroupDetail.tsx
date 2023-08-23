@@ -1,5 +1,6 @@
 import React from 'react';
 import * as GD from './GroupDetail.styled';
+// import MoreButton from '../../../components/common/morebutton/MoreButton';
 
 const GroupDetail = () => {
   return (
@@ -53,6 +54,9 @@ const GroupDetail = () => {
               </GD.MemberList>
             ))}
         </ul>
+        <GD.ButtonDisplay>
+        {/* <MoreButton /> */}
+        </GD.ButtonDisplay>
       </GD.MemberBox>
     </GD.Wrapper>
   );

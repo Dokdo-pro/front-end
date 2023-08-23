@@ -9,7 +9,7 @@ export const Border = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
   border-radius: 15px;
   height: 100%;
-  width: 100%;
+  width: 95%;
   padding: 10px;
   margin: 10px 0;
   background-color: white;
@@ -32,4 +32,3 @@ export const TextBox = styled.div`
     text-overflow: ellipsis;
   }
 `;
-

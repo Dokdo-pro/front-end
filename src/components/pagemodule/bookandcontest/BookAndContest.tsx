@@ -1,7 +1,7 @@
 import React from 'react';
 import * as BC from './BookAndContest.styled';
 import SearchInput from '../../common/searchinput/SearchInput';
-import BookSlider from '../../common/slider/BookSlider';
+import BookAndConstBox from '../../common/BookAndContest/BookAndConstBox';
 
 const BookAndContest = () => {
   return (
@@ -17,9 +17,11 @@ const BookAndContest = () => {
             <option value="">현대문학</option>
           </select>
         </BC.BoxTitleBox>
-      <BC.SliederBox>
-      <BookSlider />
-      </BC.SliederBox>
+        <BC.SliederBox>
+          <BookAndConstBox />
+          <BookAndConstBox />
+          <BookAndConstBox />
+        </BC.SliederBox>
       </BC.Box>
     </BC.Wrapper>
   );
