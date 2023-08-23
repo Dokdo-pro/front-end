@@ -26,6 +26,9 @@ function Main() {
             ))}
         </M.ImageRow>
       </M.GridContainer>
+      <M.StyledGroupLink to="/group/list">
+        <M.GroupBoxTitle>모집 중인 독서 토론 모임 ⭐️</M.GroupBoxTitle>
+      </M.StyledGroupLink>
       <M.GroupList>
         {Array(3)
           .fill('')
@@ -36,9 +39,10 @@ function Main() {
 
       <M.GroupTop10>
         <M.GroupTopTitle>
-          <M.StyledGroupLink to="/group/list">
-            독도 인기 토론🔥<div>지금 가장 인기있는 토론 모임을 확인해보세요!</div>
-          </M.StyledGroupLink>
+          <M.StyledHotGroupLink to="/group">
+            독도 인기 토론🔥
+            <div>지금 가장 인기있는 토론 모임을 확인해보세요!</div>
+          </M.StyledHotGroupLink>
         </M.GroupTopTitle>
       </M.GroupTop10>
       <Slider3 />

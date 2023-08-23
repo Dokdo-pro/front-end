@@ -7,7 +7,7 @@ function ImageBox() {
     <IB.Wrapper>
       <IB.Container>
         {/* src={imagePath}*/}
-        <IB.Image src="/" alt="이미지" />
+          <IB.Image src="/" alt="소설" />
       </IB.Container>
       <IB.Genre>소설</IB.Genre>
     </IB.Wrapper>

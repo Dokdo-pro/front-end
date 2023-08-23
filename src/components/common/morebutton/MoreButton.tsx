@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // React Router의 Link 컴포넌트
+import { Link } from 'react-router-dom';
 import * as MB from './MoreButton.styled';
 
 

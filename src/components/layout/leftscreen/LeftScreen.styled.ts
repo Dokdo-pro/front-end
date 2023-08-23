@@ -16,7 +16,7 @@ export const StyledLeftScreen = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 400px;
 `;
@@ -34,7 +34,13 @@ export const Tag = styled.div`
 `;
 
 export const Logo = styled.h1`
-  font-size: 50px;
+  width: 200px;
+  height: 100px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Info = styled.div`

@@ -21,6 +21,10 @@ export const Logo = styled.h1`
   white-space: normal;
 `;
 
+export const StyleLogo = styled.img`
+  width: 58px;
+  height: 32px;
+`;
 export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;

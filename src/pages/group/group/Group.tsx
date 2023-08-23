@@ -30,7 +30,7 @@ const Group = () => {
         </GR.HotGroup>
 
         <GR.BookContestTitle>
-          주기적인 독서토론 모임으로 공모전도 도전 해 봐🔥
+          주기적인 독서 토론 모임으로 공모전도 도전 해 봐🔥
         </GR.BookContestTitle>
         <BookAndConstBox />
       </GR.BookContest>

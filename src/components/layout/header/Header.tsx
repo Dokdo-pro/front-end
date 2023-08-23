@@ -4,12 +4,17 @@ import * as HD from './Header.styled';
 import { Link } from 'react-router-dom';
 import searchIcon from '../../../assets/icon/Search.png';
 import notificationIcon from '../../../assets/icon/Bell.png';
+import logo from '../../../assets/icon/RightLogo.png';
 
 function Header() {
   return (
     <HD.StyleHeader>
       <HD.Up>
-        <HD.Logo>독도 로고</HD.Logo>
+        <HD.Logo>
+          <Link to="/">
+            <HD.StyleLogo src={logo} alt="독도 로고" />
+          </Link>
+        </HD.Logo>
         <HD.Nav>
           <Link to="/search">
             <HD.StlyedImg src={searchIcon} alt="돋보기 아이콘" />
