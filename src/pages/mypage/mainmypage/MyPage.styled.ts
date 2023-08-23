@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 export const UserIcon = styled.img`
   width: 70px;
   height: 70px;
-  border-radius: 100px;
+  border-radius: 50%;
 `;
 export const Introduce = styled.div`
   display: flex;
