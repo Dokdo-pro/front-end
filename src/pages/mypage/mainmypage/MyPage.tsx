@@ -44,7 +44,7 @@ function MyPageComponent() {
         </MyPageStyle.ManageLink>
       </MyPageStyle.ManageList>
       <MyPageStyle.Logout>
-        <MyPageStyle.LogoutLink to="/">로그아웃</MyPageStyle.LogoutLink>
+     로그아웃
       </MyPageStyle.Logout>
     </MyPageStyle.Container>
   );
