@@ -1,5 +1,6 @@
 import React from 'react';
 import questions from '../../assets/data/questions.json';
+import { useNavigate } from 'react-router-dom';
 import {
   Container,
   ResultText,
@@ -7,6 +8,9 @@ import {
   SocialIcon,
   SocialIconImage,
   ResultImage,
+  ReviewButton,
+  TestInstructions,
+  RepeatButton,
 } from './LiteracytestResult.Style';
 import facebookIcon from '../../assets/img/facebook.png';
 import twitterIcon from '../../assets/img/twitter.png';
@@ -25,6 +29,7 @@ type LiteracyTestResultProps = {
 const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
   userAnswers,
 }) => {
+  const navigate = useNavigate();
   // 정답 수 계산
   const correctAnswers = userAnswers.reduce((count, answer, index) => {
     return (
@@ -49,12 +54,16 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
   };
 
   const imageSource = getImageSource();
+  const handleRepeatTest = () => {
+    navigate('/literacy-test'); /// 특정 경로로 이동
+  };
 
   return (
     <Container>
-      <ResultImage src={imageSource} alt="Result" />
-      <ResultText>{`정답 수: ${correctAnswers} / ${questions.questions.length}`}</ResultText>
       <ResultText>{getResultMessage()}</ResultText>
+      <ResultText>{`${correctAnswers} / ${questions.questions.length}`}</ResultText>
+      <ResultImage src={imageSource} alt="Result" />
+      <ReviewButton>👉 틀린 문제 확인하기 👈</ReviewButton>
       <SocialIcons>
         <SocialIcon href="https://facebook.com">
           <SocialIconImage src={facebookIcon} alt="Facebook" />
@@ -66,6 +75,12 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
           <SocialIconImage src={kakaoIcon} alt="Kakao" />
         </SocialIcon>
       </SocialIcons>
+      <TestInstructions>
+        주변 사람들에게 공유해서 서로의 문장 독해력 수준을 확인해보세요!
+      </TestInstructions>
+      <RepeatButton onClick={handleRepeatTest}>
+        ✔ 테스트 다시하기 ✔
+      </RepeatButton>
     </Container>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   Container,
-  QuestionNumber,
   QuestionText,
   Options,
   OptionButton,
@@ -13,6 +12,7 @@ import {
 } from './LiteracyTestScreen.Style';
 import { useNavigate } from 'react-router-dom';
 import questionsData from '../../assets/data/questions.json';
+import backButtonImage from '../../assets/icon/Vector.png';
 
 type LiteracyTestScreenProps = {
   setUserAnswers: (answers: number[]) => void;
@@ -48,7 +48,21 @@ const LiteracyTestScreen: React.FC<LiteracyTestScreenProps> = ({
 
   return (
     <Container>
-      <QuestionNumber>{`Q ${currentQuestion + 1}`}</QuestionNumber>
+      <Navigation>
+        <BackButton
+          onClick={handlePreviousQuestion}
+          disabled={currentQuestion === 0}
+        >
+          <img src={backButtonImage} alt="뒤로 가기" /> {/* 이미지 적용 */}
+        </BackButton>
+        <CurrentPosition>{`${currentQuestion + 1} / ${
+          questions.length
+        }`}</CurrentPosition>
+        <div /> {/* 빈 div 추가 */}
+      </Navigation>
+      <ProgressBarContainer>
+        <ProgressBarFiller progress={progress} />
+      </ProgressBarContainer>
       <QuestionText>{questions[currentQuestion]?.question}</QuestionText>
       <Options>
         {questions[currentQuestion]?.options.map((option, index) => (
@@ -57,20 +71,6 @@ const LiteracyTestScreen: React.FC<LiteracyTestScreenProps> = ({
           </OptionButton>
         ))}
       </Options>
-      <Navigation>
-        <BackButton
-          onClick={handlePreviousQuestion}
-          disabled={currentQuestion === 0}
-        >
-          뒤로 가기
-        </BackButton>
-        <CurrentPosition>{`${currentQuestion + 1} / ${
-          questions.length
-        }`}</CurrentPosition>
-      </Navigation>
-      <ProgressBarContainer>
-        <ProgressBarFiller progress={progress} />
-      </ProgressBarContainer>
     </Container>
   );
 };

@@ -10,6 +10,8 @@ import {
   socialIconImage as SocialIconImage,
   participantsContainer as ParticipantsContainer,
   StyledLink,
+  MenuText,
+  TestInstructions,
 } from './LiteracyTestMain.Style';
 import { useNavigate } from 'react-router-dom';
 import literacyTestImage from '../../assets/img/문해력.png';
@@ -38,13 +40,13 @@ const LiteracyTestMain: React.FC = () => {
           style={{
             backgroundColor:
               location.pathname === '/literacy-test'
-                ? '#59C4FC'
+                ? '#84614B'
                 : 'transparent',
           }}
         >
           <StyledLink
             to="/literacy-test"
-            style={{ textDecoration: 'none', color: '#000' }}
+            style={{ textDecoration: 'none', color: '#FFF' }}
           >
             문해력 테스트
           </StyledLink>
@@ -53,21 +55,36 @@ const LiteracyTestMain: React.FC = () => {
           rightBorder
           style={{
             backgroundColor:
-              location.pathname === '/ox-quiz' ? '#59C4FC' : 'transparent',
+              location.pathname === '/ox-quiz' ? '#84614B' : 'transparent',
           }}
         >
           <StyledLink
             to="/ox-quiz"
-            style={{ textDecoration: 'none', color: '#000' }}
+            style={{ textDecoration: 'none', color: '#818181' }}
           >
             OX 퀴즈
           </StyledLink>
         </MenuItem>
       </Menu>
+      <MenuText>
+        내 <span>문해력</span>은 몇 점?
+      </MenuText>
       <Image src={literacyTestImage} alt="Description" />
-      <ParticipantsContainer>
-        {participants}명이 테스트에 참여했습니다.
-      </ParticipantsContainer>{' '}
+      <TestInstructions>
+        테스트는 <span className="strongHighlight">10개의 문항</span>으로
+        구성되어 있습니다.
+        {'\n'}
+        문제를 읽고 정답을 체크해주세요.
+        {'\n'}
+        클릭시 다음 문제로 바로 넘어가니,
+        {'\n'}
+        <span className="strong">신중하게 선택</span>해주세요.
+      </TestInstructions>
+      <TestInstructions>
+        마음의 준비가 되셨나요?
+        {'\n'}
+        바로 테스트 시작하기 버튼을 눌러주세요 !
+      </TestInstructions>
       <StartButton onClick={handleStartTest}>테스트 시작하기</StartButton>
       <SocialIcons>
         <SocialIcon href="https://facebook.com">

@@ -18,14 +18,17 @@ export const container = styled.div`
   align-items: center;
   justify-content: center;
   width: 474px;
-  background-color: #59c4fc;
+  background-color: #fff;
 `;
 export const menu = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  background-color: #f3f3f3;
-  border-bottom: 1px solid #ffffff; // 메뉴 전체에 하단 테두리 추가
+  width: 274px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1px solid #a8a8a8;
+  background-color: #fff;
+  margin-top: 5px;
 `;
 
 interface MenuItemProps {
@@ -33,37 +36,77 @@ interface MenuItemProps {
 }
 
 export const menuItem = styled.a<MenuItemProps>`
-  text-decoration: none;
   color: #000;
   cursor: pointer;
   font-weight: bold;
+  line-height: 27px;
   width: 50%;
+  border-radius: 18px;
   text-align: center;
   padding: 10px 0;
+  font-size: 18px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+`;
+export const MenuText = styled.div`
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 40px;
+
+  span {
+    color: #84614b;
+    font-weight: 900;
+  }
+`;
+export const TestInstructions = styled.p`
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2;
+  white-space: pre-line;
+  margin-top: 25px;
+
+  span.strongHighlight {
+    font-weight: bold;
+    background-color: yellow;
+  }
+
+  span.strong {
+    font-weight: bold;
+  }
 `;
 
 export const image = styled.img`
-  width: 100%;
-  max-width: 600px;
+  width: 460px;
+  max-width: 356px;
   margin: 20px auto;
+  margin-top: 50px;
 `;
 
 export const startButton = styled.button`
-  padding: 15px 30px;
-  font-size: 18px;
+  padding: 20px 66px;
+  font-size: 20px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #84614b;
   color: #fff;
   border: none;
-  border-radius: 25px;
+  border-radius: 50px;
   transition: 0.3s;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
   outline: none;
+  margin-top: 40px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #84614b;
     transform: scale(1.05);
   }
 

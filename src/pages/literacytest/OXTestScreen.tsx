@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   Container,
-  QuestionNumber,
   QuestionText,
   Options,
   OptionButton,
@@ -13,7 +12,7 @@ import {
 } from './OXTestScreen.Style';
 import { useNavigate } from 'react-router-dom';
 import questionsData from '../../assets/data/ox-questions.json';
-
+import backButtonImage from '../../assets/icon/Vector.png';
 type OXTestScreenProps = {
   setUserAnswers: (answers: string[]) => void;
 };
@@ -40,12 +39,6 @@ const OXTestScreen: React.FC<OXTestScreenProps> = ({ setUserAnswers }) => {
 
   return (
     <Container>
-      <QuestionNumber>{`Q ${currentQuestion + 1}`}</QuestionNumber>
-      <QuestionText>{questions[currentQuestion]?.question}</QuestionText>
-      <Options>
-        <OptionButton onClick={() => handleNextQuestion('O')}>O</OptionButton>
-        <OptionButton onClick={() => handleNextQuestion('X')}>X</OptionButton>
-      </Options>
       <Navigation>
         <BackButton
           onClick={() =>
@@ -53,7 +46,7 @@ const OXTestScreen: React.FC<OXTestScreenProps> = ({ setUserAnswers }) => {
           }
           disabled={currentQuestion === 0}
         >
-          뒤로 가기
+          <img src={backButtonImage} alt="뒤로 가기" /> {/* 이미지 적용 */}
         </BackButton>
         <CurrentPosition>{`${currentQuestion + 1} / ${
           questions.length
@@ -62,6 +55,11 @@ const OXTestScreen: React.FC<OXTestScreenProps> = ({ setUserAnswers }) => {
       <ProgressBarContainer>
         <ProgressBarFiller progress={progress} />
       </ProgressBarContainer>
+      <QuestionText>{questions[currentQuestion]?.question}</QuestionText>
+      <Options>
+        <OptionButton onClick={() => handleNextQuestion('O')}>O</OptionButton>
+        <OptionButton onClick={() => handleNextQuestion('X')}>X</OptionButton>
+      </Options>
     </Container>
   );
 };
