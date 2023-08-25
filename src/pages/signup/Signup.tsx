@@ -1,11 +1,10 @@
-import React, { useState, useCallback } from 'react';
-import {  } from 'react-redux';
+import React, { useState, useCallback, useEffect } from 'react';
+import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
 import * as SignupStyle from './Signup.styled';
 
-
 const SignupComponent = () => {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPwd, setConfirmPwd] = useState('');
@@ -13,6 +12,14 @@ const SignupComponent = () => {
   const [emailMsg, setEmailMsg] = useState('');
   const [pwdMsg, setPwdMsg] = useState('');
   const [confirmPwdMsg, setConfirmPwdMsg] = useState('');
+
+  const navigate = useNavigate();
+
+  const [allCheck, setAllCheck] = useState(false);
+  const [ageCheck, setAgeCheck] = useState(false);
+  const [useCheck, setUseCheck] = useState(false);
+  const [personCheck, setPersonCheck] = useState(false);
+  const [marketingCheck, setMarketingCheck] = useState(false);
 
   // 유효성 검사 이메일
   const validateEmail = (email: string) => {
@@ -47,7 +54,6 @@ const SignupComponent = () => {
     }
   }, []);
 
-
   // 비밀번호
   const onChangePwd = useCallback((e: { target: { value: any } }) => {
     const currPwd = e.target.value;
@@ -69,45 +75,107 @@ const SignupComponent = () => {
       if (currConfirmPwd !== password) {
         setConfirmPwdMsg('비밀번호가 일치하지 않습니다.');
       } else {
-        setConfirmPwdMsg('일치한 비밀번호입니다.');
+        setConfirmPwdMsg('일치하는 비밀번호입니다.');
       }
     },
     [password],
   );
+  // 약관 동의
+  const allBtnEvent = () => {
+    if (allCheck === false) {
+      setAllCheck(true);
+      setAgeCheck(true);
+      setUseCheck(true);
+      setPersonCheck(true);
+      setMarketingCheck(true);
+    } else {
+      setAllCheck(false);
+      setAgeCheck(false);
+      setUseCheck(false);
+      setPersonCheck(false);
+      setMarketingCheck(false);
+    }
+  };
+
+  const ageBtnEvent = () => {
+    if (ageCheck === false) {
+      setAgeCheck(true);
+    } else {
+      setAgeCheck(false);
+    }
+  };
+
+  const useBtnEvent = () => {
+    if (useCheck === false) {
+      setUseCheck(true);
+    } else {
+      setUseCheck(false);
+    }
+  };
+
+  const personBtnEvent = () => {
+    if (personCheck === false) {
+      setPersonCheck(true);
+    } else {
+      setPersonCheck(false);
+    }
+  };
+
+  const marketingBtnEvent = () => {
+    if (marketingCheck === false) {
+      setMarketingCheck(true);
+    } else {
+      setMarketingCheck(false);
+    }
+  };
+
+  useEffect(() => {
+    if (
+      ageCheck === true &&
+      useCheck === true &&
+      personCheck === true &&
+      marketingCheck === true
+    ) {
+      setAllCheck(true);
+    } else {
+      setAllCheck(false);
+    }
+  }, [ageCheck, useCheck, personCheck, marketingCheck]);
 
   // 리로드 방지, 입력안한 칸 있으면 alert
-  const onSubmitHandler = (e: { preventDefault: () => void }) => {
+  const onSubmitHandler = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-     if (!email) {
-    return alert("이메일을 입력하세요.");
-  }
-  else if (!password) {
-    return alert("비밀번호를 입력하세요.");
-  };
-}
+    try {
 
-  // 이메일 중복된 건지 체크
-  /*
-const [checkMail, setCheckMail] = useState(false);
+      if (
+        !(emailMsg === '올바른 이메일 형식입니다.' &&
+        pwdMsg === '안전한 비밀번호입니다.' &&
+        confirmPwdMsg === '일치하는 비밀번호입니다.'
+      )) {
+        return alert('유효한 아이디와 비밀번호를 입력해주세요.');
+      }
+      if (!(email && password && confirmPwd)) {
+        return alert('빈칸 없이 입력해주세요.');
+      }
 
-const onCheckEmail = async (e: { preventDefault: () => void; }) => {
-  e.preventDefault();
-  try {
-    const res = await axios.get('/email', { email });
+      if (!(ageCheck && useCheck && personCheck)) {
+        return alert('필수 약관을 모두 동의해주셔야 가입이 진행됩니다.');
+      }
 
-    const { result } = res.data;
-
-    if (!result) {
-      setEmailMsg('이미 등록된 이메일입니다. 다시 입력해주세요.');
-      setCheckMail(false);
-    } else {
-      setEmailMsg('사용 가능한 이메일입니다.');
-      setCheckMail(true);
+      // 위까지 응답 성공시 밑으로
+      const response = await axios.post(
+        'http://localhost:3001/api/v1/auth/register',
+        {
+          email,
+          password,
+        },
+      );
+      console.log(response);
+      navigate('/signupsuccess');
+    } catch (e) {
+      console.error(e);
     }
-  } catch (err) {
-    console.log(err);
-  }};
-*/
+  };
 
   return (
     <SignupStyle.Container>
@@ -117,7 +185,7 @@ const onCheckEmail = async (e: { preventDefault: () => void; }) => {
           바로 사용할 수 있는 도서상품권 증정!
         </SignupStyle.Description>
       </SignupStyle.TitleWrap>
-      <SignupStyle.Wrapper onSubmit={onSubmitHandler}>
+      <SignupStyle.Wrapper>
         <SignupStyle.FormTag>
           <SignupStyle.Tag>이메일 주소</SignupStyle.Tag>
         </SignupStyle.FormTag>
@@ -144,7 +212,9 @@ const onCheckEmail = async (e: { preventDefault: () => void; }) => {
             id="pwd_val"
             type="password"
             name="is_Password"
-            placeholder="영문, 숫자, 특수문자 포함 8~20자를 입력해주세요."
+            // minLength 나중에 2에서 8로 바꾸기
+            minLength={10}
+            placeholder="영문, 숫자, 특수문자 포함 10자 이상을 입력해주세요."
             autoComplete="off"
             value={password}
             onChange={onChangePwd}
@@ -164,6 +234,8 @@ const onCheckEmail = async (e: { preventDefault: () => void; }) => {
             id="pwd_cnf_val"
             type="password"
             name="is_Password"
+            // minLength 나중에 2에서 8로 바꾸기
+            minLength={10}
             placeholder="비밀번호를 다시 입력해주세요."
             autoComplete="off"
             value={confirmPwd}
@@ -178,36 +250,60 @@ const onCheckEmail = async (e: { preventDefault: () => void; }) => {
       <SignupStyle.Wrapper2>
         <SignupStyle.CheckWrapper>
           <SignupStyle.AllCheckLabel>
-            <SignupStyle.CheckInput type="checkbox" id="allCheck" />
+            <SignupStyle.CheckInput
+              type="checkbox"
+              id="allCheck"
+              onChange={allBtnEvent}
+              checked={allCheck}
+            />
             <p>약관 전체 동의</p>
           </SignupStyle.AllCheckLabel>
 
           <SignupStyle.CheckBox>
             <SignupStyle.CheckLabel>
-              <SignupStyle.CheckInput type="checkbox" id="ageCheck" />
+              <SignupStyle.CheckInput
+                type="checkbox"
+                id="ageCheck"
+                onChange={ageBtnEvent}
+                checked={ageCheck}
+              />
               <p>(필수) 본인은 만 14세 이상입니다.</p>
             </SignupStyle.CheckLabel>
 
             <SignupStyle.CheckLabel>
-              <SignupStyle.CheckInput type="checkbox" id="usingListCheck" />
+              <SignupStyle.CheckInput
+                type="checkbox"
+                id="usingListCheck"
+                onChange={useBtnEvent}
+                checked={useCheck}
+              />
               <p>(필수) 서비스 이용약관 동의</p>
             </SignupStyle.CheckLabel>
 
             <SignupStyle.CheckLabel>
-              <SignupStyle.CheckInput type="checkbox" id="personalInfoCheck" />
+              <SignupStyle.CheckInput
+                type="checkbox"
+                id="personalInfoCheck"
+                onChange={personBtnEvent}
+                checked={personCheck}
+              />
               <p>(필수) 개인정보 수집 및 이용 동의</p>
             </SignupStyle.CheckLabel>
 
             <SignupStyle.CheckLabel>
-              <SignupStyle.CheckInput type="checkbox" id="marketingInfoCheck" />
+              <SignupStyle.CheckInput
+                type="checkbox"
+                id="marketingInfoCheck"
+                onChange={marketingBtnEvent}
+                checked={marketingCheck}
+              />
               <p>(선택) 광고성 정보 수신 동의</p>
             </SignupStyle.CheckLabel>
           </SignupStyle.CheckBox>
         </SignupStyle.CheckWrapper>
-        <SignupStyle.SubmitButton type="submit">
-          <SignupStyle.LinkButton to="/signupsuccess">
-            가입하기
-          </SignupStyle.LinkButton>
+        <SignupStyle.SubmitButton type="submit" onClick={onSubmitHandler}>
+          {' '}
+          가입하기
         </SignupStyle.SubmitButton>
       </SignupStyle.Wrapper2>
     </SignupStyle.Container>

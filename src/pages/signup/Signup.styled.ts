@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -121,9 +119,7 @@ export const SubmitButton = styled(InputButton)`
   margin: 80px auto 10px auto;
   background-color: #84614b;
   border: none;
-`;
-
-export const LinkButton = styled(Link)`
   text-decoration: none;
   color: white;
 `;
+
