@@ -1,17 +1,57 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import * as GBW from './GroupBoardWrite.styled';
 import BoardWriteSection from '../../../components/common/boardwritesection/BoardWriteSection';
 import Camera from '../../../assets/icon/Camera.png';
 
-const GroupBoardWrite = () => {
+const GroupBoardWrite: React.FC = () => {
+  const [responseMessage, setResponseMessage] = useState('');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [images, setImages] = useState<string[]>([]);
 
+  const handleCreatePost = async () => {
+    const tokenCookie = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('loginToken'));
+    const loginToken = tokenCookie ? tokenCookie.split('=')[1] : undefined;
+
+    if (!loginToken) {
+      setResponseMessage('로그인 토큰이 없습니다. 다시 로그인해주세요.');
+      return; // loginToken이 없으면 여기서 반환
+    }
+
+    const payload = {
+      title,
+      content,
+    };
+
+    console.log('Payload:', payload);
+
+    try {
+      const response = await axios.post(
+        'http://localhost:3001/api/v1/group/2/posts',
+        payload,
+        { withCredentials: true },
+      );
+
+      console.log('Response:', response);
+
+      if (response.status === 200) {
+        setResponseMessage('성공적으로 작성되었습니다!');
+      } else {
+        setResponseMessage(`오류 발생: ${response.statusText}`);
+      }
+    } catch (error: any) {
+      console.error('Error:', error);
+      setResponseMessage(`요청 실패: ${error.message}`);
+    }
+  };
+
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //@ts-ignore
-    const file = e.target.files[0];
-    if (file) {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const file = files[0];
       const imageUrl = URL.createObjectURL(file);
       setImages([...images, imageUrl]);
     }
@@ -43,17 +83,7 @@ const GroupBoardWrite = () => {
       </GBW.WriteBox>
       <GBW.ImgUpload>
         <div>
-          <GBW.CameraBox>
-          <GBW.CameraImg>
-            <img src={Camera} alt="카메라 이미지" />
-          </GBW.CameraImg>
-          <GBW.CameraImg>
-            <img src={Camera} alt="카메라 이미지" />
-          </GBW.CameraImg>
-          <GBW.CameraImg>
-            <img src={Camera} alt="카메라 이미지" />
-          </GBW.CameraImg>
-          </GBW.CameraBox>
+          <GBW.CameraBox>{/* ... */}</GBW.CameraBox>
           <input
             type="file"
             id="image-upload"
@@ -61,9 +91,10 @@ const GroupBoardWrite = () => {
             onChange={handleImageUpload}
           />
         </div>
-
         <div>{content.length}/1000자</div>
       </GBW.ImgUpload>
+      <button onClick={handleCreatePost}>포스트 작성</button>
+      <p>{responseMessage}</p>
     </GBW.Wrapper>
   );
 };
