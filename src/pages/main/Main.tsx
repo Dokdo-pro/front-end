@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ImageBox from '../../components/common/imagebox/ImageBox';
 import * as M from './Main.styled';
 import Slider from '../../components/common/slider/Slider';
 import Slider2 from '../../components/common/slider/Slider2';
@@ -7,6 +6,7 @@ import Slider3 from '../../components/common/slider/Slider3';
 import MoreButton from '../../components/common/morebutton/MoreButton';
 import BoardBox from '../../components/common/boardbox/BoardBox';
 import axios from 'axios';
+import GenreBox from '../../components/common/GenreBox/GenreBox';
 
 // API 요청 함수 추가
 async function fetchAllGroupData() {
@@ -41,20 +41,10 @@ function Main() {
     <M.Wrapper>
       <Slider />
       <M.GridContainer>
-        <M.ImageRow>
-          {Array(4)
-            .fill('')
-            .map((v, i) => (
-              <ImageBox key={i} />
-            ))}
-        </M.ImageRow>
-        <M.ImageRow>
-          {Array(4)
-            .fill('')
-            .map((v, i) => (
-              <ImageBox key={i} />
-            ))}
-        </M.ImageRow>
+        어떤 도서 장르의
+        <br />
+        토론 모임을 찾으세요?📖
+        <GenreBox />
       </M.GridContainer>
       <M.StyledGroupLink to="/group/list">
         <M.GroupBoxTitle>모집 중인 독서 토론 모임 ⭐️</M.GroupBoxTitle>

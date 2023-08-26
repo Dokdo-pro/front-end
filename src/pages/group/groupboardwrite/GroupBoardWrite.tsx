@@ -99,6 +99,7 @@ const GroupBoardWrite: React.FC = () => {
       </GBW.ImgUpload>
       <button onClick={handleCreatePost}>포스트 작성</button>
       <p>{responseMessage}</p>
+
     </GBW.Wrapper>
   );
 };

@@ -9,7 +9,7 @@ export const StyledSelect = styled.select`
   outline: none;
   transition: border-color 0.3s;
   height: 30px;
-  max-width: 90px;
+  width: 100%;
 
   &:focus {
     border-color: #ddd;

@@ -5,11 +5,13 @@ import MypageRoutes from './routes/Mypage';
 import LiteracytestRoute from './routes/literacytest';
 import AdminRoutes from './routes/AdminRoutes';
 import MainRoutes from './routes/Main';
+import ScrollToTop from './routes/ScrollToTop';
 
 function App() {
   return (
     <Router>
       <GlobalStyles />
+      <ScrollToTop />
       <MypageRoutes />
       <AdminRoutes />
       <LiteracytestRoute />

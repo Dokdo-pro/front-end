@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
   width: 474px;
 `;
 
-
-
 export const StyledGroupLink = styled(Link)`
   width: 90%;
   padding: 20px 0 10px 20px;
@@ -22,8 +20,11 @@ export const GridContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   height: 100%;
   width: 90%;
+  margin: 30px 0 15px 0;
+  font-size: 20px;
 `;
 export const ImageRow = styled.div`
   display: flex;

@@ -3,7 +3,6 @@ import SearchInput from '../../../components/common/searchinput/SearchInput';
 import * as GL from './GroupList.Styled';
 import BoardBox from '../../../components/common/boardbox/BoardBox';
 import SelectBox from '../../../components/common/selectbox/SelectBox';
-import ImageBox from '../../../components/common/imagebox/ImageBox';
 import axios from 'axios';
 
 const regions = [
@@ -27,16 +26,19 @@ const regions = [
 ];
 
 const durations = [
-  { value: '', label: '모임기간' },
-  { value: '3일', label: '3일' },
-  { value: '7일', label: '7일' },
-  { value: '10일', label: '10일' },
+  { value: '', label: '모임 일정' },
+  { value: '월요일', label: '월요일' },
+  { value: '화요일', label: '화요일' },
+  { value: '수요일', label: '수요일' },
+  { value: '목요일', label: '목요일' },
+  { value: '금요일', label: '금요일' },
+  { value: '토요일', label: '토요일' },
+  { value: '일요일', label: '일요일' },
 ];
 
 const ages = [
   { value: '', label: '연령' },
-  { value: '연령무관', label: '연령무관' },
-
+  { value: '무관', label: '무관' },
   { value: '청소년', label: '청소년' },
   { value: '20대', label: '20대' },
   { value: '30대', label: '30대' },
@@ -46,8 +48,8 @@ const ages = [
   { value: '70대', label: '70대' },
 ];
 
-const keywords = [
-  { value: '', label: '키워드' },
+const Genre = [
+  { value: '', label: '도서 장르' },
 
   { value: '철학', label: '철학' },
   { value: '인문학', label: '인문학' },
@@ -67,7 +69,9 @@ const sortOptions = [
 // API 요청 함수 추가
 async function fetchAllGroupData() {
   try {
-    const response = await axios.get('http://localhost:3001/api/v1/group?orderBy=popularity');
+    const response = await axios.get(
+      'http://localhost:3001/api/v1/group?orderBy=popularity',
+    );
     return response.data.data; // 서버 응답에서 실제 그룹 데이터를 반환
   } catch (error) {
     throw error;
@@ -78,7 +82,7 @@ const GroupList = () => {
   const [selectedRegion, setSelectedRegion] = useState('');
   const [selectedDuration, setSelectedDuration] = useState('');
   const [selectedAge, setSelectedAge] = useState('');
-  const [selectedKeyword, setSelectedKeyword] = useState('');
+  const [selectedGenre, setSelectedGenre] = useState('');
   const [selectedSort, setSelectedSort] = useState('');
   const [clickedInfo, setClickedInfo] = useState<string[]>([]);
   const [groupData, setGroupData] = useState([]);
@@ -117,25 +121,9 @@ const GroupList = () => {
   return (
     <GL.Wrapper>
       <SearchInput />
-      <GL.GridContainer>
-        <GL.ImageRow>
-          {Array(4)
-            .fill('')
-            .map((v, i) => (
-              <ImageBox key={i} />
-            ))}
-        </GL.ImageRow>
-        <GL.ImageRow>
-          {Array(4)
-            .fill('')
-            .map((v, i) => (
-              <ImageBox key={i} />
-            ))}
-        </GL.ImageRow>
-      </GL.GridContainer>
       <GL.ChoiceBox>
         <GL.ChoiceBoxTitle>
-          내게 맞는 독서 <br /> 토론 모임을 찾아보세요
+          내게 맞는 독서 <br /> 토론 모임을 찾아보세요📚
         </GL.ChoiceBoxTitle>
         <GL.HashTagBox>
           <GL.HashTag>
@@ -161,20 +149,20 @@ const GroupList = () => {
             </li>
             <li>
               <SelectBox
-                options={ages}
-                value={selectedAge}
+                options={Genre}
+                value={selectedGenre}
                 onChange={event => {
-                  setSelectedAge(event.target.value);
+                  setSelectedGenre(event.target.value);
                   handleOptionClick(event.target.value);
                 }}
               />
             </li>
             <li>
               <SelectBox
-                options={keywords}
-                value={selectedKeyword}
+                options={ages}
+                value={selectedAge}
                 onChange={event => {
-                  setSelectedKeyword(event.target.value);
+                  setSelectedAge(event.target.value);
                   handleOptionClick(event.target.value);
                 }}
               />

@@ -17,7 +17,9 @@ interface GroupBoardProps {
 // API 요청 함수 수정
 async function fetchAllGroupBoardData() {
   try {
-    const response = await axios.get('http://localhost:3001/api/v1/admin/posts');
+    const response = await axios.get(
+      'http://localhost:3001/api/v1/group/{group_id}/posts',
+    );
     return response.data.data;
   } catch (error) {
     throw error;

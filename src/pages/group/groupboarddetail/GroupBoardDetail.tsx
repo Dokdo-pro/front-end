@@ -2,7 +2,20 @@ import React from 'react';
 import * as GBD from './GroupBoaderDetail.styled';
 import Slider from '../../../components/common/slider/Slider';
 
-const GroupBoardDetail = () => {
+interface GroupBoardDetailData {
+  _id: string;
+  content: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+  post_id: number;
+  __v: number;
+}
+interface GroupBoardDetailDataProps {
+  data?: GroupBoardDetailData;
+}
+
+const GroupBoardDetail = ({ data }: GroupBoardDetailDataProps) => {
   return (
     <GBD.Wrapper>
       <GBD.User>

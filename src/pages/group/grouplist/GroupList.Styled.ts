@@ -41,7 +41,7 @@ export const ClickBox = styled.div`
   box-sizing: border-box;
   border: solid 1px #ddd;
   width: 90%;
-  height: 80px;
+  height: 110px;
   padding: 10px;
   margin: 20px;
 `;
