@@ -84,7 +84,7 @@ const GroupBoardWrite: React.FC = () => {
       <GBW.ImgFileTitle>
         <div>파일선택</div>
         <div>500MB 이하의 jpg, gif 파일만 3개까지 업로드 가능합니다</div>
-        </GBW.ImgFileTitle>
+      </GBW.ImgFileTitle>
       <GBW.ImgUpload>
         <div>
           <GBW.CameraBox>{/* ... */}</GBW.CameraBox>

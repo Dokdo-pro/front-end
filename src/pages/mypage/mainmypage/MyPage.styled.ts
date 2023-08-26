@@ -74,8 +74,8 @@ export const ManageLink = styled(Link)`
 `;
 
 export const Logout = styled.button`
-border: none;
-text-decoration: none;
+  border: none;
+  text-decoration: none;
   border-bottom: 1px solid #2e2e2e;
   font-size: 15px;
   text-decoration: none;
