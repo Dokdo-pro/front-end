@@ -15,8 +15,8 @@ export const Container = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: flex-end; 
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 export const Image = styled.img`
@@ -29,7 +29,8 @@ export const Genre = styled.div`
   padding: 7px;
   font-size: 14px;
   text-align: center;
-  color: black; 
+  width: 100%;
+  color: black;
 `;
 export const ContainerWrapper = styled.div`
   display: flex;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios, { AxiosError } from 'axios';
+import SelectBox from '../../../components/common/selectbox/SelectBox';
+import { useNavigate } from 'react-router-dom';
 import {
   Container,
   Title,
@@ -9,6 +11,9 @@ import {
   Input,
   SubmitButton,
 } from './GroupCreatePage3.Styled';
+
+import GenreBox2 from '../../../components/common/GenreBox/GenreBox2'; // GenreBox 컴포넌트의 경로를 지정해주세요.
+
 interface GroupCreatePage3Data {
   name: string;
   introduction: string;
@@ -34,6 +39,7 @@ const GroupCreatePage3: React.FC<GroupCreatePage3Props> = ({
   const [place, setPlace] = useState(data.place);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<{ message: string } | null>(null);
+  const navigate = useNavigate();
 
   const handlePageSubmit = async () => {
     console.log('GroupCreatePage3: handlePageSubmit is called');
@@ -73,6 +79,7 @@ const GroupCreatePage3: React.FC<GroupCreatePage3Props> = ({
     } finally {
       setLoading(false);
     }
+    navigate('/group/list');
   };
 
   return (
@@ -89,20 +96,23 @@ const GroupCreatePage3: React.FC<GroupCreatePage3Props> = ({
       {error && <div>Error: {error.message}</div>}
       <FormGroup>
         <label>장르 </label>
-        <Input
-          type="text"
-          value={genre}
-          onChange={e => setGenre(e.target.value)}
-          placeholder="장르를 입력하세요."
-        />
+        <GenreBox2 onGenreSelect={setGenre} selectedGenre={genre} />
       </FormGroup>
       <FormGroup>
         <label>요일 </label>
-        <Input
-          type="text"
+        <SelectBox
+          options={[
+            { value: '', label: '모임 일정' },
+            { value: '월요일', label: '월요일' },
+            { value: '화요일', label: '화요일' },
+            { value: '수요일', label: '수요일' },
+            { value: '목요일', label: '목요일' },
+            { value: '금요일', label: '금요일' },
+            { value: '토요일', label: '토요일' },
+            { value: '일요일', label: '일요일' },
+          ]}
+          onChange={event => setDay(event.target.value)}
           value={day}
-          onChange={e => setDay(e.target.value)}
-          placeholder="요일을 입력해주세요."
         />
       </FormGroup>
       <FormGroup>
@@ -114,7 +124,7 @@ const GroupCreatePage3: React.FC<GroupCreatePage3Props> = ({
           placeholder="장소를 입력하세요."
         />
       </FormGroup>
-      <SubmitButton onClick={handlePageSubmit}>확인</SubmitButton>
+      <SubmitButton onClick={handlePageSubmit}>모임등록</SubmitButton>
     </Container>
   );
 };

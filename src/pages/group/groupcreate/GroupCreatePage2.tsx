@@ -15,6 +15,7 @@ import {
   Tag,
   RemoveTagButton,
 } from './GroupCreatePage2.Styled';
+import SelectBox from '../../../components/common/selectbox/SelectBox2';
 
 interface GroupCreatePage2Data {
   location: string;
@@ -24,8 +25,39 @@ interface GroupCreatePage2Data {
 interface GroupCreatePage2Props {
   data: GroupCreatePage2Data;
   updateData: (newData: Partial<GroupCreatePage2Data>) => void;
-  handleNext: () => void; // 이 줄을 추가합니다.
+  handleNext: () => void;
 }
+
+const regions = [
+  { value: '', label: '지역' },
+  { value: '서울', label: '서울' },
+  { value: '부산', label: '부산' },
+  { value: '인천', label: '인천' },
+  { value: '대구', label: '대구' },
+  { value: '울산', label: '울산' },
+  { value: '세종', label: '세종' },
+  { value: '전남', label: '대전' },
+  { value: '전북', label: '전북' },
+  { value: '경남', label: '경남' },
+  { value: '경북', label: '경북' },
+  { value: '제주', label: '제주' },
+  { value: '강원', label: '강원' },
+  { value: '광주', label: '광주' },
+  { value: '경기', label: '경기' },
+  { value: '충남', label: '충남' },
+  { value: '충북', label: '충북' },
+];
+const ageRanges = [
+  { value: '', label: '연령' },
+  { value: '무관', label: '무관' },
+  { value: '청소년', label: '청소년' },
+  { value: '20대', label: '20대' },
+  { value: '30대', label: '30대' },
+  { value: '40대', label: '40대' },
+  { value: '50대', label: '50대' },
+  { value: '60대', label: '60대' },
+  { value: '70대', label: '70대' },
+];
 
 const GroupCreatePage2: React.FC<GroupCreatePage2Props> = ({
   data,
@@ -53,10 +85,21 @@ const GroupCreatePage2: React.FC<GroupCreatePage2Props> = ({
   const handleNext = () => {
     navigate('/create-group/step3');
   };
+
   const handleRemoveTag = (tagToRemove: string) => {
     setTag(prevTags => prevTags.filter(tag => tag !== tagToRemove));
   };
 
+  const handleLocationChange = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    const selectedValue = event.target.value;
+    setLocation(selectedValue);
+  };
+  const handleAgeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = event.target.value;
+    setAge(selectedValue);
+  };
   return (
     <Container>
       <StepsContainer>
@@ -69,21 +112,15 @@ const GroupCreatePage2: React.FC<GroupCreatePage2Props> = ({
       </Title>
       <FormGroup>
         <label>모임지역 </label>
-        <Input
-          type="text"
+        <SelectBox
+          options={regions}
           value={location}
-          onChange={e => setLocation(e.target.value)}
-          placeholder="모임지역을 입력하세요."
+          onChange={handleLocationChange}
         />
       </FormGroup>
       <FormGroup>
         <label>연령 </label>
-        <Input
-          type="text"
-          value={age}
-          onChange={e => setAge(e.target.value)}
-          placeholder="연령을 입력하세요."
-        />
+        <SelectBox options={ageRanges} value={age} onChange={handleAgeChange} />
       </FormGroup>
       <KeywordGroup>
         <label>키워드 </label>
@@ -107,7 +144,6 @@ const GroupCreatePage2: React.FC<GroupCreatePage2Props> = ({
           ))}
         </TagList>
       </KeywordGroup>
-
       <SubmitButton onClick={handleSubmit}>다음</SubmitButton>
     </Container>
   );
