@@ -20,9 +20,9 @@ export const JoinLink = styled(Link)`
   font-size: 15px;
   text-decoration: none;
   color: black;
-display: flex;
-justify-content: center;
-margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 `;
 
 export const Form = styled.form`
@@ -83,14 +83,13 @@ export const Button = styled.button`
 `;
 
 export const GotoHome = styled(Link)`
-text-decoration: none;
-color: white;
-
+  text-decoration: none;
+  color: white;
 `;
 export const Kakao = styled(Link)`
   text-decoration: none;
-background-color: yellow;
-color: brown;
+  background-color: yellow;
+  color: brown;
 `;
 
 export const Google = styled(Link)`
