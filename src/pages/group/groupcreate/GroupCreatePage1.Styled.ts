@@ -5,13 +5,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 474px;
 `;
 
 export const StepsContainer = styled.div`
   display: flex;
   gap: 10px;
-  position: relative; // 위치를 조정하기 위해 relative position을 설정
-  top: -40px; // 상위 위치로 3px 이동
+  position: relative;
+  top: -40px;
   & > div:nth-child(1) {
     background-color: #84614b;
     color: #fdf8ef;
@@ -40,6 +41,7 @@ export const Step = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 24px;
+  color: #000000;
 `;
 
 export const Title = styled.h1`
@@ -56,11 +58,13 @@ export const Title = styled.h1`
 export const FormGroup = styled.div`
   display: flex;
   align-items: center;
+  font-size: 18px;
   margin-bottom: 10px;
   width: 100%;
   max-width: 400px;
   position: relative;
   top: -15px;
+  color: #000000;
   label {
     margin-right: 40px;
     flex-shrink: 0;
@@ -92,4 +96,26 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   padding: 10px;
   margin-left: 16px;
+`;
+export const SubmitButton = styled.button`
+  width: 442px;
+  height: 66px;
+  border-radius: 20px;
+  background: #84614b;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-left: 238px;
+  // 하단 고정을 위한 속성 추가
+  position: fixed;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:hover {
+    background: #71503c;
+  }
 `;

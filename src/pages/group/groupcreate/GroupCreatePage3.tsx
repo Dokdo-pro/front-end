@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import axios, { AxiosError } from 'axios';
-
+import {
+  Container,
+  Title,
+  FormGroup,
+  StepsContainer,
+  StepCircle,
+  Input,
+  SubmitButton,
+} from './GroupCreatePage3.Styled';
 interface GroupCreatePage3Data {
   name: string;
   introduction: string;
@@ -68,24 +76,46 @@ const GroupCreatePage3: React.FC<GroupCreatePage3Props> = ({
   };
 
   return (
-    <div>
+    <Container>
+      <StepsContainer>
+        <StepCircle>1</StepCircle>
+        <StepCircle>2</StepCircle>
+        <StepCircle>3</StepCircle>
+      </StepsContainer>
+      <Title>
+        독서 토론 모임에 대한 <br /> 정보를 설정해주세요
+      </Title>
       {loading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
-      <input
-        type="text"
-        value={genre}
-        onChange={e => setGenre(e.target.value)}
-        placeholder="장르를 입력하세요."
-      />
-      <input type="text" value={day} onChange={e => setDay(e.target.value)} />
-      <input
-        type="text"
-        value={place}
-        onChange={e => setPlace(e.target.value)}
-        placeholder="장소를 입력하세요."
-      />
-      <button onClick={handlePageSubmit}>다음</button>
-    </div>
+      <FormGroup>
+        <label>장르 </label>
+        <Input
+          type="text"
+          value={genre}
+          onChange={e => setGenre(e.target.value)}
+          placeholder="장르를 입력하세요."
+        />
+      </FormGroup>
+      <FormGroup>
+        <label>요일 </label>
+        <Input
+          type="text"
+          value={day}
+          onChange={e => setDay(e.target.value)}
+          placeholder="요일을 입력해주세요."
+        />
+      </FormGroup>
+      <FormGroup>
+        <label>장소 </label>
+        <Input
+          type="text"
+          value={place}
+          onChange={e => setPlace(e.target.value)}
+          placeholder="장소를 입력하세요."
+        />
+      </FormGroup>
+      <SubmitButton onClick={handlePageSubmit}>확인</SubmitButton>
+    </Container>
   );
 };
 

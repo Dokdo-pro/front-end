@@ -9,6 +9,7 @@ import {
   StepsContainer,
   StepCircle,
   Input,
+  SubmitButton,
 } from './GroupCreatePage1.Styled';
 
 interface GroupCreatePage1Data {
@@ -58,7 +59,6 @@ const GroupCreatePage1: React.FC<GroupCreatePage1Props> = ({
         <StepCircle>1</StepCircle>
         <StepCircle>2</StepCircle>
         <StepCircle>3</StepCircle>
-        <StepCircle>4</StepCircle>
       </StepsContainer>
       <Title>
         새로운 독서 토론 모임을 <br /> 시작해볼까요?
@@ -82,10 +82,10 @@ const GroupCreatePage1: React.FC<GroupCreatePage1Props> = ({
           />
         </FormGroup>
         <FileInputContainer>
-          <label>사진 업로드: </label>
+          <label>사진 업로드 </label>
           <input type="file" onChange={handleImageChange} />
         </FileInputContainer>
-        <button type="submit">확인</button>
+        <SubmitButton type="submit">다음</SubmitButton>
       </form>
     </Container>
   );
