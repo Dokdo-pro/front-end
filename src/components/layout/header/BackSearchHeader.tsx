@@ -8,7 +8,7 @@ function BackSearchHeader() {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   return (
@@ -17,7 +17,6 @@ function BackSearchHeader() {
         <BackBtn>
           <button onClick={goBack}>←</button>
         </BackBtn>
-
         <div>props</div>
         <Nav>
           <Link to="/search">

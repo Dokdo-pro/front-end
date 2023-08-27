@@ -12,7 +12,7 @@ import axios from 'axios'; // Axios를 사용하여 API 요청을 하기 위해 
 async function fetchPopularData() {
   try {
     const response = await axios.get(
-      'http://localhost:3001/api/v1/group?orderBy=popularity=limit=10',
+      'http://localhost:3001/api/v1/group?orderBy=popularity&limit=10',
     );
     return response.data.data;
   } catch {

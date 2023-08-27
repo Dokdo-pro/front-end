@@ -50,7 +50,6 @@ const ages = [
 
 const Genre = [
   { value: '', label: '도서 장르' },
-
   { value: '철학', label: '철학' },
   { value: '인문학', label: '인문학' },
   { value: '소설', label: '소설' },
@@ -58,25 +57,14 @@ const Genre = [
   { value: '시/수필', label: '시/수필' },
   { value: '경제', label: '경제' },
   { value: '사회과학', label: '사회과학' },
+  { value: '취미', label: '취미' },
+
 ];
 
 const sortOptions = [
-  { value: '', label: '좋아요' },
   { value: '좋아요', label: '좋아요' },
   { value: '최근순', label: '최근순' },
 ];
-
-// API 요청 함수 추가
-async function fetchAllGroupData() {
-  try {
-    const response = await axios.get(
-      'http://localhost:3001/api/v1/group?orderBy=popularity',
-    );
-    return response.data.data; // 서버 응답에서 실제 그룹 데이터를 반환
-  } catch (error) {
-    throw error;
-  }
-}
 
 const GroupList = () => {
   const [selectedRegion, setSelectedRegion] = useState('');
@@ -90,7 +78,13 @@ const GroupList = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await fetchAllGroupData();
+        let apiUrl = 'http://localhost:3001/api/v1/group?orderBy=popularity'; // 기본적으로 인기순 API 호출
+
+        if (selectedSort === '최근순') {
+          apiUrl = 'http://localhost:3001/api/v1/group'; // 최신순 API 호출
+        }
+
+        const data = await fetchAllGroupData(apiUrl); // API 요청 호출
         setGroupData(data);
       } catch (error) {
         console.error('데이터를 가져오는 중 에러 발생:', error);
@@ -98,7 +92,16 @@ const GroupList = () => {
     }
 
     fetchData();
-  }, []);
+  }, [selectedSort]);
+
+  async function fetchAllGroupData(apiUrl: string) {
+    try {
+      const response = await axios.get(apiUrl);
+      return response.data.data;
+    } catch (error) {
+      throw error;
+    }
+  }
 
   const handleOptionClick = (optionLabel: string) => {
     const updatedInfo = [...clickedInfo];
@@ -108,7 +111,6 @@ const GroupList = () => {
     } else {
       alert('태그는 5개까지만 선택 가능합니다');
     }
-
     setClickedInfo(updatedInfo);
   };
 
@@ -116,8 +118,57 @@ const GroupList = () => {
     const updatedInfo = [...clickedInfo];
     updatedInfo.splice(index, 1);
     setClickedInfo(updatedInfo);
+
+    // 검색 결과와 선택된 정렬 기준 초기화
+    setGroupData([]);
+    setSelectedSort('');
   };
 
+  const handleSearchButtonClick = async () => {
+    try {
+      let apiUrl = 'http://localhost:3001/api/v1/group';
+
+      if (selectedSort === '최근순') {
+        apiUrl += '?orderBy=oldest';
+      } else {
+        apiUrl += '?orderBy=popularity';
+      }
+
+      const params = {
+        location: selectedRegion,
+        day: selectedDuration,
+        genre: selectedGenre,
+        age: selectedAge,
+      };
+
+      // 선택된 값이 있는 경우에만 추가적인 쿼리 파라미터를 포함한 URL을 사용하여 API 요청 호출
+      if (Object.values(params).some(Boolean)) {
+        Object.entries(params).forEach(([key, value]) => {
+          if (value) {
+            apiUrl += `&${key}=${encodeURIComponent(value)}`;
+          }
+        });
+
+        const data = await fetchAllGroupData(apiUrl);
+
+        if (data.length === 0) {
+          alert('검색 결과가 없습니다.');
+          setGroupData([]); // 검색 결과 초기화
+          return;
+        }
+
+        setGroupData(data);
+      } else {
+        alert('검색 조건을 선택해주세요.');
+        setGroupData([]); // 검색 결과 초기화
+        return;
+      }
+
+      setSelectedSort(''); // 선택된 정렬 기준 초기화
+    } catch (error) {
+      console.error('데이터를 가져오는 중 에러 발생:', error);
+    }
+  };
   return (
     <GL.Wrapper>
       <SearchInput />
@@ -178,6 +229,9 @@ const GroupList = () => {
               </GL.ClickedInfoWrapper>
             ))}
           </GL.ClickBox>
+          <GL.SearchButton onClick={handleSearchButtonClick}>
+            <div>조건검색</div>
+          </GL.SearchButton>
         </GL.HashTagBox>
       </GL.ChoiceBox>
       <GL.ChoiceImageGroup>
@@ -193,7 +247,7 @@ const GroupList = () => {
         </GL.ChoiceSelect>
         <GL.ChoiceGroupBoard>
           {groupData.map((groupItem, index) => (
-            <BoardBox key={index} data={groupItem} />
+            <BoardBox key={index} data={groupItem} isMainPage={true} />
           ))}
         </GL.ChoiceGroupBoard>
       </GL.ChoiceImageGroup>

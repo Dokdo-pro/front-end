@@ -1,16 +1,51 @@
-import React from 'react';
 import * as GD from './GroupDetail.styled';
-// import MoreButton from '../../../components/common/morebutton/MoreButton';
 import GroupImg from '../../../assets/img/독서모임1.jpeg';
+import GroupHeader from '../../../components/layout/header/GroupHeader';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const GroupDetail = () => {
+
+async function fetchAllGroupData() {
+  try {
+    const response = await axios.get(
+      'http://localhost:3001/api/v1/group/',
+    ); // 최신순 정렬
+    return response.data.data; // 서버 응답에서 실제 그룹 데이터를 반환
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+
+
+
+function GroupDetail() {
+
+  const [groupData, setGroupData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await fetchAllGroupData(); // API 요청 호출
+        // 데이터 가공 및 저장
+        setGroupData(data);
+      } catch (error) {
+        console.error('데이터를 가져오는 중 에러 발생:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <GD.Wrapper>
+        <GroupHeader />
       <GD.GroupImage>
-        <img src={GroupImg} alt="모임 설정 이미지" />
         <GD.EditButton>
           <div>●●●</div>
         </GD.EditButton>
+        <img src={GroupImg} alt="모임 설정 이미지" />
       </GD.GroupImage>
       <GD.GroupInfo>
         <GD.GroupName>●시좋아하는 모임</GD.GroupName>
@@ -67,6 +102,6 @@ const GroupDetail = () => {
     </GD.Wrapper>
     //더보기 버튼 필요 -> 무한스크롤
   );
-};
+}
 
 export default GroupDetail;

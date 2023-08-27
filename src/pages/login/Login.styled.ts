@@ -7,13 +7,13 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 474px;
-  margin: 84px auto 0 auto;
+  margin: 65px auto 0 auto;
 `;
 
 export const LogoImg = styled.img`
-  width: 100px;
-  height: 100px;
-  padding-bottom: 72px;
+  width: 30%;
+  height: 30%;
+  padding-bottom: 65px;
 `;
 
 export const JoinLink = styled(Link)`
@@ -31,16 +31,32 @@ export const Form = styled.form`
   justify-content: center;
 `;
 
+export const Title = styled.p`
+  font-size: 16px;
+  font-weight: 600;
+  margin: 15px 0 13px 10px;
+`;
+
 export const Input = styled.input`
   size: 420px;
   height: 57px;
-  text-align: center;
-  border-radius: 8px;
+  text-align: left;
+  padding-left: 15px;
+  border: none;
+  border-radius: 15px;
+  background-color: #f0f0f0;
   font-size: 18px;
   outline: none;
   cursor: pointer;
 
   margin-bottom: 0.5rem;
+
+  &::placeholder {
+    color: #c4c4c4;
+    font-size: 16px;
+    display: flex;
+    font-weight: 400;
+  }
 `;
 
 export const Save = styled.label`

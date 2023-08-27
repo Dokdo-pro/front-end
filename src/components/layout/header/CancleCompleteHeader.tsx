@@ -15,7 +15,6 @@ function CancleCompleteHeader() {
         <BackBtn>
           <button onClick={goBack}>←</button>
         </BackBtn>
-
         <div>props</div>
         <CompleteBtn>
           <button>완료</button>

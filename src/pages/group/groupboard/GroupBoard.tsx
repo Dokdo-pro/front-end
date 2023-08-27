@@ -3,22 +3,36 @@ import * as GB from './GorupBoard.styled';
 import SearchInput from '../../../components/common/searchinput/SearchInput';
 import axios from 'axios';
 import PenFooter from '../../../components/layout/footer/PenFooter';
+import { getCookie } from '../../../helper/Cookie';
+import GroupHeader from '../../../components/layout/header/GroupHeader';
+
+
+interface GroupData {
+  _id: string;
+  group_id: number;
+  post_id: number;
+  user_id: number;
+  createdAt: string;
+  updatedAt: string;
+}
 
 interface GroupBoardProps {
-  data?: {
-    title: string; //게식글 이름
-    content: string; //게시글 내용
-    createdAt: number; //게시한 날짜
-    updatedAt: number; // 업데이트한 날짜
-    post_id: number; // key값?
-  };
+  data?: GroupData;
+}
+
+
+const loginToken = getCookie('loginToken'); // getCookie 함수는 쿠키를 읽어오는 함수로 적절한 코드로 대체해야 합니다.
+
+if (loginToken) {
+// 로그인 토큰이 존재하면 API 요청 시 헤더에 추가
+axios.defaults.headers.common['Authorization'] = `Bearer ${loginToken}`;
 }
 
 // API 요청 함수 수정
-async function fetchAllGroupBoardData() {
+async function fetchAllGroupBoardData(group_id: number) {
   try {
     const response = await axios.get(
-      'http://localhost:3001/api/v1/group/{group_id}/posts',
+      `http://localhost:3001/api/v1/group/{group_id}/posts`, // 백틱 사용
     );
     return response.data.data;
   } catch (error) {
@@ -27,23 +41,27 @@ async function fetchAllGroupBoardData() {
 }
 
 function GroupBoard({ data }: GroupBoardProps) {
-  const [groupBoardData, setGroupBoardData] = useState<any[]>([]); // 타입 명시
+  const [groupBoardData, setGroupBoardData] = useState<any[]>([]);
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData(group_id: number) {
+      // group_id 인자로 받도록 수정
       try {
-        const data = await fetchAllGroupBoardData();
-        setGroupBoardData(data);
+        const fetchedData = await fetchAllGroupBoardData(group_id); // data.group_id 대신 group_id 사용
+        setGroupBoardData(fetchedData);
       } catch (error) {
         console.error('데이터를 가져오는 중 에러 발생:', error);
       }
     }
 
-    fetchData();
-  }, []);
+    if (data?.group_id) {
+      fetchData(data.group_id); // data.group_id를 그대로 전달
+    }
+  }, [data?.group_id]);
 
   return (
     <GB.Wrapper>
+      <GroupHeader />
       <PenFooter />
       <SearchInput />
       <GB.GroupBoardList>

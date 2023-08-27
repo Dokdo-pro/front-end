@@ -2,10 +2,13 @@ import React from 'react';
 import * as PA from './PhotoAlbum.styled';
 import SearchInput from '../../../components/common/searchinput/SearchInput';
 import PenFooter from '../../../components/layout/footer/PenFooter';
+import GroupHeader from '../../../components/layout/header/GroupHeader';
 
 const PhotoAlbum = () => {
   return (
     <PA.Wrapper>
+      <GroupHeader />
+
       <PenFooter />
       <SearchInput />
       <PA.GroupPhotoTitle>모임 사진첩</PA.GroupPhotoTitle>

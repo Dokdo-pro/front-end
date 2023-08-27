@@ -46,9 +46,9 @@ const LiteracytestRoute = () => {
       <Route
         path="/literacy-test/screen/result"
         element={
-          <Layout8>
+          <Layout1>
             <LiteracyTestResult userAnswers={literacyUserAnswers} />
-          </Layout8>
+          </Layout1>
         }
       />
       <Route
@@ -70,9 +70,9 @@ const LiteracytestRoute = () => {
       <Route
         path="/ox-quiz/screen/result"
         element={
-          <Layout8>
+          <Layout1>
             <OXTestResult userAnswers={oxUserAnswers} />
-          </Layout8>
+          </Layout1>
         }
       />
     </Routes>

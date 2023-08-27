@@ -7,6 +7,8 @@ import MoreButton from '../../components/common/morebutton/MoreButton';
 import BoardBox from '../../components/common/boardbox/BoardBox';
 import axios from 'axios';
 import GenreBox from '../../components/common/GenreBox/GenreBox';
+import { useLocation } from 'react-router-dom';
+
 
 // API 요청 함수 추가
 async function fetchAllGroupData() {
@@ -21,6 +23,9 @@ async function fetchAllGroupData() {
 }
 
 function Main() {
+  const location = useLocation();
+  const isMainPage = location.pathname === '/main'
+
   const [groupData, setGroupData] = useState([]);
 
   useEffect(() => {
@@ -41,6 +46,7 @@ function Main() {
     <M.Wrapper>
       <Slider />
       <M.GridContainer>
+
         어떤 도서 장르의
         <br />
         토론 모임을 찾으세요?📖
@@ -52,10 +58,10 @@ function Main() {
 
       <M.GroupList>
         {groupData.slice(0, 3).map((groupItem, index) => (
-          <BoardBox key={index} data={groupItem} />
+          <BoardBox key={index} data={groupItem} isMainPage={isMainPage}/>
         ))}
-        <MoreButton to="/group/list">더보기</MoreButton>
       </M.GroupList>
+      <MoreButton to="/group/list">더보기</MoreButton>
 
       <M.GroupTop10>
         <M.GroupTopTitle>

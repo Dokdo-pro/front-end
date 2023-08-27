@@ -1,10 +1,9 @@
 import React, { ReactNode } from 'react';
 import Footer from '../footer/Footer';
 import LeftScreen from '../leftscreen/LeftScreen';
-import { LayoutContainer, Children, Left, Right } from './Layout1.styled';
+import { LayoutContainer, Children, Left, Right } from './Layout3.styled';
 
 import BackSearchHeader from '../header/BackSearchHeader';
-import CancleHeader from '../header/BackHeader';
 
 interface Layout3Props {
   children: ReactNode;
@@ -18,7 +17,6 @@ function Layout3({ children }: Layout3Props) {
       </Left>
       <Right>
         <BackSearchHeader />
-        <CancleHeader />
         <Children>{children}</Children>
         <Footer />
       </Right>

@@ -2,6 +2,7 @@ import React from 'react';
 import * as MB from './MidleBoardBox.styled';
 import BoardImgBox from './BoardImgBox';
 import { useNavigate } from 'react-router-dom';
+import defaultImage from '../../../assets/img/Logo1.png';
 
 interface MidleBoardData {
   _id: string;
@@ -17,6 +18,13 @@ interface MidleBoardData {
   maxMember: number;
   meeting: number;
   leader: number;
+  like: number;
+  location: string;
+  day: string;
+  genre: string;
+  age: number;
+  tags: object;
+  introduction: string;
 }
 
 interface MidleBoardBoxProps {
@@ -39,19 +47,29 @@ function MidleBoardBox({ data }: MidleBoardBoxProps) {
     }
   };
 
+
+   if (!data) {
+    return null;
+  }
+
+   const {  name, introduction } = data;
+  const imageSource = data.profile || defaultImage;
+
+
+
   return (
     <MB.Container onClick={handleClick}>
-      {data && (
         <MB.Border>
-          <MB.TextBox>
+          <MB.TextImgBox>
             <MB.ImgBox>
-              <BoardImgBox data={{ profile: data.profile }} />
+                     <BoardImgBox data={{ profile: imageSource }} />
             </MB.ImgBox>
-            <div>모임명: {data.name}</div>
-            <div>모임소개: {data.meeting}</div>
-          </MB.TextBox>
+            <MB.TextBox>
+            <MB.GroupName>{name}</MB.GroupName>
+            <MB.GroupIntro>"{introduction}"</MB.GroupIntro>
+            </MB.TextBox>
+          </MB.TextImgBox>
         </MB.Border>
-      )}
     </MB.Container>
   );
 }

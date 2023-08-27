@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center; // 수평 중앙 정렬
   justify-content: center; // 수직 중앙 정렬
   width: 474px;
-  height: 100vh; // 화면의 높이만큼 설정
+  height: 100%; // 화면의 높이만큼 설정
 `;
 
 export const ResultText = styled.div`

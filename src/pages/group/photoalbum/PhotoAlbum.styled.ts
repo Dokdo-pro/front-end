@@ -15,9 +15,8 @@ export const GroupPhotoTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 15px;
 `;
-
 
 export const PhotoList = styled.div`
   width: 90%;

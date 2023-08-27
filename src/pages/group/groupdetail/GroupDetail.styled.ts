@@ -13,20 +13,24 @@ export const GroupName = styled.div`
   display: flex;
   font-size: 13px;
 `;
+
 // 이미지 유압프레스로 들어가게 해야 함
 export const GroupImage = styled.div`
   text-align: right;
-  width: 425px;
-  height: 200px;
-  background-color: #ddd;
-  width: 100%;
+  height: 100%;
+  width: 474px;
   overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
 `;
 
 export const EditButton = styled.button`
   border: none;
   cursor: pointer;
   background-color: transparent;
+  margin: 10px;
   padding: 10px;
 
   & div {

@@ -17,10 +17,7 @@ const BookAndContest = () => {
         </BC.BoxTitleBox>
         <BC.SliederBox>
           <BookAndConstBox />
-          <BookAndConstBox />
-          <BookAndConstBox />
-          <BookAndConstBox />
-          <BookAndConstBox />
+       
 
         </BC.SliederBox>
       </BC.Box>
