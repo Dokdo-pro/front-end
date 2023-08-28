@@ -1,4 +1,4 @@
-import React,{ ReactNode } from "react";
+import React,{ ReactNode, useState } from "react";
 import * as S from './SideBar.styled';
 import Logo2 from '../../assets/img/Logo2.png';
 import User from '../../assets/icon/User.png';
@@ -13,6 +13,16 @@ interface AdminProps {
 }
 
 function Admin({children}: AdminProps) {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleLogin = () => {
+        setIsLoggedIn(true);
+      };
+    
+      const handleLogout = () => {
+        setIsLoggedIn(false);
+      };
+
     return (
     <S.Background>
     <S.GreyWrapper>
@@ -39,8 +49,12 @@ function Admin({children}: AdminProps) {
                     <S.IconImg src={Plus} alt="문의사항 이미지" />도서 및 공모전 관리
                 </S.AdminLink>
             </S.SideNav> 
-             <S.LogoutButton><S.IconImg src={Bell} alt="로그아웃 이미지" /> 로그아웃</S.LogoutButton>
-        </S.SideBar>
+            {isLoggedIn ? (
+                <S.LogoutButton onClick={handleLogout}><S.IconImg src={Bell} alt="로그아웃 이미지" />로그아웃</S.LogoutButton>
+                ) : (
+                <S.LogoutButton onClick={handleLogin}><S.IconImg src={Bell} alt="로그인 이미지" />로그인</S.LogoutButton>
+                )}
+            </S.SideBar>
         <S.Children>{children}</S.Children>
     </S.GreyWrapper>
     </S.Background>

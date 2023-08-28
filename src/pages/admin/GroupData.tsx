@@ -1,33 +1,47 @@
 import React from "react";
 import * as A from './Admin.styled';
 
+interface AdminGroupData {
+    group_id: number;    
+    name: string;
+    isRecruit: boolean;
+    profile: string;
+    introduction: string;
+    place: string;
+    createdAt: string;
+    tags: string;
+    search: string;
+    location: string;
+    day: string;
+    genre: string;
+    age: string;
+}
 
 interface AdminGroupProps {
-    data?:{
-        name: string;
-        isRecruit: boolean;
-        profile: string;
-        maxMember: number;
-        leadar: number;
-        createdAt: string;
-        group_id: number;
-    };
+    data?:AdminGroupData;
 }
 
 function GroupData({data}: AdminGroupProps) {
+    
+    if (!data){
+        return null;
+    }
+    
+    const {group_id, name, place, createdAt} = data;
+
     return (
         <tr>
         {data && (
-            <td>{data.group_id}</td>
+            <td>{group_id}</td>
             )}
         {data && (    
-            <td>{data.name}</td>
+            <td>{name}</td>
             )}
         {data && (
-            <td>{data.leadar}</td>
+            <td>{place}</td>
             )}
         {data && (
-            <td>{data.maxMember}</td>
+            <td>{createdAt}</td>
             )}
         {data && (
             <td>
@@ -36,7 +50,7 @@ function GroupData({data}: AdminGroupProps) {
             </td>
             )}
         </tr>
-    )
+    );
 }
 
 export default GroupData;

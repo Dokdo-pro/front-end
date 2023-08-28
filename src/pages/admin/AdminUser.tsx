@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import * as A from './Admin.styled';
 import axios from 'axios';
 import UserData from './UserData';
@@ -14,6 +14,11 @@ async function fetchAllUser() {
 
 function AdminUser() {
     const [userData, setUserData] = useState([]);
+    const element = useRef<HTMLDivElement>(null);
+    const onMoveBox = () => {
+      element.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    
     useEffect(()=>{
         async function fetchData() {
             try {
@@ -30,8 +35,11 @@ function AdminUser() {
         <A.Wrapper>
             <A.Menu>
             <A.Headline>회원 정보 관리</A.Headline>
-            <A.Total>총 {UserData.name.length} 명</A.Total>
+            <A.Total>
+                총 {userData.length} 명
+            </A.Total>
             <A.Layout> 
+                <div ref={element}></div>
                 <A.Table>
                 <tr>
                     <th>닉네임</th>
@@ -39,11 +47,14 @@ function AdminUser() {
                     <th>관리</th>
                 </tr>
 
-                {userData.map((email, name) => ( 
-            <UserData key={name} data={email} />   
-           ))}
-            </A.Table>
-            </A.Layout> 
+                {userData.map((email,name) => ( 
+                <UserData key={name} data={email} />   
+                ))}
+                </A.Table>
+            </A.Layout>
+            <A.TopConteiner>
+                <A.ScrollToTop onClick={onMoveBox}>Top</A.ScrollToTop>
+            </A.TopConteiner> 
             </A.Menu>    
     </A.Wrapper>
     )

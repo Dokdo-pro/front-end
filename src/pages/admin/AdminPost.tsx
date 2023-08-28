@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, useRef} from "react";
 import * as A from "./Admin.styled";
 import axios from "axios";
 import PostData from './PostData';
@@ -15,6 +15,10 @@ async function fetchAllPost() {
 
 function AdminPost (){
     const [postData, setPostData] = useState([]);
+    const element = useRef<HTMLDivElement>(null);
+    const onMoveBox = () => {
+        element.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
 
     useEffect(()=>{
         async function fetchData() {
@@ -39,23 +43,28 @@ function AdminPost (){
             </A.Select>
             </A.Top>
             <A.Layout>
-            <A.Table>
-                <tr>
-                    <th>글 번호</th>
-                    <th>제목</th>
-                    <th>생성 일자</th>
-                    <th>업데이트 일자</th>
-                    <th>관리</th>
-                </tr>
-                {postData.map((content, post_id) => ( 
-            <PostData key={post_id} data={content} />   
-           ))}
-            </A.Table>
+                <div ref={element}></div>
+                <A.Table>
+                    <tr>
+                        <th>글 번호</th>
+                        <th>제목</th>
+                        <th>생성 일자</th>
+                        <th>업데이트 일자</th>
+                        <th>관리</th>
+                    </tr>
+                    
+                    {postData.map((content, post_id) => ( 
+                    <PostData key={post_id} data={content} />   
+                    ))}
+                    </A.Table>
             </A.Layout>
+            <A.TopConteiner>
+                <A.ScrollToTop onClick={onMoveBox}>Top</A.ScrollToTop>
+            </A.TopConteiner> 
             </A.Menu>     
         </A.Wrapper>
-    )
-}
+    );
+};
 
 export default AdminPost;
 
