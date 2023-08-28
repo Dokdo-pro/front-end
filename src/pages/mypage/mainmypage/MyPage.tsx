@@ -5,7 +5,7 @@ import { getCookie, removeCookie } from '../../../helper/Cookie';
 import { useNavigate } from 'react-router-dom';
 import AxiosC from '../../../helper/AxiosC';
 import axios from 'axios';
-import Slider5 from '../../../components/common/slider/Slider3';
+
 
 function MyPageComponent() {
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ function MyPageComponent() {
         </MyPageStyle.ManageLink>
       </MyPageStyle.Group>
 
-      <Slider5 />
+
 
       <MyPageStyle.ManageList>
         <MyPageStyle.ManageTitle>나의 관리 목록</MyPageStyle.ManageTitle>

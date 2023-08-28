@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
 
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
   box-sizing: border-box;
   width: 420px;
   justify-content: space-between;
@@ -35,7 +35,7 @@ export const Introduce = styled.div`
 `;
 
 export const NickName = styled.div`
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
 `;
 

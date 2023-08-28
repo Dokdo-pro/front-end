@@ -7,10 +7,20 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 474px;
-  margin: 15px auto 0 auto;
+  margin: 0 auto;
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 420px;
+  justify-content: space-between;
+`;
+
+export const Wrapper2 = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -23,13 +33,14 @@ export const Wrapper = styled.div`
 export const UserIcon = styled.img`
   width: 130px;
   height: 130px;
-  margin-bottom: 10px;
+  margin-bottom: 22px;
 `;
 export const IconDes = styled.p`
   font-size: 12px;
   font-weight: 400;
-  color: #646464;
+  color: #a8a8a8;
   margin-top: 5px;
+  
 `;
 export const FormTag = styled.div`
   display: flex;
@@ -45,8 +56,9 @@ export const Tag = styled.div`
 `;
 export const TagPlus = styled.div`
   display: flex;
-  color: red;
+  font-size: 12px;
   margin-left: 5px;
+  color: ${({ className }) => (className === 'success' ? 'green' : 'red')};
 `;
 export const FormInput = styled.div`
   display: flex;
@@ -55,23 +67,16 @@ export const FormInput = styled.div`
 
 export const Input = styled.input`
   display: flex;
-  font-size: 16px;
+  font-size: 12px;
   width: 100%;
   height: 37px;
   border: none;
   border-radius: 8px;
   background-color: #a8a8a8;
+  padding-left: 10px;
 `;
 
-export const Alert = styled.div`
-  display: flex;
-  justify-items: left;
-  margin-top: 10px;
-  padding-right: 130px;
-  font-size: 12px;
 
-  color: #8c8c8c;
-`;
 
 export const Email = styled(Input)`
   width: 100%;
@@ -85,10 +90,11 @@ export const SubmitButton = styled.button`
   font-size: 18px;
   border: none;
   border-radius: 8px;
+  color: white;
   background-color: #84614b;
   cursor: pointer;
   width: 90%;
-  margin: 60px auto 10px auto;
+  margin: 30px auto 10px auto;
 `;
 
 export const SubmitLink = styled(Link)`
@@ -97,7 +103,7 @@ export const SubmitLink = styled(Link)`
 `;
 
 export const DeleteWrap = styled.div`
-  width: 80%;
+  width: 85%;
   box-sizing: border-box;
   display: flex;
   justify-content: right;
