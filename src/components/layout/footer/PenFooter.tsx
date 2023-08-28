@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import PenIcon from '../../../assets/icon/PenIcon.png';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom'; // useParams를 임포트
 
 function PenFooter() {
+  const { id: groupId } = useParams<{ id: string }>(); // useParams로 groupId 가져오기
+
   return (
     <Wrapper>
       <Display>
-        <Link to="/group/:id/boardwrite">
+        <Link to={`/group/${groupId}/boardwrite`}>
+          {' '}
+          {/* groupId를 동적으로 사용 */}
           <Button>
             <img src={PenIcon} alt="" />
           </Button>
@@ -27,7 +31,6 @@ const Wrapper = styled.div`
   background-color: transparent;
   width: 472px;
   z-index: 9999;
-
 `;
 
 const Display = styled.div`

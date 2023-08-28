@@ -3,12 +3,15 @@ import axios from 'axios';
 import * as GBW from './GroupBoardWrite.styled';
 import BoardWriteSection from '../../../components/common/boardwritesection/BoardWriteSection';
 import Camera from '../../../assets/icon/Camera.png';
+import { useParams } from 'react-router-dom'; // useParams를 임포트
 
 const GroupBoardWrite: React.FC = () => {
   const [responseMessage, setResponseMessage] = useState('');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [images, setImages] = useState<string[]>([]);
+
+  const { id: groupId } = useParams<{ id: string }>(); // useParams로 groupId 가져오기
 
   const handleCreatePost = async () => {
     const tokenCookie = document.cookie
@@ -18,7 +21,7 @@ const GroupBoardWrite: React.FC = () => {
 
     if (!loginToken) {
       setResponseMessage('로그인 토큰이 없습니다. 다시 로그인해주세요.');
-      return; // loginToken이 없으면 여기서 반환
+      return;
     }
 
     const payload = {
@@ -26,16 +29,12 @@ const GroupBoardWrite: React.FC = () => {
       content,
     };
 
-    console.log('Payload:', payload);
-
     try {
       const response = await axios.post(
-        'http://localhost:3001/api/v1/group/2/posts',
+        `http://localhost:3001/api/v1/group/${groupId}/posts`, // 동적으로 생성된 URL 사용
         payload,
         { withCredentials: true },
       );
-
-      console.log('Response:', response);
 
       if (response.status === 200) {
         setResponseMessage('성공적으로 작성되었습니다!');
@@ -59,7 +58,6 @@ const GroupBoardWrite: React.FC = () => {
 
   return (
     <GBW.Wrapper>
-
       <BoardWriteSection />
       <GBW.TitleWrite>
         <textarea
@@ -88,7 +86,7 @@ const GroupBoardWrite: React.FC = () => {
       </GBW.ImgFileTitle>
       <GBW.ImgUpload>
         <div>
-          <GBW.CameraBox>{/* ... */}</GBW.CameraBox>
+          <GBW.CameraBox>{/* 카메라 아이콘 */}</GBW.CameraBox>
           <input
             type="file"
             id="image-upload"
@@ -100,7 +98,6 @@ const GroupBoardWrite: React.FC = () => {
       </GBW.ImgUpload>
       <button onClick={handleCreatePost}>포스트 작성</button>
       <p>{responseMessage}</p>
-
     </GBW.Wrapper>
   );
 };
