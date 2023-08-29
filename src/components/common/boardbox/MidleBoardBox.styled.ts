@@ -28,7 +28,7 @@ export const TextImgBox = styled.div`
   width: 100%;
   height: 230px;
   & div {
-    padding: 5px 0;
+    padding: 4px;
     font-size: 15px;
   }
 `;
@@ -52,20 +52,22 @@ export const ImgBox = styled.div`
 
 export const TextBox = styled.div`
   width: 90%;
-  height: 55%;
+  height: 140px;
   text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 10px;
 `;
 
 export const GroupName = styled.div`
   font-size: 16px;
   font-weight: 600;
-  padding: 5px;
 `;
 
 export const GroupIntro = styled.div`
-  padding: 5px;
-  font-weight: 500;
+  width: 95%;
+  height: 70px;
   color: #707070;
   font-size: 14px;
-  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

@@ -3,19 +3,19 @@ import styled from 'styled-components';
 
 function NextFooter() {
   return (
-    <Wrapper>
-      <Display>
-        <NextBtn>
+    <NFWrapper>
+      <NFDisplay>
+        <NFNextBtn>
           <button>다음</button>
-        </NextBtn>
-      </Display>
-    </Wrapper>
+        </NFNextBtn>
+      </NFDisplay>
+    </NFWrapper>
   );
 }
 
 export default NextFooter;
 
-const Wrapper = styled.div`
+const NFWrapper = styled.div`
   position: fixed;
   bottom: 0;
   height: 70px;
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 border-right: 1px solid #ddd;
 `;
 
-const Display = styled.div`
+const NFDisplay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@ const Display = styled.div`
   width: 100%;
 `;
 
-const NextBtn = styled.div`
+const NFNextBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

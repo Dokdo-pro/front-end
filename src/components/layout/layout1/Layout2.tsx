@@ -3,6 +3,7 @@ import LeftScreen from '../leftscreen/LeftScreen';
 import { LayoutContainer, Children, Left, Right } from './Layout1.styled';
 import GroupApplyFooter from '../footer/GroupApplyFooter';
 import GroupHeader from '../header/GroupHeader';
+import Header from '../header/Header';
 
 interface Layout2Props {
   children: ReactNode;
@@ -15,7 +16,7 @@ function Layout2({ children }: Layout2Props) {
         <LeftScreen />
       </Left>
       <Right>
-        <GroupHeader />
+       <Header />
         <Children>{children}</Children>
         <GroupApplyFooter />
       </Right>

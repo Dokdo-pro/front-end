@@ -41,7 +41,7 @@ function BoardBox({ data, isMainPage }: BoardBoxProps) {
   const navigate = useNavigate();
 
   const generateGroupDetailURL = (sequence: string): string => {
-    return `/group/detail/${sequence}`;
+    return `/group/${sequence}/detail`;
   };
 
   const handleClick = () => {

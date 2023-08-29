@@ -6,7 +6,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './styles.css';
 import MidleBoardBox from '../boardbox/MidleBoardBox';
-import axios from 'axios'; // Axios를 사용하여 API 요청을 하기 위해 가져옵니다.
+import axios from 'axios';
+
+// MidleBoardData 타입 임포트
+import { MidleBoardData } from '../boardbox/MidleBoardBox'; // 파일 경로에 맞게 수정해야 합니다.
 
 // 서버에서 인기 데이터를 가져오는 함수
 async function fetchPopularData() {
@@ -17,12 +20,12 @@ async function fetchPopularData() {
     return response.data.data;
   } catch {
     console.log('error');
+    return [];
   }
 }
 
-// 수정된 Slider3 컴포넌트
 export default function Slider3() {
-  const [popularData, setPopularData] = useState([]);
+  const [popularData, setPopularData] = useState<MidleBoardData[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -38,25 +41,21 @@ export default function Slider3() {
   }, []);
 
   return (
-    <>
-      <Swiper
-        //@ts-ignore
-        keyboard={true}
-        mousewheel={true}
-        cssMode={true}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Navigation, Pagination]}
-        className="mySwiper"
-      >
-        {popularData.map((item, index) => (
-          <SwiperSlide key={index}>
-            <MidleBoardBox data={item} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
+    <Swiper
+    //@ts-ignore
+      keyboard={true}
+      mousewheel={true}
+      cssMode={true}
+      navigation={true}
+      pagination={{ clickable: true }}
+      modules={[Navigation, Pagination]}
+      className="mySwiper"
+    >
+      {popularData.map((item, index) => (
+        <SwiperSlide key={index}>
+          {item.name && <MidleBoardBox data={item} />}
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }

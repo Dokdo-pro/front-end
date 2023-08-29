@@ -46,6 +46,10 @@ export const ClickBox = styled.div`
   margin: 20px;
 `;
 
+export const NoResultText = styled.div`
+  color: blue;
+`;
+
 export const ChoiceImageGroup = styled.div`
   display: flex;
   flex-direction: column;

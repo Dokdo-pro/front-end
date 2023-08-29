@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import searchIcon from '../../../assets/icon/Search.png';
 import notificationIcon from '../../../assets/icon/Bell.png';
+import Logo from '../../../assets/img/Logo2.png';
 
 function BackSearchHeader() {
   const navigate = useNavigate();
@@ -17,7 +18,11 @@ function BackSearchHeader() {
         <BackBtn>
           <button onClick={goBack}>←</button>
         </BackBtn>
-        <div>props</div>
+        <Link to="/">
+        <TopLogo>
+          <img src={Logo} alt="독도로고" />
+        </TopLogo>
+        </Link>
         <Nav>
           <Link to="/search">
             <StlyedImg src={searchIcon} alt="돋보기 아이콘" />
@@ -74,4 +79,14 @@ const BackBtn = styled.div`
 const StlyedImg = styled.img`
   width: 27px;
   height: 27px;
+`;
+
+const TopLogo = styled.div`
+  width: 55px;
+  height: 27px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 `;

@@ -4,7 +4,7 @@ import BoardImgBox from './BoardImgBox';
 import { useNavigate } from 'react-router-dom';
 import defaultImage from '../../../assets/img/Logo1.png';
 
-interface MidleBoardData {
+export interface MidleBoardData {
   _id: string;
   group_id: number;
   post_id: number;
@@ -36,7 +36,7 @@ function MidleBoardBox({ data }: MidleBoardBoxProps) {
 
   // 모임 상세 페이지 URL을 생성하는 함수
   const generateGroupDetailURL = (sequence: string): string => {
-    return `/group/detail/${sequence}`;
+    return `/group/${sequence}/detail`;
   };
 
   // 보드박스 클릭 시 모임 상세 페이지로 이동
@@ -47,29 +47,30 @@ function MidleBoardBox({ data }: MidleBoardBoxProps) {
     }
   };
 
-
-   if (!data) {
+  if (!data) {
     return null;
   }
 
-   const {  name, introduction } = data;
+  const { name, introduction } = data;
   const imageSource = data.profile || defaultImage;
-
-
 
   return (
     <MB.Container onClick={handleClick}>
-        <MB.Border>
-          <MB.TextImgBox>
-            <MB.ImgBox>
-                     <BoardImgBox data={{ profile: imageSource }} />
-            </MB.ImgBox>
-            <MB.TextBox>
+      <MB.Border>
+        <MB.TextImgBox>
+          <MB.ImgBox>
+            <BoardImgBox data={{ profile: imageSource }} />
+          </MB.ImgBox>
+          <MB.TextBox>
+            <div>
             <MB.GroupName>{name}</MB.GroupName>
+            </div>
+            <div>
             <MB.GroupIntro>"{introduction}"</MB.GroupIntro>
-            </MB.TextBox>
-          </MB.TextImgBox>
-        </MB.Border>
+            </div>
+          </MB.TextBox>
+        </MB.TextImgBox>
+      </MB.Border>
     </MB.Container>
   );
 }

@@ -3,18 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import {
   Container,
   ResultText,
-  SocialIcons,
-  SocialIcon,
-  SocialIconImage,
+  // SocialIcons,
+  // SocialIcon,
+  // SocialIconImage,
   ResultImage,
   ReviewButton,
   TestInstructions,
   RepeatButton,
 } from './OXTestResult.Style';
 import questionsData from '../../assets/data/ox-questions.json';
-import facebookIcon from '../../assets/img/facebook.png';
-import twitterIcon from '../../assets/img/twitter.png';
-import kakaoIcon from '../../assets/img/카카오톡아이콘.png';
+// import facebookIcon from '../../assets/img/facebook.png';
+// import twitterIcon from '../../assets/img/twitter.png';
+// import kakaoIcon from '../../assets/img/카카오톡아이콘.png';
 
 import pigImage from '../../assets/img/pig-image.jpeg';
 import smartImage from '../../assets/img/smart-image.jpeg';
@@ -55,7 +55,7 @@ const OXTestResult: React.FC<OXTestResultProps> = ({ userAnswers }) => {
       <ResultText>{`${correctAnswers} / ${questionsData.questions.length}`}</ResultText>
       <ResultImage src={imageSource} alt="Result" /> {/* 이미지 출력 */}
       <ReviewButton>👉 틀린 문제 확인하기 👈</ReviewButton>
-      <SocialIcons>
+      {/* <SocialIcons>
         <SocialIcon href="https://facebook.com">
           <SocialIconImage src={facebookIcon} alt="Facebook" />
         </SocialIcon>
@@ -65,7 +65,7 @@ const OXTestResult: React.FC<OXTestResultProps> = ({ userAnswers }) => {
         <SocialIcon href="https://www.kakaocorp.com">
           <SocialIconImage src={kakaoIcon} alt="Kakao" />
         </SocialIcon>
-      </SocialIcons>
+      </SocialIcons> */}
       <TestInstructions>
         주변 사람들에게 공유해서 서로의 문장 독해력 수준을 확인해보세요!
       </TestInstructions>

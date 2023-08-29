@@ -92,7 +92,7 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/group/detail/:id"
+        path="/group/:groupId/detail"
         element={
           <Layout3>
             <GroupDetail />
@@ -101,7 +101,7 @@ const MainRoutes = () => {
       />
 
       <Route
-        path="/group/board/detail/:id"
+        path="/group/:id/boarddetail"
         element={
           <Layout3>
             <GroupBoardDetail />
@@ -109,7 +109,7 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/group/board/write/:id"
+        path="/group/:groupId/boardwrite"
         element={
           <Layout3>
             <GroupBoardWrite />
@@ -117,7 +117,7 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/group/board"
+        path="/group/:groupId/board"
         element={
           <Layout3>
             <GroupBoard />
@@ -125,7 +125,7 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/group/photo/detail/:id"
+        path="/group/:id/photo/:id"
         element={
           <Layout3>
             <PhotoAlbumDetail />
@@ -133,7 +133,7 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/group/photo/write/:id"
+        path="/group/:groupId/photowrite"
         element={
           <Layout3>
             <PhotoAlbumWrite />
@@ -141,7 +141,7 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/group/photo"
+        path="/group/:groupId/photo"
         element={
           <Layout3>
             <PhotoAlbum />

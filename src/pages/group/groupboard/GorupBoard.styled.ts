@@ -10,11 +10,16 @@ export const Wrapper = styled.div`
 export const GroupBoardTitle = styled.div`
   height: 40px;
   width: 100%;
-  background-color: #84614b;
-  color: white;
+  background-color: #fdf8ef;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 700;
+`;
+
+export const InputDisplay = styled.div`
+  margin-top: 62px;
 `;
 
 export const GroupBoardList = styled.ul`

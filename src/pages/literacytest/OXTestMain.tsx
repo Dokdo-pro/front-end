@@ -5,19 +5,19 @@ import {
   menuItem as MenuItem,
   image as Image,
   startButton as StartButton,
-  socialIcons as SocialIcons,
-  socialIcon as SocialIcon,
-  socialIconImage as SocialIconImage,
-  participantsContainer as ParticipantsContainer,
+  // socialIcons as SocialIcons,
+  // socialIcon as SocialIcon,
+  // socialIconImage as SocialIconImage,
+  // participantsContainer as ParticipantsContainer,
   StyledLink,
   MenuText,
   TestInstructions,
 } from './OXTestMain.Style';
 import { useNavigate } from 'react-router-dom';
 import OXTestImage from '../../assets/img/ox퀴즈.png';
-import facebookIcon from '../../assets/img/facebook.png';
-import twitterIcon from '../../assets/img/twitter.png';
-import kakaoIcon from '../../assets/img/카카오톡아이콘.png';
+// import facebookIcon from '../../assets/img/facebook.png';
+// import twitterIcon from '../../assets/img/twitter.png';
+// import kakaoIcon from '../../assets/img/카카오톡아이콘.png';
 import { useLocation } from 'react-router-dom';
 
 const OXTestMain: React.FC = () => {
@@ -87,7 +87,7 @@ const OXTestMain: React.FC = () => {
         바로 테스트 시작하기 버튼을 눌러주세요 !
       </TestInstructions>
       <StartButton onClick={handleStartTest}>테스트 시작하기</StartButton>
-      <SocialIcons>
+      {/* <SocialIcons>
         <SocialIcon href="https://facebook.com">
           <SocialIconImage src={facebookIcon} alt="Facebook" />
         </SocialIcon>
@@ -98,7 +98,7 @@ const OXTestMain: React.FC = () => {
           <SocialIconImage src={kakaoIcon} alt="Facebook" />
         </SocialIcon>
         {/* 여기에 더 많은 소셜 아이콘 추가 가능 */}
-      </SocialIcons>
+      {/* </SocialIcons> */}
     </Container>
   );
 };

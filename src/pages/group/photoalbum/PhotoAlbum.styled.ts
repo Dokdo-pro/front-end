@@ -10,12 +10,22 @@ export const Wrapper = styled.div`
 export const GroupPhotoTitle = styled.div`
   height: 40px;
   width: 100%;
-  background-color: #84614b;
-  color: white;
+  background-color: #fdf8ef;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
+  font-weight: 700;
+    box-sizing: border-box;
+  border-top: 0.5 solid #dbdbdb;
+  border-bottom: 0.5 solid #dbdbdb;
+`;
+
+
+
+export const InputDisplay = styled.div`
+  margin-top: 62px;
 `;
 
 export const PhotoList = styled.div`

@@ -4,8 +4,9 @@ import * as GR from './Group.styled';
 import GroupTitleImg from '../../../assets/img/독서장려이미지.jpeg';
 import MoreButton from '../../../components/common/morebutton/MoreButton';
 import BoardBox from '../../../components/common/boardbox/BoardBox';
-import Slider2 from '../../../components/common/slider/Slider2';
 import axios from 'axios';
+
+import Slider2 from '../../../components/common/slider/Slider2';
 
 // API 요청 함수 추가
 async function fetchAllGroupData() {

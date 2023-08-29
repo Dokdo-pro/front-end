@@ -4,21 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import {
   Container,
   ResultText,
-  SocialIcons,
-  SocialIcon,
-  SocialIconImage,
+  // SocialIcons,
+  // SocialIcon,
+  // SocialIconImage,
   ResultImage,
   ReviewButton,
   TestInstructions,
   RepeatButton,
 } from './LiteracytestResult.Style';
-import facebookIcon from '../../assets/img/facebook.png';
-import twitterIcon from '../../assets/img/twitter.png';
-import kakaoIcon from '../../assets/img/카카오톡아이콘.png';
+// import facebookIcon from '../../assets/img/facebook.png';
+// import twitterIcon from '../../assets/img/twitter.png';
+// import kakaoIcon from '../../assets/img/카카오톡아이콘.png';
 
 import pigImage from '../../assets/img/pig-image.jpeg';
 import smartImage from '../../assets/img/smart-image.jpeg';
-import geniusImage from '../../assets/img/genius-image.jpeg';
+// import geniusImage from '../../assets/img/genius-image.jpeg';
 //import godImage from '../../assets/img/god-image.png';
 //import defaultImage from '../../assets/img/default-image.png';
 
@@ -64,7 +64,7 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
       <ResultText>{`${correctAnswers} / ${questions.questions.length}`}</ResultText>
       <ResultImage src={imageSource} alt="Result" />
       <ReviewButton>👉 틀린 문제 확인하기 👈</ReviewButton>
-      <SocialIcons>
+      {/* <SocialIcons>
         <SocialIcon href="https://facebook.com">
           <SocialIconImage src={facebookIcon} alt="Facebook" />
         </SocialIcon>
@@ -74,7 +74,7 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
         <SocialIcon href="https://www.kakaocorp.com">
           <SocialIconImage src={kakaoIcon} alt="Kakao" />
         </SocialIcon>
-      </SocialIcons>
+      </SocialIcons> */}
       <TestInstructions>
         주변 사람들에게 공유해서 서로의 문장 독해력 수준을 확인해보세요!
       </TestInstructions>

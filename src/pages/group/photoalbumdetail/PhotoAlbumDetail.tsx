@@ -1,7 +1,6 @@
 
 import * as PAD from './PhotoAlbumDetail.styled'
 import Slider from '../../../components/common/slider/Slider';
-import GroupHeader from '../../../components/layout/header/GroupHeader';
 
 interface PhotoAlbumDetailData {
   _id: string;
@@ -19,7 +18,6 @@ interface PhotoAlbumDetailDataProps {
 const PhotoAlbumDetail = ({ data }: PhotoAlbumDetailDataProps) => {
   return (
     <PAD.Wrapper>
-<GroupHeader />
       <PAD.GroupBoardTitle>
         <div>모임 이름</div>
       </PAD.GroupBoardTitle>

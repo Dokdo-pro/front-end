@@ -4,6 +4,7 @@ import { LayoutContainer, Children, Left, Right } from './Layout1.styled';
 
 import GroupHeader from '../header/GroupHeader';
 import Footer from '../footer/Footer';
+import Header from '../header/Header';
 
 interface Layout4Props {
   children: ReactNode;
@@ -16,7 +17,7 @@ function Layout4({ children }: Layout4Props) {
         <LeftScreen />
       </Left>
       <Right>
-        <GroupHeader />
+       <Header />
         <Children>{children}</Children>
         <Footer />
       </Right>

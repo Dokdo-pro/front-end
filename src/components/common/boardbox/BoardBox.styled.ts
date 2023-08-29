@@ -64,10 +64,11 @@ export const GroupName = styled.div`
 `;
 
 export const Intro = styled.div`
-  width: 95%;
+   width: 95%;
   color: #707070;
   font-size: 14px;
   overflow: hidden;
+  white-space: nowrap; 
   text-overflow: ellipsis;
   padding: 3px 0;
 `;
