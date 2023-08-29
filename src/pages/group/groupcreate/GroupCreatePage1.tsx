@@ -1,6 +1,5 @@
-// GroupCreatePage1.tsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // 추가
+import { useNavigate } from 'react-router-dom';
 import {
   Container,
   Title,
@@ -11,11 +10,13 @@ import {
   Input,
   SubmitButton,
 } from './GroupCreatePage1.Styled';
+import axios from 'axios'; // API 요청을 위해 axios를 가져옴
+
 
 interface GroupCreatePage1Data {
-  name: string; // 변경: title -> name
-  introduction: string; // 변경: description -> introduction
-  //image: File | null;
+  name: string;
+  introduction: string;
+  image: File | null; // 이미지 파일 또는 null
 }
 
 interface GroupCreatePage1Props {
@@ -29,28 +30,60 @@ const GroupCreatePage1: React.FC<GroupCreatePage1Props> = ({
   updateData,
   handleNext,
 }) => {
-  const [name, setName] = useState(data.name); // 변경: title -> name
-  const [introduction, setIntroduction] = useState(data.introduction); // 변경: description -> introduction
-  //const [image, setImage] = useState<File | null>(data.image);
-  const navigate = useNavigate(); // 추가
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // 모임 정보 제출 로직
-    updateData({
-      name, // 변경: title -> name
-      introduction, // 변경: description -> introduction
-      //image,
-    });
-
-    handleNext();
-
-    navigate('/create-group/step2');
-  };
+  const [image, setImage] = useState<File | null>(null);
+  const [name, setName] = useState(data.name);
+  const [introduction, setIntroduction] = useState(data.introduction);
+  const navigate = useNavigate();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      //(e.target.files[0]);
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      let uploadedImageName = null;
+      if (image) {
+        uploadedImageName = await uploadImage();
+      }
+
+      updateData({
+        name,
+        introduction,
+        image: uploadedImageName,
+      });
+
+      handleNext();
+
+      navigate('/create-group/step2');
+    } catch (error: any) {
+      console.error('에러:', error);
+    }
+  };
+
+  const uploadImage = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('img', image!, 'img');
+
+      const uploadResponse = await axios.post(
+        'http://localhost:3001/api/v1/group/images',
+        formData,
+        { withCredentials: true }
+      );
+
+      if (uploadResponse.data.error === null) {
+        return uploadResponse.data.data[0];
+      } else {
+        console.error('이미지 업로드 실패:', uploadResponse.data.error);
+        throw new Error('이미지 업로드 실패');
+      }
+    } catch (error) {
+      console.error('이미지 업로드 에러:', error);
+      throw error;
     }
   };
   return (

@@ -12,6 +12,8 @@ interface PostData {
   createdAt: string;
   updatedAt: string;
   __v: number;
+  content: string;
+  images: string[]; // 이미지 파일명 배열
 }
 
 interface PostBoxProps {
@@ -26,12 +28,11 @@ interface UserData {
 function MyPostsComponent({ data }: PostBoxProps) {
   const navigate = useNavigate();
   const [myPosts, setMyPosts] = useState<PostData[]>([]);
-  const [selectedPosts, setSelectedPosts] = useState<any[]>([]); // 추가: 선택된 포스트 정보를 저장할 상태
-  const [userData, setUserData] = useState<UserData | null>(null); // 추가: 유저 정보 상태
-  
-   useEffect(() => {
-     // 먼저 유저 정보를 가져옵니다.
-     const loginToken = getCookie('loginToken');
+  const [selectedPosts, setSelectedPosts] = useState<PostData[]>([]);
+  const [userData, setUserData] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    const loginToken = getCookie('loginToken');
 
     axios
       .get('http://localhost:3001/api/v1/auth/me', {
@@ -55,7 +56,6 @@ function MyPostsComponent({ data }: PostBoxProps) {
 
   useEffect(() => {
     const loginToken = getCookie('loginToken');
-    const loginToken = getCookie('loginToken');
     axios
       .get(`http://localhost:3001/api/v1/auth/me/posts`, {
         headers: {
@@ -67,9 +67,10 @@ function MyPostsComponent({ data }: PostBoxProps) {
         if (postsResponse.data.error === null) {
           const userPosts: PostData[] = postsResponse.data.data;
           setMyPosts(userPosts);
-          
-          // 모든 포스트를 가져오기 위한 함수
+
           const fetchAllPosts = async () => {
+            const selectedPostsWithImages: PostData[] = [];
+
             for (const post of userPosts) {
               try {
                 const postResponse = await axios.get(
@@ -104,36 +105,36 @@ function MyPostsComponent({ data }: PostBoxProps) {
 
   return (
     <MyPostsStyle.Container>
-      <MyPostsStyle.Wrapper>
-        <MyPostsStyle.GroupBoardList>
-          {userData &&
-            selectedPosts.map(selectedPost => (
-              <MyPostsStyle.Boardbox key={selectedPost._id}>
-                <MyPostsStyle.BoardLeft>
-                  <MyPostsStyle.ProfileData>
-                    <MyPostsStyle.ProfileImg
-                      src={userData.profilePic}
-                      alt={`${userData.name}의 프로필 사진`}
-                    />
-                    <MyPostsStyle.UpdatedProfile>
-                      <MyPostsStyle.Writer>{userData.name}</MyPostsStyle.Writer>
-                      <MyPostsStyle.PostedDate>
-                        {selectedPost.createdAt}
-                      </MyPostsStyle.PostedDate>
-                    </MyPostsStyle.UpdatedProfile>
-                  </MyPostsStyle.ProfileData>
-
-                  <MyPostsStyle.Content>{selectedPost.content}</MyPostsStyle.Content>
-                </MyPostsStyle.BoardLeft>
-                <MyPostsStyle.BoardImg
-                  src={`http://localhost:3001/api/v1/image/post/${selectedPost.images[0]}`} // 이미지 URL 설정
-                  alt="게시된 이미지"
-                />
-              </MyPostsStyle.Boardbox>
-            ))}
-        </MyPostsStyle.GroupBoardList>
-      </MyPostsStyle.Wrapper>
-    </MyPostsStyle.Container>
+    <MyPostsStyle.Wrapper>
+      <MyPostsStyle.GroupBoardList>
+        {userData &&
+          selectedPosts.map(selectedPost => (
+            <MyPostsStyle.Boardbox key={selectedPost._id}>
+              <MyPostsStyle.BoardLeft>
+                <MyPostsStyle.ProfileData>
+                  <MyPostsStyle.ProfileImg
+                    src={userData.profilePic}
+                    alt={`${userData.name}의 프로필 사진`}
+                  />
+                  <MyPostsStyle.UpdatedProfile>
+                    <MyPostsStyle.Writer>{userData.name}</MyPostsStyle.Writer>
+                    <MyPostsStyle.PostedDate>
+                      {selectedPost.createdAt}
+                    </MyPostsStyle.PostedDate>
+                  </MyPostsStyle.UpdatedProfile>
+                </MyPostsStyle.ProfileData>
+  
+                <MyPostsStyle.Content>{selectedPost.content}</MyPostsStyle.Content>
+              </MyPostsStyle.BoardLeft>
+              <MyPostsStyle.BoardImg
+                src={`http://localhost:3001/api/v1/image/post/${selectedPost.images[0]}`} // 이미지 URL 설정
+                alt="게시된 이미지"
+              />
+            </MyPostsStyle.Boardbox>
+          ))}
+      </MyPostsStyle.GroupBoardList>
+    </MyPostsStyle.Wrapper>
+  </MyPostsStyle.Container>
   );
 }
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import GroupImg from '../../../assets/img/독서모임3.jpg';
 import axios from 'axios';
 import { getCookie } from '../../../helper/Cookie';
 import * as GD from './GroupDetail.styled';
@@ -26,6 +25,8 @@ function GroupDetail() {
     age: string;
     place: string;
     introduction: string;
+    img: string;
+    profile:string[];
     search: {
       _id: string;
       location: string;
@@ -138,7 +139,7 @@ function GroupDetail() {
       </GD.GroupHeader>
 
       <GD.GroupImage>
-        <img src={GroupImg} alt="모임 설정 이미지" />
+        <img src={groupData.profile[0]} alt="모임 설정 이미지" />
       </GD.GroupImage>
       <GD.GroupInfo>
         <GD.EditButton>

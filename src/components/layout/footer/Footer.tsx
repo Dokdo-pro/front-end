@@ -23,7 +23,7 @@ function Footer() {
           <img src={groupIcon} alt="내 모임 아이콘" />
           <div>둘러보기</div>
         </FT.StyledLink>
-        <FT.StyledLink to="/freeboard/list">
+        <FT.StyledLink to="/create-group/step1">
           <img src={boardIcon} alt="자유 게시판 아이콘" />
           <div>모임 등록</div>
         </FT.StyledLink>
