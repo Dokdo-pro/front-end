@@ -61,7 +61,7 @@ function Main() {
           <BoardBox key={index} data={groupItem} isMainPage={isMainPage}/>
         ))}
       </M.GroupList>
-      <MoreButton to="/group/list">더보기</MoreButton>
+      <MoreButton to="/group/list">전체보기</MoreButton>
 
       <M.GroupTop10>
         <M.GroupTopTitle>

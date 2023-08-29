@@ -61,8 +61,8 @@ export const ChoiceSelect = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  padding-top: 10px;
+  width: 425px;
+  padding: 10px;
 `;
 
 export const ChoiceGroupBoard = styled.div`
@@ -70,6 +70,26 @@ export const ChoiceGroupBoard = styled.div`
   flex-direction: column;
   align-items: center;
   width: 90%;
+`;
+
+export const NoResultBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 30px 0;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 `;
 
 export const ChoiceBoxTitle = styled.div`

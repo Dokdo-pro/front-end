@@ -69,7 +69,9 @@ const LiteracyTestMain: React.FC = () => {
       <MenuText>
         내 <span>문해력</span>은 몇 점?
       </MenuText>
+      <div>
       <Image src={literacyTestImage} alt="Description" />
+      </div>
       <TestInstructions>
         테스트는 <span className="strongHighlight">10개의 문항</span>으로
         구성되어 있습니다.

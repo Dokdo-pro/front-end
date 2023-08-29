@@ -72,6 +72,24 @@ function GroupBoard() {
     fetchData(Number(groupId));
   }, [loginToken, groupId]);
 
+
+  const [sortBy, setSortBy] = useState('like');
+
+  function sortGroupData(groupData: GroupItem[]) {
+    switch (sortBy) {
+      case 'like':
+        return groupData.sort((a, b) => likeCounts[b.post_id] - likeCounts[a.post_id]);
+      case 'comment':
+        return groupData.sort((a, b) => commentCounts[b.post_id] - commentCounts[a.post_id]);
+      default:
+        return groupData;
+    }
+  }
+
+
+
+
+
   async function fetchAdditionalData(groupData: GroupItem[]) {
     const promises = groupData.map(async item => {
       try {
@@ -104,6 +122,7 @@ function GroupBoard() {
                 withCredentials: true,
               },
             ),
+
             axios.get(
               `http://localhost:3001/api/v1/group/${item.group_id}/posts/${item.post_id}`,
               {
@@ -114,6 +133,7 @@ function GroupBoard() {
               },
             ),
           ]);
+
         const likeNum = likeResponse.data.data.likeNum;
         const commentNum = commentResponse.data.data.length;
         const userName = userResponse.data.data.name;
@@ -150,6 +170,8 @@ function GroupBoard() {
     await Promise.all(promises);
   }
 
+  
+
   if (!groupData) {
     return <div>로딩 중...</div>;
   }
@@ -171,24 +193,15 @@ function GroupBoard() {
           groupData.map((groupItem, index) => (
             <GB.Boardbox key={index}>
               <GB.BoardLeft>
-                <GB.User>
+                <div>유저 이름: {userDetails[groupItem.user_id]?.name}</div>
+                <div>
+                  유저 프로필:
                   <img
                     src={`/${userDetails[groupItem.user_id]?.profilePic}`}
-                    alt="게시자 이름"
+                    alt="프로필 사진"
                   />
-                  <div>
-                    {userDetails[groupItem.user_id]?.name}
-                    <br />
-                    <div>
-                      {userDetails[groupItem.user_id]?.name}
-                      <br />
-                      {new Date(groupItem.createdAt).toLocaleString()}{' '}
-                    </div>
-                  </div>
-                </GB.User>
-                <GB.BoardContent>
-                  {postDetails[groupItem.post_id]?.content}
-                </GB.BoardContent>
+                </div>
+                <div>{postDetails[groupItem.post_id]?.content}</div>
                 <div>좋아요: {likeCounts[groupItem.post_id]}</div>
                 <div>댓글 개수: {commentCounts[groupItem.post_id]}</div>
               </GB.BoardLeft>

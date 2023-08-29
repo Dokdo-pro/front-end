@@ -89,6 +89,10 @@ export const image = styled.img`
   margin-top: 20px;
 `;
 
+
+
+
+
 export const startButton = styled.button`
   padding: 20px 66px;
   font-size: 20px;

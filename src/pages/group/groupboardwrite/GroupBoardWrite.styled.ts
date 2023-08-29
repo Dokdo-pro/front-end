@@ -69,9 +69,7 @@ export const ImgUpload = styled.div`
   margin: 20px 0;
   width: 95%;
 
-  & input {
-    display: none;
-  }
+
 `;
 
 export const ImgFileTitle = styled.div`
@@ -103,9 +101,7 @@ export const CameraBox = styled.div`
   width: 250px;
 `;
 
-export const FileInput = styled.input`
-  display: none;
-`;
+
 
 export const Label = styled.label`
   background-color: white;
