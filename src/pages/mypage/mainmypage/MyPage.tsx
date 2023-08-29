@@ -11,7 +11,7 @@ function MyPageComponent() {
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState<{
-    name: string;
+    name: any;
     profilePic: string;
     introduction: string;
   } | null>(null);
