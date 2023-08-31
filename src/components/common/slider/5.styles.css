@@ -1,0 +1,54 @@
+#Slider {
+  height: 100%;
+}
+/* html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: blue;
+  font-family:
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+} */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 30px;
+}
+
+.swiper-slide img {
+  width: 474px;
+  height: 270px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.ImageRow {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin: 40px 50px 10px;
+}

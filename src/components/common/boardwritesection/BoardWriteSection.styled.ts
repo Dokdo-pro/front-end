@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Select = styled.select`
+  margin-top: 60px;
   width: 90%;
   height: 50px;
   border: none;

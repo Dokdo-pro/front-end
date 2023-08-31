@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
-import LeftScreen from '../leftscreen/LeftScreen';
-import { LayoutContainer, Children, Left, Right } from './Layout1.styled';
-import GroupApplyFooter from '../footer/GroupApplyFooter';
-import GroupHeader from '../header/GroupHeader';
+import LeftScreen from '@/components/layout/leftscreen/LeftScreen';
+import { LayoutContainer, Children, Left, Right } from '@/components/layout/layout1/Layout1.styled'
+import GroupApplyFooter from '@/components/layout/footer/GroupApplyFooter';
+import Header from '@/components/layout/header/Header';
+
 
 interface Layout2Props {
   children: ReactNode;
@@ -15,7 +16,7 @@ function Layout2({ children }: Layout2Props) {
         <LeftScreen />
       </Left>
       <Right>
-        <GroupHeader />
+       <Header />
         <Children>{children}</Children>
         <GroupApplyFooter />
       </Right>

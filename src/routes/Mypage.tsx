@@ -1,21 +1,21 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import LoginComponent from '../pages/login/Login';
-import SignupComponent from '../pages/signup/Signup';
-import SignupSuccessComponent from '../pages/signupsuccess/Signupsuccess';
-import EditProfileComponent from '../pages/mypage/editprofile/EditProfile';
-import InquiredSuccessComponent from '../pages/mypage/inquiredsuccess/InquiredSuccess';
-import InquiryComponent from '../pages/mypage/inquiry/Inquiry';
-import LikedGroupsComponent from '../pages/mypage/likedgroups/LikedGroups';
-import MyGroupsComponent from '../pages/mypage/mygroups/MyGroups';
-import MyPageComponent from '../pages/mypage/mainmypage/MyPage';
-import MyPostsComponent from '../pages/mypage/myposts/MyPosts';
-import DeleteAccountComponent from '../pages/mypage/deleteaccount/DeleteAccount';
-import Layout1 from '../components/layout/layout1/Layout1';
-import Layout6 from '../components/layout/layout1/Layout6';
-import Layout8 from '../components/layout/layout1/Layout8';
-import Layout3 from '../components/layout/layout1/Layout3';
+import LoginComponent from '@/pages/login/Login';
+import SignupComponent from '@/pages/signup/Signup';
+import SignupSuccessComponent from '@/pages/signupsuccess/Signupsuccess';
+import EditProfileComponent from '@/pages/mypage/editprofile/EditProfile';
+import InquiredSuccessComponent from '@/pages/mypage/inquiredsuccess/InquiredSuccess';
+import InquiryComponent from '@/pages/mypage/inquiry/Inquiry';
+import LikedGroupsComponent from '@/pages/mypage/likedgroups/LikedGroups';
+import MyGroupsComponent from '@/pages/mypage/mygroups/MyGroups';
+import MyPageComponent from '@/pages/mypage/mainmypage/MyPage';
+import MyPostsComponent from '@/pages/mypage/myposts/MyPosts';
+import DeleteAccountComponent from '@/pages/mypage/deleteaccount/DeleteAccount';
+import Layout1 from '@/components/layout/layout1/Layout1';
+import Layout6 from '@/components/layout/layout1/Layout6';
+import Layout8 from '@/components/layout/layout1/Layout8';
+import Layout3 from '@/components/layout/layout1/Layout3';
 
 const MypageRoutes = () => {
   return (
@@ -87,9 +87,9 @@ const MypageRoutes = () => {
       <Route
         path="/user/mypage/editprofile"
         element={
-          <Layout6>
+          <Layout8>
             <EditProfileComponent />
-          </Layout6>
+          </Layout8>
         }
       />
 
@@ -115,9 +115,9 @@ const MypageRoutes = () => {
       <Route
         path="/user/mypage"
         element={
-          <Layout3>
+          <Layout8>
             <MyPageComponent />
-          </Layout3>
+          </Layout8>
         }
       />
     </Routes>

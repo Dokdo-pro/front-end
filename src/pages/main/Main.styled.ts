@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
   width: 474px;
 `;
 
-
-
 export const StyledGroupLink = styled(Link)`
   width: 90%;
   padding: 20px 0 10px 20px;
@@ -22,8 +20,11 @@ export const GridContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   height: 100%;
   width: 90%;
+  margin: 30px 0 15px 0;
+  font-size: 20px;
 `;
 export const ImageRow = styled.div`
   display: flex;
@@ -48,7 +49,10 @@ export const GroupList = styled.div`
   margin-bottom: 20px;
 `;
 
-export const GroupBoxTitle = styled.div``;
+export const GroupBoxTitle = styled.div`
+  font-weight: 700;
+  font-size: 20px;
+`;
 
 export const GroupTop10 = styled.div`
   display: flex;
@@ -56,7 +60,7 @@ export const GroupTop10 = styled.div`
   align-items: center;
   border-top: 15px solid #f1f1f1;
   width: 474px;
-  margin-bottom: 20px;
+  margin: 20px;
 `;
 
 export const GroupTopTitle = styled.div`

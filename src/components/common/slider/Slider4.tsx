@@ -3,8 +3,8 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './styles.css';
-import ImageBox from '../imagebox/ImageBox';
+import '@/components/common/slider/styles.css';
+import ImageBox from '@/components/common/GenreBox/GenreBox';
 
 // 도서 장르 넣을 슬라이더
 export default function Slider4() {

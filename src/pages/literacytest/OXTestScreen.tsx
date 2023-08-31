@@ -3,16 +3,18 @@ import {
   Container,
   QuestionText,
   Options,
-  OptionButton,
+  OptionButton1,
+  OptionButton2,
+
   CurrentPosition,
   BackButton,
   Navigation,
   ProgressBarContainer,
   ProgressBarFiller,
-} from './OXTestScreen.Style';
+} from '@/pages/literacytest/OXTestScreen.Style';
 import { useNavigate } from 'react-router-dom';
-import questionsData from '../../assets/data/ox-questions.json';
-import backButtonImage from '../../assets/icon/Vector.png';
+import questionsData from '@/assets/data/ox-questions.json';
+import backButtonImage from '@/assets/icon/Vector.png';
 type OXTestScreenProps = {
   setUserAnswers: (answers: string[]) => void;
 };
@@ -57,8 +59,8 @@ const OXTestScreen: React.FC<OXTestScreenProps> = ({ setUserAnswers }) => {
       </ProgressBarContainer>
       <QuestionText>{questions[currentQuestion]?.question}</QuestionText>
       <Options>
-        <OptionButton onClick={() => handleNextQuestion('O')}>O</OptionButton>
-        <OptionButton onClick={() => handleNextQuestion('X')}>X</OptionButton>
+        <OptionButton1 onClick={() => handleNextQuestion('O')}>O</OptionButton1>
+        <OptionButton2 onClick={() => handleNextQuestion('X')}>X</OptionButton2>
       </Options>
     </Container>
   );

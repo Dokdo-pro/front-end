@@ -48,7 +48,7 @@ export const ContestTitle = styled.div`
 
 export const HotGroupTitle = styled.div`
   width: 90%;
-  padding: 20px 0 20px;
+  padding-bottom: 15px;
   font-size: 20px;
   font-weight: bold;
 `;
@@ -58,7 +58,7 @@ export const HotGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px 0 10px 0;
 `;
 
 export const StyledLink = styled(Link)`
@@ -67,5 +67,6 @@ export const StyledLink = styled(Link)`
 `;
 
 export const ContestBox = styled.div`
+border-top: 12px solid #F1F1F1;
   width: 100%;
 `;

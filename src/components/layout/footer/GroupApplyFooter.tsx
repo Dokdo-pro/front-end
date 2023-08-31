@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LikeIcon from '../../../assets/icon/Favorite.png';
+import LikeIcon from '@/assets/icon/Favorite.png';
 
 function GroupApplyFooter() {
   return (

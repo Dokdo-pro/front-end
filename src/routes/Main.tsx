@@ -1,45 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Main from '../pages/main/Main';
-import Search from '../pages/search/Search';
-import Group from '../pages/group/group/Group';
-import GroupList from '../pages/group/grouplist/GroupList';
-import GroupDetail from '../pages/group/groupdetail/GroupDetail';
-import GroupBoard from '../pages/group/groupboard/GroupBoard';
-import GroupBoardDetail from '../pages/group/groupboarddetail/GroupBoardDetail';
-import GroupBoardWrite from '../pages/group/groupboardwrite/GroupBoardWrite';
-import PhotoAlbum from '../pages/group/photoalbum/PhotoAlbum';
-import PhotoAlbumDetail from '../pages/group/photoalbumdetail/PhotoAlbumDetail';
-import PhotoAlbumWrite from '../pages/group/photoalbumwrite/PhotoAlbumWrite';
-import FreeBoardList from '../pages/freeboard/freeboardlist/FreeBoardList';
-import FreeBoardDetail from '../pages/freeboard/freeboardDetail/FreeBoardDetail';
-import FreeBoardWrite from '../pages/freeboard/freeboardwrite/FreeBoardWrite';
-import BookRec from '../pages/bookrec/BookRec';
-import Contest from '../pages/contest/Contest';
-import Notifications from '../pages/notifications/Notifications';
-import Likes from '../pages/likes/Likes';
-import Layout1 from '../components/layout/layout1/Layout1';
-import Layout2 from '../components/layout/layout1/Layout2';
-import ContestDetail from '../pages/contestdetail/ContestDetail';
-import BookRecDetail from '../pages/bookrecdetail/BookRecDetail';
-import Layout4 from '../components/layout/layout1/Layout4';
-import Layout3 from '../components/layout/layout1/Layout3';
-import Layout7 from '../components/layout/layout1/Layout7';
-import Layout8 from '../components/layout/layout1/Layout8';
-import Layout6 from '../components/layout/layout1/Layout6';
+import Main from '@/pages/main/Main';
+import Search from '@/pages/search/Search';
+import Group from '@/pages/group/group/Group';
+import GroupList from '@/pages/group/grouplist/GroupList';
+import GroupDetail from '@/pages/group/groupdetail/GroupDetail';
+import GroupBoard from '@/pages/group/groupboard/GroupBoard';
+import GroupBoardDetail from '@/pages/group/groupboarddetail/GroupBoardDetail';
+import GroupBoardWrite from '@/pages/group/groupboardwrite/GroupBoardWrite';
+import PhotoAlbum from '@/pages/group/photoalbum/PhotoAlbum';
+import PhotoAlbumDetail from '@/pages/group/photoalbumdetail/PhotoAlbumDetail';
+import PhotoAlbumWrite from '@/pages/group/photoalbumwrite/PhotoAlbumWrite';
+import GroupCreatePage1 from '@/pages/group/groupcreate/GroupCreatePage1';
+import GroupCreatePage2 from '@/pages/group/groupcreate/GroupCreatePage2';
+import GroupCreatePage3 from '@/pages/group/groupcreate/GroupCreatePage3';
+import BookRec from '@/pages/bookrec/BookRec';
+import Contest from '@/pages/contest/Contest';
+import Notifications from '@/pages/notifications/Notifications';
+import Likes from '@/pages/likes/Likes';
+import Layout1 from '@/components/layout/layout1/Layout1';
+import Layout3 from '@/components/layout/layout1/Layout3';
+import Layout8 from '@/components/layout/layout1/Layout8';
 
 const MainRoutes = () => {
+  // Group creation data
+  const [groupData, setGroupData] = useState({
+    name: '',
+    introduction: '',
+    image: null,
+    location: '',
+    age: '',
+    tag: [],
+    genre: '',
+    day: '',
+    place: '',
+  });
+
+  const updateGroupData = (newData: any) => {
+    setGroupData(prevData => ({ ...prevData, ...newData }));
+  };
+
   return (
     <Routes>
       <Route
-        path="/search"
+        path="/create-group/step1"
         element={
           <Layout8>
-            <Search />
+            <GroupCreatePage1
+              data={groupData}
+              updateData={updateGroupData}
+              handleNext={() => {
+                /*...some logic...*/
+              }}
+            />
           </Layout8>
         }
       />
-
+      <Route
+        path="/create-group/step2"
+        element={
+          <Layout8>
+            <GroupCreatePage2
+              data={groupData}
+              updateData={updateGroupData}
+              handleNext={() => {
+                /*...some logic...*/
+              }}
+            />
+          </Layout8>
+        }
+      />
+      <Route
+        path="/create-group/step3"
+        element={
+          <Layout8>
+            <GroupCreatePage3 data={groupData} updateData={updateGroupData} />
+          </Layout8>
+        }
+      />
       <Route
         path="/group/list"
         element={
@@ -49,60 +87,60 @@ const MainRoutes = () => {
         }
       />
       <Route
-        path="/group/detail/:id"
+        path="/group/:groupId/detail"
         element={
-          <Layout2>
+          <Layout3>
             <GroupDetail />
-          </Layout2>
+          </Layout3>
         }
       />
 
       <Route
-        path="/group/board/detail/:id"
+        path="/group/:groupId/board/:postsId"
         element={
-          <Layout7>
+          <Layout3>
             <GroupBoardDetail />
-          </Layout7>
+          </Layout3>
         }
       />
       <Route
-        path="/group/board/write/:id"
+        path="/group/:groupId/boardwrite"
         element={
-          <Layout6>
+          <Layout3>
             <GroupBoardWrite />
-          </Layout6>
+          </Layout3>
         }
       />
       <Route
-        path="/group/board"
+        path="/group/:groupId/board"
         element={
-          <Layout4>
+          <Layout3>
             <GroupBoard />
-          </Layout4>
+          </Layout3>
         }
       />
       <Route
-        path="/group/photo/detail/:id"
+        path="/group/:groupId/photo/:postsId"
         element={
-          <Layout7>
+          <Layout3>
             <PhotoAlbumDetail />
-          </Layout7>
+          </Layout3>
         }
       />
       <Route
-        path="/group/photo/write/:id"
+        path="/group/:groupId/photowrite"
         element={
-          <Layout6>
+          <Layout3>
             <PhotoAlbumWrite />
-          </Layout6>
+          </Layout3>
         }
       />
       <Route
-        path="/group/photo"
+        path="/group/:groupId/photo"
         element={
-          <Layout4>
+          <Layout3>
             <PhotoAlbum />
-          </Layout4>
+          </Layout3>
         }
       />
       <Route
@@ -113,30 +151,9 @@ const MainRoutes = () => {
           </Layout1>
         }
       />
-      <Route
-        path="/freeboard/list"
-        element={
-          <Layout1>
-            <FreeBoardList />
-          </Layout1>
-        }
-      />
-      <Route
-        path="/freeboard/detail"
-        element={
-          <Layout1>
-            <FreeBoardDetail />
-          </Layout1>
-        }
-      />
-      <Route
-        path="/freeboard/write/:id"
-        element={
-          <Layout1>
-            <FreeBoardWrite />
-          </Layout1>
-        }
-      />
+
+
+
       <Route
         path="/bookrec"
         element={
@@ -145,14 +162,7 @@ const MainRoutes = () => {
           </Layout1>
         }
       />
-      <Route
-        path="/bookrec/detail"
-        element={
-          <Layout1>
-            <BookRecDetail />
-          </Layout1>
-        }
-      />
+
       <Route
         path="/notifications"
         element={
@@ -161,14 +171,7 @@ const MainRoutes = () => {
           </Layout1>
         }
       />
-      <Route
-        path="/contest/detail"
-        element={
-          <Layout1>
-            <ContestDetail />
-          </Layout1>
-        }
-      />
+
       <Route
         path="/contest"
         element={
@@ -185,6 +188,15 @@ const MainRoutes = () => {
           </Layout3>
         }
       />
+      <Route
+        path="/search"
+        element={
+          <Layout1>
+            <Search />
+          </Layout1>
+        }
+      />
+
       <Route
         path="/"
         element={

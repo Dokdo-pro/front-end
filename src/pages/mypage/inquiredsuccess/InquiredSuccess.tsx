@@ -1,6 +1,6 @@
 import React from 'react';
-import * as InquiredStyle from './InquiredSuccess.styled'
-import CheckImg from '../../../assets/img/Check.png'
+import * as InquiredStyle from '@/pages/mypage/inquiredsuccess/InquiredSuccess.styled'
+import CheckImg from '@/assets/img/Check.png'
 
 function InquiredSuccessComponent() {
 

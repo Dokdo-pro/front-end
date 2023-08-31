@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const Logo = styled.div`
   font-size: 30px;
-  margin: 30px;
+  margin-bottom: 30px;
 `;
 
 export const TagBox = styled.div`
@@ -62,6 +62,7 @@ export const BookRecBoxTitle = styled.div`
 
 export const BookRecList = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 export const BookImgBox = styled.div`

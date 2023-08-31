@@ -1,114 +1,135 @@
-// Header.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import searchIcon from '../../../assets/icon/Search.png';
-import notificationIcon from '../../../assets/icon/Bell.png';
-import logo from '../../../assets/icon/RightLogo.png';
-import styled from 'styled-components'
-import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { useNavigate, useLocation } from 'react-router-dom';
 
+interface GroupHeaderData {
+  group: number;
+}
 
-function GroupHeader() {
+interface GroupHeaderProps {
+  data: GroupHeaderData; // data가 필수 필드로 지정됨
+}
+
+const GroupHeader: React.FC<GroupHeaderProps> = ({ data }) => {
+  const navigate = useNavigate();
+
+  const generateGroupDetailURL = (sequence: string): string => {
+    return `/group/${sequence}/detail`;
+  };
+
+  const generateGroupBoardURL = (sequence: string): string => {
+    return `/group/${sequence}/board`;
+  };
+
+  const generateGroupPhotoURL = (sequence: string): string => {
+    return `/group/${sequence}/photo`;
+  };
+
+  const handleClick = (link: string) => {
+    if (data) {
+      const groupDetailURL = generateGroupDetailURL(data.group.toString());
+      const groupBoardURL = generateGroupBoardURL(data.group.toString());
+      const groupPhotoURL = generateGroupPhotoURL(data.group.toString());
+
+      switch (link) {
+        case 'home':
+          navigate(groupDetailURL);
+          break;
+        case 'board':
+          navigate(groupBoardURL);
+          break;
+        case 'photo':
+          navigate(groupPhotoURL);
+          break;
+        default:
+          break;
+      }
+    }
+  };
+  const location = useLocation();
   return (
     <StyleHeader>
-      <Up>
-        <Logo>
-          <Link to="/">
-            <StyleLogo src={logo} alt="독도 로고" />
-          </Link>
-        </Logo>
-        <Nav>
-          <Link to="/search">
-            <StlyedImg src={searchIcon} alt="돋보기 아이콘" />
-          </Link>
-          <Link to="/notifications">
-            <StlyedImg src={notificationIcon} alt="알림 아이콘" />
-          </Link>
-        </Nav>
-      </Up>
       <Down>
-        <StyledLink to="/group/detail/id:">HOME</StyledLink>
-        <StyledLink to="/group/board">게시판</StyledLink>
-        <StyledLink to="/group/photo">사진첩</StyledLink>
+        <Button
+          onClick={() => handleClick('home')}
+          className={
+            location.pathname === generateGroupDetailURL(data.group.toString())
+              ? 'active'
+              : ''
+          }
+        >
+          <div>HOME</div>
+        </Button>
+        <Button
+          onClick={() => handleClick('board')}
+          className={
+            location.pathname === generateGroupBoardURL(data.group.toString())
+              ? 'active'
+              : ''
+          }
+        >
+          <div>게시판</div>
+        </Button>
+        <Button
+          onClick={() => handleClick('photo')}
+          className={
+            location.pathname === generateGroupPhotoURL(data.group.toString())
+              ? 'active'
+              : ''
+          }
+        >
+          <div>사진첩</div>
+        </Button>
       </Down>
     </StyleHeader>
   );
-}
+};
 
 export default GroupHeader;
 
-
-
-export const StyleHeader = styled.div`
-  background-color: white;
+const StyleHeader = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  height: 100px;
+  height: 50px;
   width: 472px;
-  margin-bottom: 10px;
   position: fixed;
+  padding-right: 2px;
   z-index: 9999;
-border-left: 1px solid #ddd;
-border-right: 1px solid #ddd;
-
 `;
 
-export const Logo = styled.h1`
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  white-space: normal;
-`;
-
-export const StyleLogo = styled.img`
-  width: 58px;
-  height: 32px;
-`;
-
-export const Nav = styled.nav`
+const Down = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 65px;
-`;
-
-export const Up = styled.div`
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  background-color: white;
-  margin: 5px 0;
-`;
-
-export const Down = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  height: 60px;
-  padding: 10px;
+  width: 100%;
   background-color: white;
   color: black;
+  margin-bottom: 10px;
 `;
 
-export const StyledLink = styled(NavLink)`
+const Button = styled.button`
   padding: 0;
   margin: 0;
   text-decoration: none;
-  color: #333;
+  background-color: white;
   list-style: none;
   color: black;
-  border-bottom: 2px solid transparent;
-  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 60px;
+
+  & div {
+    display: flex;
+  }
 
   &.active {
     border-bottom: 5px solid #7c6250;
+    font-weight: bold;
   }
-`;
-export const StlyedImg = styled.img`
-  width: 27px;
-  height: 27px;
 `;

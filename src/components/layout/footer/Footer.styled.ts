@@ -8,7 +8,7 @@ export const StyledFooter = styled.footer`
   font-size: 13px;
   background-color: white;
   width: 472px;
-  z-index: 9999;
+  z-index: 9998;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
 `;

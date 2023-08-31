@@ -25,8 +25,8 @@ export const Logo = styled.h1`
 `;
 
 export const StyleLogo = styled.img`
-  width: 58px;
-  height: 32px;
+  width: 65px;
+  height: 27px;
 `;
 
 export const Nav = styled.nav`
@@ -73,4 +73,9 @@ export const StyledLink = styled(NavLink)`
 export const StlyedImg = styled.img`
   width: 27px;
   height: 27px;
+`;
+
+export const StlyedImg2 = styled.img`
+  width: 34px;
+  height: 34px;
 `;

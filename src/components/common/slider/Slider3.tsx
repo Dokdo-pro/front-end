@@ -4,25 +4,27 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './styles.css';
-import MidleBoardBox from '../boardbox/MidleBoardBox';
-import axios from 'axios'; // Axios를 사용하여 API 요청을 하기 위해 가져옵니다.
+import '@/components/common/slider/5.styles.css';
+import MiddleBoardBox from '@/components/common/boardbox/MiddleBoardBox';
+
+import axios from 'axios';
+import { MiddleBoardData } from '@/components/common/boardbox/MiddleBoardBox';
 
 // 서버에서 인기 데이터를 가져오는 함수
 async function fetchPopularData() {
   try {
     const response = await axios.get(
-      'http://localhost:3001/api/v1/group?orderBy=popularity=limit=10',
+      'http://localhost:3001/api/v1/group?orderBy=&limit=10&offset=0',
     );
     return response.data.data;
   } catch {
     console.log('error');
+    return [];
   }
 }
 
-// 수정된 Slider3 컴포넌트
 export default function Slider3() {
-  const [popularData, setPopularData] = useState([]);
+  const [popularData, setPopularData] = useState<MiddleBoardData[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -38,25 +40,25 @@ export default function Slider3() {
   }, []);
 
   return (
-    <>
-      <Swiper
-        //@ts-ignore
-        keyboard={true}
-        mousewheel={true}
-        cssMode={true}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Navigation, Pagination]}
-        className="mySwiper"
-      >
-        {popularData.map((item, index) => (
+    <Swiper
+      //@ts-ignore
+      keyboard={true}
+      mousewheel={true}
+      cssMode={true}
+      navigation={true}
+      pagination={{ clickable: true }}
+      modules={[Navigation, Pagination]}
+      className="mySwiper"
+    >
+      {popularData.length === 0 ? (
+        <p> 인기순으로 정렬하는 중!</p>
+      ) : (
+        popularData.map((item, index) => (
           <SwiperSlide key={index}>
-            <MidleBoardBox data={item} />
+            {item.name && <MiddleBoardBox data={item} />}
           </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
+        ))
+      )}
+    </Swiper>
   );
 }

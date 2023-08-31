@@ -1,5 +1,5 @@
 import React from 'react';
-import * as LikedGroupsStyle from './LikedGroups.styled';
+import * as LikedGroupsStyle from '@/pages/mypage/likedgroups/LikedGroups.styled';
 
 function LikedGroupsComponent() {
   return (

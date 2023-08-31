@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react';
-import LeftScreen from '../leftscreen/LeftScreen';
-import { LayoutContainer, Children, Left, Right } from './Layout1.styled';
+import LeftScreen from '@/components/layout/leftscreen/LeftScreen';
+import { LayoutContainer, Children, Left, Right } from '@/components/layout/layout1/Layout1.styled'
 
-import BackHeader from '../header/BackSearchHeader';
-import BoardAndPhotoFooter from '../footer/BoardAndPhotoFooter';
+
+import BoardAndPhotoFooter from '@/components/layout/footer/BoardAndPhotoFooter';
+import Header from '@/components/layout/header/Header';
 
 interface Layout7Props {
   children: ReactNode;
@@ -17,7 +18,7 @@ function Layout7({ children }: Layout7Props) {
         <LeftScreen />
       </Left>
       <Right>
-        <BackHeader />
+        <Header />
         <Children>{children}</Children>
         <BoardAndPhotoFooter />
       </Right>

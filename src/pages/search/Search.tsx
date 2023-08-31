@@ -1,6 +1,7 @@
 import React from 'react';
-import * as S from './Search.styled';
-import SearchInput from '../../components/common/searchinput/SearchInput';
+import * as S from '@/pages/search/Search.styled';
+import SearchInput from '@/components/common/searchinput/SearchInput';
+import BookAndContestBox from '@/components/common/BookContest/BookAndContestBox';
 
 const Search = () => {
   return (
@@ -24,26 +25,7 @@ const Search = () => {
       <S.BookRecBox>
         <S.BookRecBoxTitle>도서 추천</S.BookRecBoxTitle>
         <S.BookRecList>
-          <S.BookImgBox>
-            <S.BookImg>
-              <img src="" alt="도서이미지" />
-            </S.BookImg>
-            <S.BookInfo>
-              <div>책제목</div>
-              <div>저자/출판사</div>
-              <div>출판일</div>
-            </S.BookInfo>
-          </S.BookImgBox>
-          <S.BookImgBox>
-            <S.BookImg>
-              <img src="" alt="도서이미지" />
-            </S.BookImg>
-            <S.BookInfo>
-              <div>책제목</div>
-              <div>저자/출판사</div>
-              <div>출판일</div>
-            </S.BookInfo>
-          </S.BookImgBox>
+          <BookAndContestBox />
         </S.BookRecList>
       </S.BookRecBox>
       <S.BookRecBox>

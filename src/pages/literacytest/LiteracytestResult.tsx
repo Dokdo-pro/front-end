@@ -1,26 +1,29 @@
 import React from 'react';
-import questions from '../../assets/data/questions.json';
+import questions from '@/assets/data/questions.json';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
   ResultText,
-  SocialIcons,
-  SocialIcon,
-  SocialIconImage,
+  // SocialIcons,
+  // SocialIcon,
+  // SocialIconImage,
   ResultImage,
   ReviewButton,
   TestInstructions,
   RepeatButton,
-} from './LiteracytestResult.Style';
-import facebookIcon from '../../assets/img/facebook.png';
-import twitterIcon from '../../assets/img/twitter.png';
-import kakaoIcon from '../../assets/img/카카오톡아이콘.png';
+  StyledLink,
+  ImgResult
+,
+} from '@/pages/literacytest/LiteracytestResult.Style';
+// import facebookIcon from '@/assets/img/facebook.png';
+// import twitterIcon from '@/assets/img/twitter.png';
+// import kakaoIcon from '@/assets/img/카카오톡아이콘.png';
 
-import pigImage from '../../assets/img/pig-image.jpeg';
-import smartImage from '../../assets/img/smart-image.jpeg';
-import geniusImage from '../../assets/img/genius-image.jpeg';
-//import godImage from '../../assets/img/god-image.png';
-//import defaultImage from '../../assets/img/default-image.png';
+import pigImage from '@/assets/img/pig-image.png';
+import smartImage from '@/assets/img/smart-image.png';
+// import geniusImage from '@/assets/img/genius-image.jpeg';
+//import godImage from '@/assets/img/god-image.png';
+//import defaultImage from '@/assets/img/default-image.png';
 
 type LiteracyTestResultProps = {
   userAnswers: number[]; // 사용자가 선택한 답변 인덱스 배열
@@ -60,11 +63,18 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
 
   return (
     <Container>
-      <ResultText>{getResultMessage()}</ResultText>
+      <ImgResult>
+        {/* <ResultText>{getResultMessage()}</ResultText> */}
       <ResultText>{`${correctAnswers} / ${questions.questions.length}`}</ResultText>
       <ResultImage src={imageSource} alt="Result" />
-      <ReviewButton>👉 틀린 문제 확인하기 👈</ReviewButton>
-      <SocialIcons>
+      </ImgResult>
+      
+      <TestInstructions>
+        문해력 향상에 도움을 받고 싶다면?
+      </TestInstructions>
+      <StyledLink to="group/list">독서토론 시작하기</StyledLink>
+
+      {/* <SocialIcons>
         <SocialIcon href="https://facebook.com">
           <SocialIconImage src={facebookIcon} alt="Facebook" />
         </SocialIcon>
@@ -74,10 +84,11 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
         <SocialIcon href="https://www.kakaocorp.com">
           <SocialIconImage src={kakaoIcon} alt="Kakao" />
         </SocialIcon>
-      </SocialIcons>
+      </SocialIcons> */}
       <TestInstructions>
-        주변 사람들에게 공유해서 서로의 문장 독해력 수준을 확인해보세요!
+        문해력이 궁금한 친구에게 공유해 보세요!
       </TestInstructions>
+      <ReviewButton>틀린 문제 확인하기</ReviewButton>
       <RepeatButton onClick={handleRepeatTest}>
         ✔ 테스트 다시하기 ✔
       </RepeatButton>

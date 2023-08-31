@@ -1,6 +1,6 @@
 import React from 'react';
-import * as BC from './BookAndContest.styled';
-import BookAndConstBox from '../../common/BookAndContestBox/BookAndContestBox';
+import * as BC from '@/components/bookContest/bookandcontest/BookAndContest.styled';
+import BookAndConstBox from '@/components/common/BookContest/BookAndContestBox';
 
 const BookAndContest = () => {
   return (
@@ -17,11 +17,6 @@ const BookAndContest = () => {
         </BC.BoxTitleBox>
         <BC.SliederBox>
           <BookAndConstBox />
-          <BookAndConstBox />
-          <BookAndConstBox />
-          <BookAndConstBox />
-          <BookAndConstBox />
-
         </BC.SliederBox>
       </BC.Box>
     </BC.Wrapper>

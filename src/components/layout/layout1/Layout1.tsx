@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
-import LeftScreen from '../leftscreen/LeftScreen';
+import Header from '@/components/layout/header/Header';
+import Footer from '@/components/layout/footer/Footer';
+import LeftScreen from '@/components/layout/leftscreen/LeftScreen';
 import { LayoutContainer, Children, Left, Right } from './Layout1.styled';
 
 

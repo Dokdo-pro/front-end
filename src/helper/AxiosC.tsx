@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getCookie } from './Cookie';
+import { getCookie } from '@/helper/Cookie';
 
 export default axios.create({
   headers: {

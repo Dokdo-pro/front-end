@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleRight, Button } from './RightScreen.styled';
+import { StyleRight, Button } from '@/components/layout/rightscreen/RightScreen.styled';
 
 function RightScreen() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as MB from './MoreButton.styled';
+import * as MB from '@/components/common/morebutton/MoreButton.styled';
 
 
 interface MoreButtonProps {

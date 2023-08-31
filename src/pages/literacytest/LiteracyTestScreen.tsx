@@ -9,10 +9,10 @@ import {
   Navigation,
   ProgressBarContainer,
   ProgressBarFiller,
-} from './LiteracyTestScreen.Style';
+} from '@/pages/literacytest/LiteracyTestScreen.Style';
 import { useNavigate } from 'react-router-dom';
-import questionsData from '../../assets/data/questions.json';
-import backButtonImage from '../../assets/icon/Vector.png';
+import questionsData from '@/assets/data/questions.json';
+import backButtonImage from '@/assets/icon/Vector.png';
 
 type LiteracyTestScreenProps = {
   setUserAnswers: (answers: number[]) => void;

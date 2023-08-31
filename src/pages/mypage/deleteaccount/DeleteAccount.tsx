@@ -1,7 +1,46 @@
-import React from 'react';
-import * as DeleteStyle from './DeleteAccount.styled';
+import React, { useState } from 'react';
+import * as DeleteStyle from '@/pages/mypage/deleteaccount/DeleteAccount.styled';
+import { useNavigate } from 'react-router-dom';
+import AxiosC from '@/helper/AxiosC';
 
 function DeleteAccountComponent() {
+  const [Password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const onPasswordHanlder = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setPassword(e.target.value);
+  };
+
+  // 탈퇴하기 버튼의 onClick Event
+  // 이 함수에서 AxiosC를 axios로 바꾸면 탈퇴가 안된다
+  const handleWithDrawal = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    try {
+      const response = await AxiosC.put(
+        'http://localhost:3000/api/v1/auth/withdrawal',
+        {
+          password: Password,
+        },
+        { withCredentials: true },
+      );
+      console.log(response);
+      if (response.status === 200) {
+        // 액세스 토큰 쿠키 삭제 ?? 해야하는가..
+
+        alert('회원 탈퇴 되셨습니다.');
+        navigate('/');
+      } else {
+        return alert('response 코드가 200이 아님');
+      }
+    } catch (e) {
+      console.error('회원 탈퇴 에러:', e);
+      alert('서버 오류: 다시 시도해주세요.');
+    }
+  };
+
   return (
     <DeleteStyle.Container>
       <DeleteStyle.Wrapper>
@@ -33,6 +72,8 @@ function DeleteAccountComponent() {
             <DeleteStyle.Input
               type="password"
               placeholder="사용 중인 비밀번호를 입력해주세요."
+              onChange={onPasswordHanlder}
+              value={Password}
             />
           </DeleteStyle.FormWrapper>
           <DeleteStyle.LastDescription>
@@ -42,16 +83,14 @@ function DeleteAccountComponent() {
             탈퇴한 아이디는 본인과 타인 모두 재사용 및
           </DeleteStyle.LastDescription>
           <DeleteStyle.LastDescription>
-           복구가 불가하오니 신중하게 선택해 주시길 바랍니다.
+            복구가 불가하오니 신중하게 선택해 주시길 바랍니다.
           </DeleteStyle.LastDescription>
           <DeleteStyle.ButtonWrap>
             <DeleteStyle.BackButton>
               <DeleteStyle.BackLink to="/">취소하기</DeleteStyle.BackLink>
             </DeleteStyle.BackButton>
-            <DeleteStyle.RemoveButton>
-              <DeleteStyle.RemoveLink to="/">
-                회원 탈퇴하기
-              </DeleteStyle.RemoveLink>
+            <DeleteStyle.RemoveButton onClick={handleWithDrawal}>
+              회원 탈퇴하기
             </DeleteStyle.RemoveButton>
           </DeleteStyle.ButtonWrap>
         </DeleteStyle.Form>

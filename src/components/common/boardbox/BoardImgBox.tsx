@@ -1,5 +1,5 @@
 import React from 'react';
-import * as IB from './BoardImgBox.styled';
+import * as IB from '@/components/common/boardbox/BoardImgBox.styled';
 
 interface BoardImgBoxProps {
   data?: {

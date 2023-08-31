@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import AxiosC from '../../helper/AxiosC';
+import AxiosC from '@/helper/AxiosC';
 import { useNavigate } from 'react-router-dom';
-import * as SignupStyle from './Signup.styled';
+import * as SignupStyle from '@/pages/signup/Signup.styled';
 
 const SignupComponent = () => {
   const [email, setEmail] = useState('');
@@ -145,12 +145,13 @@ const SignupComponent = () => {
   const onSubmitHandler = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-
       if (
-        !(emailMsg === '올바른 이메일 형식입니다.' &&
-        pwdMsg === '안전한 비밀번호입니다.' &&
-        confirmPwdMsg === '일치하는 비밀번호입니다.'
-      )) {
+        !(
+          emailMsg === '올바른 이메일 형식입니다.' &&
+          pwdMsg === '안전한 비밀번호입니다.' &&
+          confirmPwdMsg === '일치하는 비밀번호입니다.'
+        )
+      ) {
         return alert('유효한 아이디와 비밀번호를 입력해주세요.');
       }
       if (!(email && password && confirmPwd)) {
@@ -163,7 +164,7 @@ const SignupComponent = () => {
 
       // 위까지 응답 성공시 밑으로
       const response = await AxiosC.post(
-        'http://localhost:3001/api/v1/auth/register',
+        'http://localhost:3000/api/v1/auth/register',
         {
           email,
           password,

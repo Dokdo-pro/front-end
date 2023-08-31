@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 * {
-    font-family: Pretendard, 'Noto Sans KR', sans-serif;
+    font-family: Pretendard, Noto Sans KR, sans-serif;
     letter-spacing: 2px;
   }
   /* http://meyerweb.com/eric/tools/css/reset/ 

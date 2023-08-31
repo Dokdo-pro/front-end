@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Admin from '../pages/admin/Admin';
-import AdminPost from '../pages/admin/AdminPost';
-import AdminGroup from '../pages/admin/AdminGroup';
-import InquiryList from '../pages/admin/InquiryList';
-import InquiryReply from '../pages/admin/InquiryReply';
-import AdminUser from '../pages/admin/AdminUser';
+import Admin from '@/pages/admin/Admin';
+import AdminPost from '@/pages/admin/AdminPost';
+import AdminGroup from '@/pages/admin/AdminGroup';
+import InquiryList from '@/pages/admin/InquiryList';
+import InquiryReply from '@/pages/admin/InquiryReply';
+import AdminUser from '@/pages/admin/AdminUser';
 
 function AdminRoutes() {
   return (

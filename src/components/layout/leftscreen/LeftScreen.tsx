@@ -1,7 +1,7 @@
 import React from 'react';
-import * as LS from './LeftScreen.styled';
-import searchIcon from '../../../assets/icon/LeftSearch.png';
-import Logo from '../../../assets/icon/LeftLogo.png';
+import * as LS from '@/components/layout/leftscreen/LeftScreen.styled'
+import searchIcon from '@/assets/icon/LeftSearch.png';
+import Logo from '@/assets/icon/LeftLogo.png';
 
 function LeftScreen() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as InquiryStyle from './Inquiry.styled';
+import * as InquiryStyle from '@/pages/mypage/inquiry/Inquiry.styled';
 
 function InquiryComponent() {
   return (

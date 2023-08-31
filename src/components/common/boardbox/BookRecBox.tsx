@@ -1,5 +1,5 @@
 import React from 'react';
-import * as BC from './BookRecBox.styled';
+import * as BC from '@/components/common/boardbox/BookRecBox.styled';
 
 
 // 책, 공모전 용 2줄 정렬 리스트

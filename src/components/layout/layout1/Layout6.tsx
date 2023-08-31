@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-import LeftScreen from '../leftscreen/LeftScreen';
-import { LayoutContainer, Children, Left, Right } from './Layout1.styled';
+import LeftScreen from '@/components/layout/leftscreen/LeftScreen';
+import { LayoutContainer, Children, Left, Right } from '@/components/layout/layout1/Layout1.styled'
+import CancleCompleteHeader from '@/components/layout/header/CancleCompleteHeader';
+import Footer from '@/components/layout/footer/Footer';
 
-import CancleCompleteHeader from '../header/CancleCompleteHeader';
-import Footer from '../footer/Footer';
 
 interface Layout6Props {
   children: ReactNode;

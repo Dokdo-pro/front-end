@@ -1,5 +1,5 @@
 import React from 'react';
-import * as BCD from './BookAndContestDetail.styled';
+import * as BCD from '@/components/bookContest/bookandcontestdetail/BookAndContestDetail.styled';
 
 function BookAndContestDetail() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-
+import Logo from '@/assets/img/Logo2.png'
 function BackHeader() {
   const navigate = useNavigate();
 
@@ -15,7 +15,11 @@ function BackHeader() {
         <BackBtn>
           <button onClick={goBack}>←</button>
         </BackBtn>
-        <Props>props</Props>
+        <PropsBox>
+          <Props>
+            <img src={Logo} alt="로고 이미지" />
+          </Props>
+        </PropsBox>
       </Display>
     </Wrapper>
   );
@@ -55,8 +59,21 @@ const BackBtn = styled.div`
   }
 `;
 
+const PropsBox = styled.div`
+ width: 93%;
+ display: flex;
+ justify-content: center;
+`
+
 const Props = styled.div`
   text-align: center;
-  width: 95%;
+  width: 58px;
+  height: 32px;
   padding-right: 30px;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    
+  }
 `;

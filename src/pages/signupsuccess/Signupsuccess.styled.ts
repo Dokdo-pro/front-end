@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 474px;
-  margin: 100px auto 0 auto;
+  margin: 70px auto 0 auto;
 `;
 
 export const Wrapper = styled.div`
@@ -28,7 +28,7 @@ export const CheckImg = styled.img`
 
 export const Description = styled.div`
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-weight: bold;
 `;
 

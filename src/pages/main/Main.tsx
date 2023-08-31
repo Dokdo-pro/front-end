@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import ImageBox from '../../components/common/imagebox/ImageBox';
-import * as M from './Main.styled';
-import Slider from '../../components/common/slider/Slider';
-import Slider2 from '../../components/common/slider/Slider2';
-import Slider3 from '../../components/common/slider/Slider3';
-import MoreButton from '../../components/common/morebutton/MoreButton';
-import BoardBox from '../../components/common/boardbox/BoardBox';
+import * as M from '@/pages/main/Main.styled';
+import Slider from '@/components/common/slider/Slider';
+import Slider2 from '@/components/common/slider/Slider2';
+import Slider3 from '@/components/common/slider/Slider3';
+import MoreButton from '@/components/common/morebutton/MoreButton';
+import BoardBox from '@/components/common/boardbox/BoardBox';
 import axios from 'axios';
-
+import GenreBox from '@/components/common/GenreBox/GenreBox';
+import { useLocation } from 'react-router-dom';
 // API 요청 함수 추가
 async function fetchAllGroupData() {
   try {
     const response = await axios.get(
-      'http://localhost:3001/api/v1/group?orderBy=random',
+      'http://localhost:3001/api/v1/group?orderBy=random=&limit=10&offset=0',
     ); // 최신순 정렬
     return response.data.data; // 서버 응답에서 실제 그룹 데이터를 반환
   } catch (error) {
@@ -21,6 +21,9 @@ async function fetchAllGroupData() {
 }
 
 function Main() {
+  const location = useLocation();
+  const isMainPage = location.pathname === '/main';
+
   const [groupData, setGroupData] = useState([]);
 
   useEffect(() => {
@@ -41,20 +44,10 @@ function Main() {
     <M.Wrapper>
       <Slider />
       <M.GridContainer>
-        <M.ImageRow>
-          {Array(4)
-            .fill('')
-            .map((v, i) => (
-              <ImageBox key={i} />
-            ))}
-        </M.ImageRow>
-        <M.ImageRow>
-          {Array(4)
-            .fill('')
-            .map((v, i) => (
-              <ImageBox key={i} />
-            ))}
-        </M.ImageRow>
+        어떤 도서 분야의
+        <br />
+        토론 모임을 찾으세요?📖
+        <GenreBox />
       </M.GridContainer>
       <M.StyledGroupLink to="/group/list">
         <M.GroupBoxTitle>모집 중인 독서 토론 모임 ⭐️</M.GroupBoxTitle>
@@ -62,10 +55,10 @@ function Main() {
 
       <M.GroupList>
         {groupData.slice(0, 3).map((groupItem, index) => (
-          <BoardBox key={index} data={groupItem} />
+          <BoardBox key={index} data={groupItem} isMainPage={isMainPage} />
         ))}
-        <MoreButton to="/group/list">더보기</MoreButton>
       </M.GroupList>
+      <MoreButton to="/group/list">더보기</MoreButton>
 
       <M.GroupTop10>
         <M.GroupTopTitle>
@@ -90,7 +83,5 @@ function Main() {
     </M.Wrapper>
   );
 }
-
-export default Main;
 
 export default Main;
