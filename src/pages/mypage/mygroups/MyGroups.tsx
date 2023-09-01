@@ -77,7 +77,7 @@ export default function MyGroupsComponent() {
         {/* 여기에 그룹의 대표 이미지를 가져와야 함 구현되면!! */}
         <MyGroupsStyle.MyGroupBoardBox>
           <MyGroupsStyle.Title>내가 가입한 모임</MyGroupsStyle.Title>
-          {groupData.map((group, index) => (
+          {groupData.slice(0, 3).map((group, index) => (
             <MyGroupsStyle.GroupBoardBox key={index}>
               <MyGroupsStyle.BoardImg
                 src={group.profile}
@@ -100,6 +100,37 @@ export default function MyGroupsComponent() {
           ))}
         </MyGroupsStyle.MyGroupBoardBox>
         <MoreButton to="/group/list">더보기</MoreButton>
+      </MyGroupsStyle.Wrapper>
+
+      <MyGroupsStyle.Wrapper>
+        {/* 좋아요 */}
+        <MyGroupsStyle.MyGroupBoardBox>
+          <MyGroupsStyle.Title>내가 좋아요한 모임</MyGroupsStyle.Title>
+          {groupData.slice(0, 3).map((group, index) => (
+            <MyGroupsStyle.GroupBoardBox key={index}>
+              <MyGroupsStyle.BoardImg
+                src={group.profile}
+                alt="그룹의 대표 이미지"
+              />
+              <MyGroupsStyle.RightSide>
+                <MyGroupsStyle.GroupName>{group.name}</MyGroupsStyle.GroupName>
+                <MyGroupsStyle.GroupIntro>
+                  {group.introduction}
+                </MyGroupsStyle.GroupIntro>
+                <MyGroupsStyle.GroupTags>
+                  {group.tags.map((tag, tagIndex) => (
+                    <MyGroupsStyle.GroupTag key={tagIndex}>
+                      {tag}
+                    </MyGroupsStyle.GroupTag>
+                  ))}
+                </MyGroupsStyle.GroupTags>
+              </MyGroupsStyle.RightSide>
+            </MyGroupsStyle.GroupBoardBox>
+          ))}
+        </MyGroupsStyle.MyGroupBoardBox>
+       
+          <MoreButton to="/group/list">더보기</MoreButton>
+     
       </MyGroupsStyle.Wrapper>
     </MyGroupsStyle.Container>
   );

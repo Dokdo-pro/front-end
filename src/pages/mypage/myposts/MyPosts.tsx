@@ -12,8 +12,10 @@ interface PostData {
   createdAt: string;
   updatedAt: string;
   __v: number;
+  title: string;
   content: string;
   images: string[];
+  posts: string[];
 }
 
 interface UserData {
@@ -26,13 +28,14 @@ function MyPostsComponent() {
   const [myPosts, setMyPosts] = useState<PostData[]>([]);
   const [selectedPosts, setSelectedPosts] = useState<PostData[]>([]);
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [offset, setOffset] = useState(0);
 
   function formatCreatedAt(createdAt: string | number | Date) {
     const date = new Date(createdAt);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-
     return `${year}년 ${month}월 ${day}일`;
   }
 
@@ -61,16 +64,23 @@ function MyPostsComponent() {
 
   useEffect(() => {
     const loginToken = getCookie('loginToken');
+    setLoading(true);
+
     axios
-      .get(`http://localhost:3001/api/v1/auth/me/posts`, {
-        headers: {
-          Authorization: `Bearer ${loginToken}`,
+      .get(
+        `http://localhost:3001/api/v1/auth/me/posts?limit=5&offset=${offset}`,
+        {
+          headers: {
+            Authorization: `Bearer ${loginToken}`,
+          },
+          withCredentials: true,
         },
-        withCredentials: true,
-      })
+      )
       .then(postsResponse => {
         if (postsResponse.data.error === null) {
-          const userPosts: PostData[] = postsResponse.data.data;
+          const userPosts: PostData[] = postsResponse.data.data.posts;
+
+          // 'posts' 배열을 추출하여 선택된 게시물로 설정
           setMyPosts(userPosts);
 
           const fetchAllPosts = async () => {
@@ -84,7 +94,7 @@ function MyPostsComponent() {
 
                 if (postResponse.data.error === null) {
                   const postData: PostData = {
-                    ...postResponse.data.data,
+                    ...postResponse.data.data.post,
                   };
                   selectedPostsWithImages.push(postData);
                 } else {
@@ -98,7 +108,11 @@ function MyPostsComponent() {
               }
             }
 
-            setSelectedPosts(selectedPostsWithImages);
+            setSelectedPosts(prevPosts => [
+              ...prevPosts,
+              ...selectedPostsWithImages,
+            ]);
+            setLoading(false);
           };
 
           fetchAllPosts();
@@ -109,15 +123,39 @@ function MyPostsComponent() {
       .catch(error => {
         console.error('게시글 가져오기 에러:', error);
       });
+  }, [offset]);
+
+
+
+  // 스크롤 이벤트 감지 함수
+  const handleScroll = () => {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (windowHeight + scrollTop >= documentHeight - 100 && !loading) {
+      // 스크롤이 가장 아래로 도달하면 추가 데이터를 로드합니다.
+      setOffset(prevOffset => prevOffset + 5);
+    }
+  };
+
+
+  // 스크롤 이벤트 리스너 등록
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
+  
   return (
     <MyPostsStyle.Container>
       <MyPostsStyle.Wrapper>
         <MyPostsStyle.GroupBoardList>
           {userData &&
-            selectedPosts.map(selectedPost => (
-              <MyPostsStyle.Boardbox key={selectedPost._id}>
+            selectedPosts.map((selectedPost, index) => (
+              <MyPostsStyle.Boardbox key={selectedPost._id || index}>
                 <MyPostsStyle.BoardLeft>
                   <MyPostsStyle.ProfileData>
                     <MyPostsStyle.ProfileImg
@@ -131,9 +169,9 @@ function MyPostsComponent() {
                       </MyPostsStyle.PostedDate>
                     </MyPostsStyle.UpdatedProfile>
                   </MyPostsStyle.ProfileData>
-
+                  <MyPostsStyle.Title>{selectedPost.title}</MyPostsStyle.Title>
                   <MyPostsStyle.Content>
-                    {formatCreatedAt(selectedPost.createdAt)}
+                    {selectedPost.content}
                   </MyPostsStyle.Content>
                 </MyPostsStyle.BoardLeft>
                 <MyPostsStyle.BoardImg

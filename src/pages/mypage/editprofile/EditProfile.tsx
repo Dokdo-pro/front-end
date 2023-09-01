@@ -209,14 +209,18 @@ function EditProfileComponent() {
   return (
     <EditStyle.Container>
       <EditStyle.Wrapper>
-        <EditStyle.UserIconBtn onClick={() => setIsProfileImageModalOpen(true)}>
-          <EditStyle.UserIcon
-            src={`http://localhost:3001/api/v1/image/profile/${
-              userData.profilePic
-            }?${Date.now()}`}
-            alt="유저 설정 이미지"
-          />
-        </EditStyle.UserIconBtn>
+        <EditStyle.ImgBox>
+          <EditStyle.UserIconBtn
+            onClick={() => setIsProfileImageModalOpen(true)}
+          >
+            <EditStyle.UserIcon
+              src={`http://localhost:3001/api/v1/image/profile/${
+                userData.profilePic
+              }?${Date.now()}`}
+              alt="유저 설정 이미지"
+            />
+          </EditStyle.UserIconBtn>
+        </EditStyle.ImgBox>
         {isProfileImageModalOpen && (
           <Modal onClose={() => setIsProfileImageModalOpen(false)}>
             <h1>프로필 이미지 업로드</h1>

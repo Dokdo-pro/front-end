@@ -20,17 +20,22 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const UserIconBtn = styled.button`
+export const ImgBox = styled.div`
   width: 150px;
   height: 150px;
-  background-color: transparent;
-  border: none;
   cursor: pointer;
   margin-bottom: 22px;
 `;
+export const UserIconBtn = styled.button`
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+`;
+
 export const UserIcon = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   border: 1px solid #cbcbcb;
 `;

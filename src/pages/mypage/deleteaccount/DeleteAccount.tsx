@@ -4,8 +4,25 @@ import { useNavigate } from 'react-router-dom';
 import AxiosC from '@/helper/AxiosC';
 
 function DeleteAccountComponent() {
+   const [isListVisible, setListVisible] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState<string | null>(
+      null,
+    );
+
   const [Password, setPassword] = useState('');
   const navigate = useNavigate();
+
+    const toggleList = (e: { preventDefault: () => void; }) => {
+       e.preventDefault();
+      setListVisible(!isListVisible);
+    };
+
+  const onClickList = (language: string) => {
+    setSelectedLanguage(language);
+    setListVisible(false); 
+    // 선택한 언어에 대한 추가 작업 수행
+  };
+
 
   const onPasswordHanlder = (e: {
     target: { value: React.SetStateAction<string> };
@@ -41,6 +58,7 @@ function DeleteAccountComponent() {
     }
   };
 
+
   return (
     <DeleteStyle.Container>
       <DeleteStyle.Wrapper>
@@ -55,20 +73,47 @@ function DeleteAccountComponent() {
         </DeleteStyle.TitleWrap>
 
         <DeleteStyle.Form>
+          <div>
+            <DeleteStyle.BtnSelect onClick={toggleList}>
+              <p>{selectedLanguage ? `${selectedLanguage} ` : '탈퇴 사유'}</p>
+            </DeleteStyle.BtnSelect>
+            {isListVisible && (
+              <DeleteStyle.ListMem>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => onClickList('흥미가 떨어짐')}
+                  >
+                    흥미가 떨어짐
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onClickList('내가 원한 문해력의 성장을 이룸')
+                    }
+                  >
+                    내가 원한 문해력의 성장을 이룸
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => onClickList('다른 회원과의 불화')}
+                  >
+                    다른 회원과의 불화
+                  </button>
+                </li>
+                <li>
+                  <button type="button" onClick={() => onClickList('기타')}>
+                    기타
+                  </button>
+                </li>
+              </DeleteStyle.ListMem>
+            )}
+          </div>
           <DeleteStyle.FormWrapper>
-            <DeleteStyle.ReasonSelect
-              id="deletereason_val"
-              name="is_DeleteReason"
-              className="select_deletereason"
-            >
-              <option value="">탈퇴 사유</option>
-              <option value="흥미가 떨어짐">흥미가 떨어짐</option>
-              <option value="내가 원한 문해력의 성장을 이룸">
-                내가 원한 문해력의 성장을 이룸
-              </option>
-              <option value="다른 회원과의 불화">다른 회원과의 불화</option>
-              <option value="기타">기타</option>
-            </DeleteStyle.ReasonSelect>
             <DeleteStyle.Input
               type="password"
               placeholder="사용 중인 비밀번호를 입력해주세요."

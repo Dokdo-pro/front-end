@@ -123,3 +123,28 @@ export const RemoveLink = styled(Link)`
   
 
 `;
+
+export const BtnSelect = styled.button`
+  border: none;
+width: 250px;
+    height: 50px;
+    padding: 15px;
+    background: darkred;
+    margin-left: 30px;
+    color: #fff;
+    text-align-last: left;
+  line-height: 1;
+&:active+.ListMem {
+    display: block;
+}
+`
+
+export const ListMem = styled.ul`
+
+    margin-left: 30px;
+    width: 250px;
+    height: 30px;
+    
+
+
+`

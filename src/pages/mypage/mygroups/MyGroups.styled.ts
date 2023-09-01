@@ -14,14 +14,16 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 10px auto 40px auto;
+  margin: 10px auto;
   box-sizing: border-box;
   width: 420px;
   justify-content: center;
 `;
+
 export const EmptyPage = styled.div`
   font-size: 30px;
 `;
+
 export const MyGroupBoardBox = styled.div`
   display: flex;
   justify-content: center;
@@ -30,6 +32,7 @@ export const MyGroupBoardBox = styled.div`
   height: 100%;
   flex-direction: column;
 `;
+
 export const Title = styled.div`
   font-size: 30px;
   font-weight: bold;
