@@ -5,8 +5,7 @@ import GroupTitleImg from '@/assets/img/독서장려이미지.png';
 import MoreButton from '@/components/common/morebutton/MoreButton';
 import BoardBox from '@/components/common/boardbox/BoardBox';
 import axios from 'axios';
-
-import Slider2 from '@/components/common/slider/Slider2';
+import Slider7 from '../../../components/common/slider/Slider7';
 
 // API 요청 함수 추가
 async function fetchAllGroupData() {
@@ -61,7 +60,7 @@ const Group = () => {
         <GR.ContestTitle>
           주기적인 독서 토론 모임으로 공모전도 도전 해 봐🔥
         </GR.ContestTitle>
-        <Slider2 />
+        <Slider7 />
       </GR.ContestBox>
       <MoreButton to="/contest">더보기</MoreButton>
     </GR.Wrapper>

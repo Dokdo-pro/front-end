@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useState} from "react";
+import axios from 'axios';
 import * as A from '@/pages/admin/Admin.styled';
 
 interface AdminGroupData {
@@ -23,33 +24,48 @@ interface AdminGroupProps {
 
 function GroupData({data}: AdminGroupProps) {
     
+    const [deleted, setDeleted] = useState(false);
+
+    async function handleDeleteGroup() {
+        try{
+            await axios.delete(`http://34.64.149.22:3001/api/v1/groups/${data?.group_id}`);
+            setDeleted(true);
+        } catch (error) {
+            throw error;
+        }
+    }
+
     if (!data){
         return null;
     }
     
     const {group_id, name, place, createdAt} = data;
+    const utcDate = new Date(createdAt);
+    const localDate = utcDate.toLocaleDateString();
 
     return (
-        <tr>
-        {data && (
-            <td>{group_id}</td>
-            )}
-        {data && (    
-            <td>{name}</td>
-            )}
-        {data && (
-            <td>{place}</td>
-            )}
-        {data && (
-            <td>{createdAt}</td>
-            )}
-        {data && (
-            <td>
-            <A.AdminButton>수정</A.AdminButton>
-            <A.AdminButton>삭제</A.AdminButton>
-            </td>
-            )}
-        </tr>
+        <tbody>
+            <tr>
+                {data && (
+                    <td>{group_id}</td>
+                    )}
+                {data && (    
+                    <td>{name}</td>
+                    )}
+                {data && (
+                    <td>{place}</td>
+                    )}
+                {data && (
+                    <td>{localDate}</td>
+                    )}
+                {data && (
+                    <td>
+                    <A.AdminButton onClick={handleDeleteGroup}>삭제</A.AdminButton>
+                        {deleted && <></>}
+                    </td>
+                )}
+            </tr>
+        </tbody>
     );
 }
 

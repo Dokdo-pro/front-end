@@ -44,7 +44,7 @@ export const ImgBox = styled.div`
 
 export const Img = styled.div`
   width: 200px;
-  height: 100%;
+  height: 296px;
   border: 1px solid #ddd;
 
   & img {

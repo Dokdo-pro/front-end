@@ -1,9 +1,14 @@
 import React from 'react';
 import * as BC from './Constest.styled';
-import bookImg3 from '@/assets/img/책추천3.png';
-import bookImg4 from '@/assets/img/책추천4.png';
-import Contest1 from '@/assets/img/독서공모전2.png';
-import Contest2 from '@/assets/img/독서공모전1.png';
+import Contest1 from '../../assets/img/chuncheon.jpeg';
+import Contest2 from '../../assets/img/gangneung.jpeg';
+import Contest3 from '../../assets/img/story.png';
+import Contest4 from '../../assets/img/hangul.jpeg';
+import Contest5 from '../../assets/img/gyeongnam.png';
+import Contest6 from '../../assets/img/youth.jpeg';
+import Contest7 from '../../assets/img/ansan.jpeg';
+import Contest8 from '../../assets/img/book.jpeg';
+
 
 const Contest = () => {
   return (
@@ -18,57 +23,109 @@ const Contest = () => {
         <BC.SliederBox>
           <BC.Wrapper>
             <BC.List>
-              <BC.StyledLink to="https://mobile.newsis.com/view.html?ar_id=NISX20230724_0002387538">
+              <BC.StyledLink to="https://linkareer.com/activity/146842">
                 <BC.ImgBox>
                   <BC.Img>
-                    <img src={Contest1} alt="공모전이미지" />
+                    <img src={Contest3} alt="공모전이미지" />
                   </BC.Img>
                   <BC.Info>
-                    <div>전국민 독서 사진 공모!</div>
-                    <div>제주시 우당도서관</div>
-                    <div>23.7.24 ~ 23.9.4</div>
+                    <div>스토리코스모스 독후감 공모</div>
+                    <div>조비이오</div>
+                    <div>23.07.17~23.09.30 </div>
                   </BC.Info>
                 </BC.ImgBox>
               </BC.StyledLink>
-              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000000781176">
+              <BC.StyledLink to="https://www.allforyoung.com/posts/34601">
                 <BC.ImgBox>
                   <BC.Img>
-                    <img src={Contest2} alt="공모전이미지" />
+                    <img src={Contest4} alt="공모전이미지" />
                   </BC.Img>
                   <BC.Info>
-                    <div>H마트에서 울다</div>
-                    <div>미셀자우너/문학동네</div>
-                    <div>2022.02.28</div>
+                    <div>한글날 기념 작사 공모전</div>
+                    <div>(재)마포문화재단</div>
+                    <div>23.08.07~23.09.03</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+              </BC.List>{' '}
+              <BC.List>
+              <BC.StyledLink to="https://linkareer.com/activity/144463">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={Contest7} alt="공모전이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>안산의책 독서감상작 공모전</div>
+                    <div>안산중앙도서관</div>
+                    <div>23.06.01~23.09.27</div>  
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+              <BC.StyledLink to="https://www.allforyoung.com/posts/33766">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={Contest8} alt="공모전이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>정신건강 북큐레이터</div>
+                    <div>부천시정신건강복지센터</div>
+                    <div>23.08.02~23.09.08</div>
                   </BC.Info>
                 </BC.ImgBox>
               </BC.StyledLink>
             </BC.List>{' '}
             <BC.List>
-              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000208590459">
-                <BC.ImgBox>
-                  <BC.Img>
-                    <img src={bookImg3} alt="도서이미지" />
-                  </BC.Img>
-                  <BC.Info>
-                    <div>1%를 읽는 힘</div>
-                    <div>메르토네이도</div>
-                    <div>2023.08.30</div>
-                  </BC.Info>
-                </BC.ImgBox>
-              </BC.StyledLink>
-              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000202687816">
-                <BC.ImgBox>
-                  <BC.Img>
-                    <img src={bookImg4} alt="도서이미지" />
-                  </BC.Img>
-                  <BC.Info>
-                    <div>아메리칸 프로메테우스</div>
-                    <div>카이버드외/사이언스북스</div>
-                    <div>2023.06.12</div>
-                  </BC.Info>
-                </BC.ImgBox>
-              </BC.StyledLink>
-            </BC.List>{' '}
+            <BC.StyledLink to="https://linkareer.com/activity/144263">
+              <BC.ImgBox>
+                <BC.Img>
+                  <img src={Contest5} alt="공모전이미지" />
+                </BC.Img>
+                <BC.Info>
+                  <div>경남의 책 독후감 북트레일러</div>
+                  <div>경상남도/경남대표도서관</div>
+                  <div>23.07.01 ~ 23.09.30</div>
+                </BC.Info>
+              </BC.ImgBox>
+            </BC.StyledLink>
+            <BC.StyledLink to="https://www.allforyoung.com/posts/35109">
+              <BC.ImgBox>
+                <BC.Img>
+                  <img src={Contest6} alt="공모전이미지" />
+                </BC.Img>
+                <BC.Info>
+                  <div>지역신문컨퍼런스</div>
+                  <div>지역신문발전위원회</div>
+                  <div>23.08.01~23.09.08</div>
+                </BC.Info>
+              </BC.ImgBox>
+            </BC.StyledLink>
+          </BC.List>{' '}
+          <BC.List>
+            <BC.StyledLink to="https://linkareer.com/activity/149287">
+              <BC.ImgBox>
+                <BC.Img>
+                  <img src={Contest1} alt="공모전이미지" />
+                </BC.Img>
+                <BC.Info>
+                  <div>춘천 경춘선과 추억 수필 공모전</div>
+                  <div>강원대학교</div>
+                  <div>23.08.28~23.10.15 </div>
+                </BC.Info>
+              </BC.ImgBox>
+            </BC.StyledLink>
+            <BC.StyledLink to="https://linkareer.com/activity/148007">
+              <BC.ImgBox>
+                <BC.Img>
+                  <img src={Contest2} alt="공모전이미지" />
+                </BC.Img>
+                <BC.Info>
+                  <div>초허 김동명 시인 전국 백일장</div>
+                  <div>강릉시/(사)강릉문인협회</div>
+                  <div>2023.09.09</div>
+                </BC.Info>
+              </BC.ImgBox>
+            </BC.StyledLink>
+          </BC.List>{' '}
           </BC.Wrapper>
         </BC.SliederBox>
       </BC.Box>

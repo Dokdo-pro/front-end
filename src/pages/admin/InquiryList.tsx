@@ -22,78 +22,82 @@ function InquiryList(){
             <A.Layout>
                 <div ref={element}></div>
                 <A.Table>
-                    <tr>
-                        <th>문의 유형</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>작성일</th>
-                        <th>관리</th>
-                    </tr>
-                    <tr>
-                        <td>불량유저 신고</td>
-                        <td>가나다라마바사</td>
-                        <td>싹난 감자</td>
-                        <td>23.08.31</td>
-                        <td>
-                            <A.ReplyButton><S.ReplyLink to="/admin/inquiryReply">대기</S.ReplyLink></A.ReplyButton>
-                            <A.AdminButton>삭제</A.AdminButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>서비스 관련</td>
-                        <td>가나다라마바사</td>
-                        <td>싹난 감자</td>
-                        <td>23.08.31</td>
-                        <td>
-                            <A.ReplyButton><S.ReplyLink to="/admin/inquiryReply">대기</S.ReplyLink></A.ReplyButton>
-                            <A.AdminButton>삭제</A.AdminButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>테스트 관련</td>
-                        <td>가나다라마바사</td>
-                        <td>싹난 감자</td>
-                        <td>23.08.31</td>
-                        <td>
-                            <A.ReplyButton><S.ReplyLink to="/admin/inquiryReply">대기</S.ReplyLink></A.ReplyButton>
-                            <A.AdminButton>삭제</A.AdminButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>서비스 관련</td>
-                        <td>가나다라마바사</td>
-                        <td>싹난 감자</td>
-                        <td>23.08.31</td>
-                        <td>
-                            <A.CheckButton >완료</A.CheckButton>
-                            <A.AdminButton>삭제</A.AdminButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>테스트 관련</td>
-                        <td>가나다라마바사</td>
-                        <td>싹난 감자</td>
-                        <td>23.08.31</td>
-                        <td>
-                            <A.CheckButton>완료</A.CheckButton>
-                            <A.AdminButton>삭제</A.AdminButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>불량유저 신고</td>
-                        <td>가나다라마바사</td>
-                        <td>싹난 감자</td>
-                        <td>23.08.31</td>
-                        <td>
-                            <A.CheckButton>완료</A.CheckButton>
-                            <A.AdminButton>삭제</A.AdminButton>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>문의 유형</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>불량유저 신고</td>
+                            <td>가나다라마바사</td>
+                            <td>싹난 감자</td>
+                            <td>2023.08.31</td>
+                            <td>
+                                <A.ReplyButton><S.ReplyLink to="/admin/inquiryReply">대기</S.ReplyLink></A.ReplyButton>
+                                <A.AdminButton>삭제</A.AdminButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>서비스 관련</td>
+                            <td>가나다라마바사</td>
+                            <td>싹난 감자</td>
+                            <td>2023.08.31</td>
+                            <td>
+                                <A.ReplyButton><S.ReplyLink to="/admin/inquiryReply">대기</S.ReplyLink></A.ReplyButton>
+                                <A.AdminButton>삭제</A.AdminButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>테스트 관련</td>
+                            <td>가나다라마바사</td>
+                            <td>싹난 감자</td>
+                            <td>2023.08.31</td>
+                            <td>
+                                <A.ReplyButton><S.ReplyLink to="/admin/inquiryReply">대기</S.ReplyLink></A.ReplyButton>
+                                <A.AdminButton>삭제</A.AdminButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>서비스 관련</td>
+                            <td>가나다라마바사</td>
+                            <td>싹난 감자</td>
+                            <td>2023.08.31</td>
+                            <td>
+                                <A.CheckButton >완료</A.CheckButton>
+                                <A.AdminButton>삭제</A.AdminButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>테스트 관련</td>
+                            <td>가나다라마바사</td>
+                            <td>싹난 감자</td>
+                            <td>2023.08.31</td>
+                            <td>
+                                <A.CheckButton>완료</A.CheckButton>
+                                <A.AdminButton>삭제</A.AdminButton>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>불량유저 신고</td>
+                            <td>가나다라마바사</td>
+                            <td>싹난 감자</td>
+                            <td>2023.08.31</td>
+                            <td>
+                                <A.CheckButton>완료</A.CheckButton>
+                                <A.AdminButton>삭제</A.AdminButton>
+                            </td>
+                        </tr>
+                    </tbody>
                 </A.Table>
             </A.Layout>
-            <A.TopConteiner>
+            <A.TopButton>
                 <A.ScrollToTop onClick={onMoveBox}>Top</A.ScrollToTop>
-            </A.TopConteiner> 
+            </A.TopButton> 
             </A.Menu>
         </A.Wrapper>
     )

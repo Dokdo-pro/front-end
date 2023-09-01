@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Background =styled.div`
     display: flex;
     justify-content: center;    
-    width: 1440px;
+    width: 100%;
     height: 100vh;
     background-color: #fdf8ef;
 `;
@@ -12,10 +12,10 @@ export const Background =styled.div`
 export const GreyWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    width: 800px;
+    width: 940px;
     height: 100%;
     margin: 0 auto;
-    background-color: #e9ecef;
+    background-color: #eeeeee;
 `;
 
 export const SideBar = styled.div`
@@ -23,7 +23,7 @@ export const SideBar = styled.div`
     flex-direction: column;
     justify-content:space-between;
     align-items: center;
-    width:174px;
+    width:187px;
     height:100%;
     background-color: white;
 `;
@@ -33,10 +33,10 @@ export const Logo = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    width: 100px;
-    height: 50px; 
+    margin-top: 44px;
+    margin-bottom: 47.5px;
+    width: 98px;
+    height: 64px; 
 `;
 
 export const SideNav = styled.div`
@@ -46,24 +46,25 @@ export const SideNav = styled.div`
     align-items: center;
     
       div {
-        padding-top:10px;
-        padding-bottom: 10px;
+        padding-top:16.5px;
+        padding-bottom: 16.5px;
     }
 `;
 
 export const AdminLink = styled(NavLink)`
     width: 140px;
-    height: 30px;
-    color:grey;
-    font-size: 15px;
+    height: 32px;
+    color:#b7b7b7;
+    font-size: 17px;
     font-weight: 700;
+    line-height: 21.6px;
     text-decoration: none;
     text-align:left;
 
     &.active {
         padding-left: 10px;
         color: #84614b;
-        border-left: 7px solid #a39485;
+        border-left: 9px solid #84614b;
         font-weight: 900;
     }
 `;
@@ -84,10 +85,12 @@ export const ReplyLink = styled(NavLink)`
     }
 `;
 
+
 export const Children = styled.div`
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
 `;
 
 export const LogoImg = styled.img`
@@ -95,22 +98,19 @@ export const LogoImg = styled.img`
     height: 50px;
 `;
 
+export const SideMenu = styled.div`
+    display: flex;
+    justify-content: center;
+    `
+
 export const IconImg = styled.img`
     width: 15px;
     height: 15px;
     padding-right: 10px;
 `;
 
-export const LogoutButton = styled.button`
-    width: 125px;
+export const LogoutImage = styled.img`
+    width: 124px;
     height: 40px;
     margin-bottom: 20px;
-    padding: 5px;
-    color: #84614b;
-    background-color: beige; 
-    border: 0.5px solid #f5ddce;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
 `;

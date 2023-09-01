@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     display:flex;
     flex-direction: column;  
-    width:100%;
+    justify-content: center;
+    width:95%;
     height: 100vh;
-    padding-left: 30px;
 `;
 
 export const Menu = styled.div`
@@ -18,25 +18,38 @@ export const Menu = styled.div`
 export const Top = styled.div`
     display:flex;
     flex-direction: row;
-
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    margin: 64px 0 66px 0;
 `;
 
 export const Headline = styled.div`
-    padding: 50px 0 25px 10px;
+    margin-left: 5px;
     font-size: 32px;
     font-weight: bold;
 `;
 
+
 export const Total = styled.div`
-    padding-bottom: 15px;
-    padding-left: 10px;
-    font-size : 18px;
+    margin-left: 5px;
+    margin-top: -43px;
+    margin-bottom: 17px;
+    font-size : 20px;
+    font-weight: 600px;
+    line-height: 24px;
+`;
+
+export const Sum = styled.text`
+    color: #84614B;
+    font-size: 20px;
+    font-weight: 800px;
+    line-height: 24px;
 `;
 
 export const Select = styled.select`
-    width:140px;
+    width:150px;
     height: 40px;
-    margin: 45px 0px 10px 15px;
     border: 0.5px solid #a8a8a8;
     border-radius: 10px;
     font-size: 16px;
@@ -44,9 +57,9 @@ export const Select = styled.select`
 `;
 
 export const Layout = styled.div`
-    width: 78%;
-    height: 68%;
-    padding:35px;
+    width: 87%;
+    height: 100%;
+    padding:38px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,.25);
@@ -55,12 +68,13 @@ export const Layout = styled.div`
 
 export const Table = styled.table`
         width: 100%;
-        font-size: 12px;
+        font-size: 15px;
         table-layout: fixed;
     
     th {
         padding-bottom: 15px;
         border-bottom: 1px grey solid;
+        font-size: 18px;
         font-weight: bold;
     }
 
@@ -75,6 +89,13 @@ export const Table = styled.table`
 		text-overflow: ellipsis;
         overflow:hidden;
     }
+`;
+
+export const Input = styled.input`
+    width: 210px;
+    border: none;
+    font-size: 15px;
+    text-align: center;
 `;
 
 export const Log = styled.div`
@@ -125,21 +146,20 @@ export const CheckButton = styled.button`
     cursor: not-allowed;
 `;
 
-export const TopConteiner = styled.div`
+export const TopButton = styled.div`
     position: fixed;
-    right: 23%;
-    bottom: 1.5%;
+    right: 21%;
+    bottom: 2%;
     z-index: 1;
 `
 
 export const ScrollToTop = styled.button`
-    font-weight: bold;
-    font-size: 13px;
     padding :12px 8px;
-    background-color: grey;
-    color:#fff;
+    color:black;
+    background-color: white;
     border: 1px solid rgb(210, 204, 193);
     border-radius: 50%;
-    outline: none;
+    font-weight: bold;
+    font-size: 13px;
     cursor: pointer;
 `
