@@ -30,6 +30,10 @@ interface Comment {
   comment_id: number;
   createdAt: string;
 }
+interface UserData {
+  name: string;
+  profilePic: string;
+}
 
 interface GroupBoardDetailDataProps {
   data?: GroupDetailData;
@@ -62,6 +66,8 @@ const GroupBoardDetail: React.FC<
   );
   const [isLoading, setIsLoading] = useState(false);
   const [comments, setComments] = useState<Comment[]>([]);
+  const [commentsName, setCommentsName] = useState<UserData[]>([]);
+
   const [commentText, setCommentText] = useState('');
   const [replyText, setReplyText] = useState<string>('');
   const [groupName, setGroupName] = useState<string>('');
@@ -150,9 +156,12 @@ const GroupBoardDetail: React.FC<
           withCredentials: true,
         },
       );
-
+  
       if (response.status === 200) {
-        // window.location.reload(); // 페이지를 새로고침
+        // 댓글 작성 후에 댓글 목록을 업데이트
+        //@ts-ignore
+        fetchComments(group_Id, post_Id);
+        setCommentText(''); // 작성한 댓글 내용을 초기화
       } else {
         console.error('Error posting comment:', response.status);
       }
@@ -160,6 +169,7 @@ const GroupBoardDetail: React.FC<
       console.error('Error posting comment:', error);
     }
   };
+  
 
   const postReply = async (commentId: number) => {
     try {
@@ -196,7 +206,9 @@ const GroupBoardDetail: React.FC<
       );
 
       if (response.status === 200) {
-        setComments(response.data.data);
+        const commentsData = response.data.data;
+        setComments(commentsData.map((comment: any) => comment.comments));
+        setCommentsName(commentsData.map((comment: any) => comment.user));
       } else {
         console.error('Error fetching comments:', response.status);
       }
@@ -204,7 +216,6 @@ const GroupBoardDetail: React.FC<
       console.error('Error fetching comments:', error);
     }
   };
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -255,24 +266,28 @@ const GroupBoardDetail: React.FC<
         <GBD.CommentsTitle>
           댓글 <span> {comments.length}</span>
         </GBD.CommentsTitle>
-        {comments.map(comment => (
+        {comments.map((comment, index) => (
           <div key={comment.comment_id}>
             {!comment.isDeleted ? (
-                <GBD.CommentsList>
-                    <GBD.ComentsBox>
-                      <GBD.PFImg>
-                        <img src="/" alt="프사" />
-                      </GBD.PFImg>
-
-                      <GBD.PFText>
-                        <GBD.CommentUser>작성자 이름</GBD.CommentUser>
-                        <GBD.CommentText>{comment.text}</GBD.CommentText>
-                        <GBD.CommnetCreatedAt>
-                          {formatCreatedAt(comment.createdAt)}
-                        </GBD.CommnetCreatedAt>
-                      </GBD.PFText>
-                    </GBD.ComentsBox>
-                </GBD.CommentsList>
+              <GBD.CommentsList>
+                <GBD.ComentsBox>
+                  <GBD.PFImg>
+                    <img
+                      src={`http://localhost:3001/api/v1/image/profile/${commentsName[index]?.profilePic}`}
+                      alt="프사"
+                    />
+                  </GBD.PFImg>
+                  <GBD.PFText>
+                    <GBD.CommentUser>
+                      {commentsName[index]?.name}
+                    </GBD.CommentUser>
+                    <GBD.CommentText>{comment.text}</GBD.CommentText>
+                    <GBD.CommnetCreatedAt>
+                      {formatCreatedAt(comment.createdAt)}
+                    </GBD.CommnetCreatedAt>
+                  </GBD.PFText>
+                </GBD.ComentsBox>
+              </GBD.CommentsList>
             ) : (
               <div>Deleted Comment</div>
             )}
