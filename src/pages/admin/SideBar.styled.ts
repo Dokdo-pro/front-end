@@ -109,8 +109,17 @@ export const IconImg = styled.img`
     padding-right: 10px;
 `;
 
+export const LogoutBtn = styled.button`
+  width: 124px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
+
 export const LogoutImage = styled.img`
-    width: 124px;
-    height: 40px;
-    margin-bottom: 20px;
+ 
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
 `;

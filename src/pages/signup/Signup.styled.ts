@@ -8,12 +8,13 @@ export const Container = styled.div`
   color: black;
   box-sizing: border-box;
   width: 474px;
+  height: 100vh;
   margin: 0 auto;
 `;
 
 export const Wrapper = styled.form`
   width: 420px;
-  margin: 15px 27px 16px 27px;
+  
   justify-content: center;
 `;
 export const FormTag = styled.div`
@@ -124,7 +125,7 @@ export const AllCheckInput = styled.input`
 
 export const CheckInput = styled(AllCheckInput)`
   zoom: 1.2;
-\
+
 `;
 
 export const CheckBox = styled.div`
@@ -136,7 +137,7 @@ export const SubmitButton = styled(InputButton)`
   width: 100%;
   height: 50px;
   display: flex;
-  margin: 80px auto 10px auto;
+  margin: 30px auto 10px auto;
   background-color: #84614b;
   border: none;
   text-decoration: none;

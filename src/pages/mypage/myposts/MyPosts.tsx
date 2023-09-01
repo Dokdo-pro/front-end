@@ -33,10 +33,9 @@ function MyPostsComponent() {
 
   function formatCreatedAt(createdAt: string | number | Date) {
     const date = new Date(createdAt);
-    const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-    return `${year}년 ${month}월 ${day}일`;
+    return `${month}월 ${day}일`;
   }
 
   useEffect(() => {
@@ -68,7 +67,7 @@ function MyPostsComponent() {
 
     axios
       .get(
-        `http://localhost:3001/api/v1/auth/me/posts?limit=5&offset=${offset}`,
+        `http://localhost:3001/api/v1/auth/me/posts?limit=10&offset=${offset}`,
         {
           headers: {
             Authorization: `Bearer ${loginToken}`,
@@ -148,37 +147,43 @@ function MyPostsComponent() {
     };
   }, []);
 
-  
+
   return (
     <MyPostsStyle.Container>
       <MyPostsStyle.Wrapper>
         <MyPostsStyle.GroupBoardList>
-          {userData &&
+          {userData && 
             selectedPosts.map((selectedPost, index) => (
-              <MyPostsStyle.Boardbox key={selectedPost._id || index}>
-                <MyPostsStyle.BoardLeft>
-                  <MyPostsStyle.ProfileData>
-                    <MyPostsStyle.ProfileImg
-                      src={`http://localhost:3001/api/v1/image/profile/${userData.profilePic}`}
-                      alt={`${userData.name}의 프로필 사진`}
-                    />
-                    <MyPostsStyle.UpdatedProfile>
-                      <MyPostsStyle.Writer>{userData.name}</MyPostsStyle.Writer>
-                      <MyPostsStyle.PostedDate>
-                        {formatCreatedAt(selectedPost.createdAt)}
-                      </MyPostsStyle.PostedDate>
-                    </MyPostsStyle.UpdatedProfile>
-                  </MyPostsStyle.ProfileData>
-                  <MyPostsStyle.Title>{selectedPost.title}</MyPostsStyle.Title>
-                  <MyPostsStyle.Content>
-                    {selectedPost.content}
-                  </MyPostsStyle.Content>
-                </MyPostsStyle.BoardLeft>
-                <MyPostsStyle.BoardImg
-                  src={`http://localhost:3001/api/v1/image/post/${selectedPost.images[0]}`}
-                  alt="게시된 이미지"
-                />
-              </MyPostsStyle.Boardbox>
+              <MyPostsStyle.BoardWrap>
+                <MyPostsStyle.Boardbox key={selectedPost._id || index}>
+                  <MyPostsStyle.BoardLeft>
+                    <MyPostsStyle.ProfileData>
+                      <MyPostsStyle.ProfileImg
+                        src={`http://localhost:3001/api/v1/image/profile/${userData.profilePic}`}
+                        alt={`${userData.name}의 프로필 사진`}
+                      />
+                      <MyPostsStyle.UpdatedProfile>
+                        <MyPostsStyle.Writer>
+                          {userData.name}
+                        </MyPostsStyle.Writer>
+                        <MyPostsStyle.PostedDate>
+                          {formatCreatedAt(selectedPost.createdAt)}
+                        </MyPostsStyle.PostedDate>
+                      </MyPostsStyle.UpdatedProfile>
+                    </MyPostsStyle.ProfileData>
+                    <MyPostsStyle.Title>
+                      {selectedPost.title}
+                    </MyPostsStyle.Title>
+                    <MyPostsStyle.Content>
+                      {selectedPost.content}
+                    </MyPostsStyle.Content>
+                  </MyPostsStyle.BoardLeft>
+                  <MyPostsStyle.BoardImg
+                    src={`http://localhost:3001/api/v1/image/post/${selectedPost.images[0]}`}
+                    alt="게시된 이미지"
+                  />
+                </MyPostsStyle.Boardbox>
+              </MyPostsStyle.BoardWrap>
             ))}
         </MyPostsStyle.GroupBoardList>
       </MyPostsStyle.Wrapper>

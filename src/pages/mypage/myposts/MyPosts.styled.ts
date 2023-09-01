@@ -6,14 +6,14 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 474px;
-  margin: 15px auto 0 auto;
+  margin: 0 auto;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 10px auto 0 auto;
+  margin: 0 auto;
   box-sizing: border-box;
   width: 420px;
   justify-content: space-between;
@@ -23,19 +23,21 @@ export const GroupBoardList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
-`;
 
+`;
+export const BoardWrap = styled.div`
+width: 474px;
+  border-bottom: solid 1px #ddd;
+`;
 export const Boardbox = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 15px;
-  margin: 10px 0;
   box-sizing: border-box;
-  border: solid 1px #ddd;
+  margin: 13px 0 8px 0;
+
 `;
 
 export const BoardLeft = styled.div`
@@ -63,17 +65,20 @@ export const ProfileData = styled.div`
 `;
 
 export const ProfileImg = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 33px;
+  height: 33px;
   border-radius: 50%;
+  margin-bottom: 5px;
 `;
 export const UpdatedProfile = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  margin-left: 10px;
+  
 `;
 export const Writer = styled.div`
   font-size: 14px;
+  font-weight: 700;
   color: black;
 `;
 
@@ -82,11 +87,12 @@ export const PostedDate = styled.div`
   font-size: 12px;
 `;
 export const Title = styled.div`
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 14px;
 `;
 
 export const Content = styled.div`
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 20px;
 `;
 
@@ -109,4 +115,5 @@ export const BoardImg = styled.img`
   background-color: #ddd;
   border-radius: 15px;
   overflow: hidden;
+  margin-left: 20px;
 `;

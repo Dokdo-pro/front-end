@@ -333,7 +333,7 @@ function EditProfileComponent() {
             type="text"
             name="is_Username"
             minLength={2}
-            maxLength={10}
+            maxLength={15}
             value={userData.name}
             onChange={e =>
               setUserData({
