@@ -7,13 +7,13 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 474px;
-  margin: 65px auto 0 auto;
+  margin: 45px auto 0 auto;
 `;
 
 export const LogoImg = styled.img`
   width: 30%;
   height: 30%;
-  padding-bottom: 65px;
+  padding-bottom: 25px;
 `;
 
 
@@ -21,6 +21,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 20px;
 `;
 
 export const Title = styled.p`
@@ -43,7 +44,7 @@ export const Input = styled.input`
   outline: none;
   cursor: pointer;
 
-  margin-bottom: 0.5rem;
+ 
 
   &::placeholder {
     color: #c4c4c4;
@@ -92,6 +93,7 @@ export const Button = styled.button`
   text-align: center;
   border-radius: 15px;
   font-size: 18px;
+  
   margin-bottom: 0.5rem;
   cursor: pointer;
   border: none;

@@ -209,7 +209,7 @@ function EditProfileComponent() {
   return (
     <EditStyle.Container>
       <EditStyle.Wrapper>
-        <EditStyle.ImgBox>
+
           <EditStyle.UserIconBtn
             onClick={() => setIsProfileImageModalOpen(true)}
           >
@@ -220,7 +220,7 @@ function EditProfileComponent() {
               alt="유저 설정 이미지"
             />
           </EditStyle.UserIconBtn>
-        </EditStyle.ImgBox>
+  
         {isProfileImageModalOpen && (
           <Modal onClose={() => setIsProfileImageModalOpen(false)}>
             <h1>프로필 이미지 업로드</h1>

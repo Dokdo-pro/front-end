@@ -20,17 +20,14 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const ImgBox = styled.div`
+
+export const UserIconBtn = styled.button`
+  background-color: transparent;
+  border: none;
   width: 150px;
   height: 150px;
   cursor: pointer;
   margin-bottom: 22px;
-`;
-export const UserIconBtn = styled.button`
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border: none;
 `;
 
 export const UserIcon = styled.img`
@@ -49,7 +46,6 @@ export const Wrapper2 = styled.div`
   width: 420px;
   justify-content: space-between;
 `;
-
 
 export const IconDes = styled.p`
   font-size: 13px;
@@ -128,7 +124,7 @@ export const SubmitButton = styled.button`
 `;
 
 export const ModalSubmitButton = styled(SubmitButton)`
-width: 100%;
+  width: 100%;
   height: 40px;
   margin: 20px auto 0 auto;
 `;

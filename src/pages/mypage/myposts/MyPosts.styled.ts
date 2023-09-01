@@ -36,7 +36,7 @@ export const Boardbox = styled.div`
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  margin: 13px 0 8px 0;
+  margin: 13px 0;
 
 `;
 
@@ -88,12 +88,14 @@ export const PostedDate = styled.div`
 `;
 export const Title = styled.div`
   font-weight: 700;
+  margin-top: 4px;
   font-size: 14px;
 `;
 
 export const Content = styled.div`
   font-size: 13px;
-  margin-bottom: 20px;
+  margin-top: 1px;
+  margin-bottom: 10px;
 `;
 
 export const GroupDes = styled.div`

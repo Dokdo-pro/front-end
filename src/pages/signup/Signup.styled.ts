@@ -8,7 +8,6 @@ export const Container = styled.div`
   color: black;
   box-sizing: border-box;
   width: 474px;
-  height: 100vh;
   margin: 0 auto;
 `;
 
@@ -17,13 +16,15 @@ export const Wrapper = styled.form`
   
   justify-content: center;
 `;
+
 export const FormTag = styled.div`
   display: flex;
-  margin-top: 30px;
+  
   padding-bottom: 15px;
 `;
 export const Tag = styled.div`
   display: flex;
+  margin-top: 20px;
   justify-items: left;
   font-size: 18px;
   font-weight: bold;
@@ -42,6 +43,7 @@ export const Input = styled.input`
   border-radius: 15px;
   border: 1px solid #cbcbcb;
   padding: 0 15px;
+  
 
   &::placeholder {
     color: #cbcbcb;
@@ -60,6 +62,7 @@ export const Alert = styled.div`
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.1rem;
+  margin-bottom: 10px;
 
   color: ${({ className }) => (className === 'success' ? 'green' : '#d31a38')};
 `;
