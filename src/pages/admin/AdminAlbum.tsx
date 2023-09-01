@@ -1,11 +1,11 @@
 import React,{useState, useEffect, useRef} from "react";
-import * as A from "./Admin.styled";
+import * as A from '@/pages/admin/Admin.styled';
 import axios from "axios";
-import AlbumData from './AlbumData';
+import AlbumData from '@/pages/admin/AlbumData';
 
 async function fetchAllAlbum() {
     try{
-        const response = await axios.get('http:/localhost:3001/api/v1/admin/Albums') 
+        const response = await axios.get('http://localhost:3001/api/v1/admin/albums') 
         return response.data.data;
     } catch (error) {
         throw error;
@@ -15,7 +15,6 @@ async function fetchAllAlbum() {
 function AdminAlbum (){
     const [albumData, setAlbumData] = useState([]);
     const element = useRef<HTMLDivElement>(null);
-    
     const onMoveBox = () => {
         element.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       };

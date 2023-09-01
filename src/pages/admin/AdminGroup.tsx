@@ -5,7 +5,7 @@ import GroupData from '@/pages/admin/GroupData';
 import SelectBox2 from '@/components/common/selectbox/SelectBox2';
 
 const sortOptions = [
-  { value: '좋아요', label: '좋아요' },
+  { value: '인기순', label: '인기순' },
   { value: '최근순', label: '최근순' },
 ];
 
@@ -22,10 +22,10 @@ function AdminGroup (){
   useEffect(() => {
       async function fetchData() {
       try {
-          let apiUrl = 'http://localhost:3001/api/v1/group?orderBy=popularity'; // 기본적으로 인기순 API 호출
+          let apiUrl = 'http://localhost:3001/api/v1/admin/groups?orderBy=popularity'; // 기본적으로 인기순 API 호출
       
           if (selectedSort === '최근순') {
-            apiUrl = 'http://localhost:3001/api/v1/group'; // 최신순 API 호출
+            apiUrl = 'http://localhost:3001/api/v1/admin/groups'; // 최신순 API 호출
           }
       
           const data = await fetchAllGroupData(apiUrl); // API 요청 호출
@@ -49,7 +49,7 @@ function AdminGroup (){
   
   async function fetchAllGroup() {
       try{
-          const response = await axios.get('http://localhost:3001/api/v1/group')
+          const response = await axios.get('http://localhost:3001/api/v1/admin/groups')
               return response.data.data; 
       } catch (error) {
           throw error;
