@@ -1,8 +1,13 @@
 import React, { ReactNode } from 'react';
 import Footer from '@/components/layout/footer/Footer';
 import LeftScreen from '@/components/layout/leftscreen/LeftScreen';
-import { LayoutContainer, Children, Left, Right } from '@/components/layout/layout1/Layout3.styled';
-
+import {
+  LayoutContainer,
+  Children,
+  Left,
+  Right,
+} from '@/components/layout/layout1/Layout3.styled';
+import back from '@/assets/img/back1.png';
 import BackSearchHeader from '@/components/layout/header/BackSearchHeader';
 
 interface Layout3Props {
@@ -13,7 +18,7 @@ function Layout3({ children }: Layout3Props) {
   return (
     <LayoutContainer>
       <Left>
-        <LeftScreen />
+        <img src={back} alt="" />
       </Left>
       <Right>
         <BackSearchHeader />

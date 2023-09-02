@@ -343,7 +343,7 @@ function EditProfileComponent() {
             id="introduce_val"
             type="text"
             name="is_Introduce"
-            maxLength={15}
+            maxLength={30}
             value={userData.introduction}
             onChange={e =>
               setUserData({

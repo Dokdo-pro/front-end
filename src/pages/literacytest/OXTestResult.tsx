@@ -48,7 +48,7 @@ const OXTestResult: React.FC<OXTestResultProps> = ({ userAnswers }) => {
 
   const imageSource = getImageSource();
   const handleRepeatTest = () => {
-    navigate('/literacy-test'); /// 특정 경로로 이동
+    navigate('/'); /// 특정 경로로 이동
   };
 
   return (
@@ -57,7 +57,7 @@ const OXTestResult: React.FC<OXTestResultProps> = ({ userAnswers }) => {
       <ResultImage src={imageSource} alt="Result" /> {/* 이미지 출력 */}
       <ResultText>{getResultMessage()}</ResultText>
       <TestInstructions>문해력 향상에 도움을 받고 싶다면?</TestInstructions>
-      <StyledLink to="group/list">독서토론 시작하기</StyledLink>
+      <StyledLink to="/group/list">독서토론 시작하기</StyledLink>
       {/* <SocialIcons>
         <SocialIcon href="https://facebook.com">
           <SocialIconImage src={facebookIcon} alt="Facebook" />

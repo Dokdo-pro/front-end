@@ -90,7 +90,7 @@ export default GroupHeader;
 const StyleHeader = styled.div`
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 30px;
   width: 472px;
   position: fixed;
   padding-right: 2px;

@@ -20,7 +20,6 @@ import Notifications from '@/pages/notifications/Notifications';
 import Likes from '@/pages/likes/Likes';
 import Layout1 from '@/components/layout/layout1/Layout1';
 import Layout3 from '@/components/layout/layout1/Layout3';
-import Layout8 from '@/components/layout/layout1/Layout8';
 
 const MainRoutes = () => {
   // Group creation data
@@ -45,7 +44,7 @@ const MainRoutes = () => {
       <Route
         path="/create-group/step1"
         element={
-          <Layout8>
+          <Layout3>
             <GroupCreatePage1
               data={groupData}
               updateData={updateGroupData}
@@ -53,13 +52,13 @@ const MainRoutes = () => {
                 /*...some logic...*/
               }}
             />
-          </Layout8>
+          </Layout3>
         }
       />
       <Route
         path="/create-group/step2"
         element={
-          <Layout8>
+          <Layout3>
             <GroupCreatePage2
               data={groupData}
               updateData={updateGroupData}
@@ -67,15 +66,15 @@ const MainRoutes = () => {
                 /*...some logic...*/
               }}
             />
-          </Layout8>
+          </Layout3>
         }
       />
       <Route
         path="/create-group/step3"
         element={
-          <Layout8>
+          <Layout3>
             <GroupCreatePage3 data={groupData} updateData={updateGroupData} />
-          </Layout8>
+          </Layout3>
         }
       />
       <Route

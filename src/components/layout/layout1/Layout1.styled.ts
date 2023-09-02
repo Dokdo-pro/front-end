@@ -8,6 +8,7 @@ export const LayoutContainer = styled.div`
 export const Left = styled.div`
   flex: 1;
   background-color: #fff7ec;
+  z-index: -1; /* 배경으로 보내기 위한 z-index 설정 */
 
   & img {
     margin-left: 50px;
@@ -40,13 +41,14 @@ export const Right = styled.div`
 `;
 
 export const Children = styled.div`
-  max-width: 474px;
+  max-width: 474px !important;
   padding: 70px 0 70px 0;
   background-color: white;
   min-height: calc(100vh - 2px);
   box-sizing: border-box;
   border: 1px solid #ddd;
   overflow: hidden;
+  z-index: 9996 !important;
 
   @media (min-width: 475px) and (max-width: 1024px) {
     width: 474px;

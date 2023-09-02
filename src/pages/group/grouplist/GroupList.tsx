@@ -62,8 +62,8 @@ const Genre = [
 ];
 
 const sortOptions = [
-  { value: '좋아요', label: '좋아요' },
   { value: '최근순', label: '최근순' },
+  { value: '인기순', label: '인기순' },
   { value: '선택', label: '선택' },
 ];
 
@@ -75,14 +75,14 @@ const GroupList = () => {
   const [selectedSort, setSelectedSort] = useState('');
   const [clickedInfo, setClickedInfo] = useState<string[]>([]);
   const [groupData, setGroupData] = useState([]);
-
+ 
   useEffect(() => {
     async function fetchData() {
       try {
-        let apiUrl = '/api/v1/group?orderBy=popularity&limit=100&offset=0'; // 기본적으로 인기순 API 호출
+        let apiUrl = '/api/v1/group?&limit=100&offset=0'; // 기본적으로 인기순 API 호출
 
         if (selectedSort === '최근순') {
-          apiUrl = '/api/v1/group?&limit=100&offset=0'; // 최신순 API 호출
+          apiUrl = '/api/v1/group?orderBy=popularity&limit=100&offset=0'; // 최신순 API 호출
         }
 
         const data = await fetchAllGroupData(apiUrl); // API 요청 호출

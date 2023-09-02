@@ -123,7 +123,7 @@ const PhotoAlbumWrite: React.FC = () => {
 
       <GBW.WriteBox>
         <textarea
-          placeholder="하고있던건데 다 지우고 다시 하셔도 됩니다"
+          placeholder="게시글 내용은 1000자 이내로 작성해주세요"
           value={content}
           onChange={e => setContent(e.target.value)}
           rows={15}
@@ -141,22 +141,21 @@ const PhotoAlbumWrite: React.FC = () => {
       <GBW.ImgFileTitle>
         <div>사진 등록(선택)</div>
         <div>500MB 이하의 jpg, gif 파일만 3개까지 업로드 가능합니다</div>
+        <div>{content.length}/1000자</div>
       </GBW.ImgFileTitle>
       <GBW.ImgUpload>
         <div>
           <GBW.CameraBox>
-            <img src={Camera} alt="" />
+            <input
+              type="file"
+              id="image-upload"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
           </GBW.CameraBox>
-          <input
-            type="file"
-            id="image-upload"
-            accept="image/*"
-            onChange={handleImageUpload}
-          />
         </div>
-        <div>{content.length}/1000자</div>
       </GBW.ImgUpload>
-      <button onClick={handleCreatePost}>포스트 작성</button>
+      <GBW.PostButton onClick={handleCreatePost}>포스트 작성</GBW.PostButton>
       <p>{responseMessage}</p>
     </GBW.Wrapper>
   );

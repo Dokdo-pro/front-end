@@ -71,7 +71,7 @@ export const ImgUpload = styled.div`
 export const ImgFileTitle = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 10px;
   width: 90%;
   font-size: 13px;
   & div {
@@ -88,6 +88,7 @@ export const CameraImg = styled.div`
   height: 60px;
   border-radius: 10px;
   border: 1px solid black;
+
   padding: 10px; /* 패딩 조정 */
 `;
 
@@ -114,4 +115,25 @@ export const ImgChoice = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const PostButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 66px;
+  border-radius: 20px;
+  background: #84614b;
+  border: none;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  bottom: 65px;
+
+  &:hover {
+    background: #71503c;
+  }
 `;

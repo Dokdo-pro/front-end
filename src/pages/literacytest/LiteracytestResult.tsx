@@ -57,7 +57,7 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
 
   const imageSource = getImageSource();
   const handleRepeatTest = () => {
-    navigate('/literacy-test'); /// 특정 경로로 이동
+    navigate('/'); /// 특정 경로로 이동
   };
 
   return (
@@ -69,7 +69,7 @@ const LiteracyTestResult: React.FC<LiteracyTestResultProps> = ({
       </ImgResult>
 
       <TestInstructions>문해력 향상에 도움을 받고 싶다면?</TestInstructions>
-      <StyledLink to="group/list">독서토론 시작하기</StyledLink>
+      <StyledLink to="/group/list">독서토론 시작하기</StyledLink>
 
       {/* <SocialIcons>
         <SocialIcon href="https://facebook.com">

@@ -123,15 +123,15 @@ const GroupBoardWrite: React.FC = () => {
 
       <GBW.WriteBox>
         <textarea
-          placeholder="하고있던건데 다 지우고 다시 하셔도 됩니다"
+          placeholder="게시글 내용은 1000자 이내로 입력해주세요"
           value={content}
           onChange={e => setContent(e.target.value)}
           rows={15}
           maxLength={1000}
         />
       </GBW.WriteBox>
-
       <GBW.ImgFileTitle>
+        <div>{content.length}/1000자</div>
         <div>사진 등록(선택)</div>
         <div>500MB 이하의 jpg, gif 파일만 3개까지 업로드 가능합니다</div>
       </GBW.ImgFileTitle>
@@ -153,11 +153,10 @@ const GroupBoardWrite: React.FC = () => {
               accept="image/*"
               onChange={handleImageUpload}
             />
-            <div>{content.length}/1000자</div>
           </GBW.ImgChoice>
         </div>
       </GBW.ImgUpload>
-      <button onClick={handleCreatePost}>포스트 작성</button>
+      <GBW.PostButton onClick={handleCreatePost}>포스트 작성</GBW.PostButton>
       <p>{responseMessage}</p>
     </GBW.Wrapper>
   );
