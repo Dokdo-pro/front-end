@@ -13,8 +13,6 @@ import MyPageComponent from '@/pages/mypage/mainmypage/MyPage';
 import MyPostsComponent from '@/pages/mypage/myposts/MyPosts';
 import DeleteAccountComponent from '@/pages/mypage/deleteaccount/DeleteAccount';
 import Layout1 from '@/components/layout/layout1/Layout1';
-import Layout6 from '@/components/layout/layout1/Layout6';
-import Layout8 from '@/components/layout/layout1/Layout8';
 import Layout3 from '@/components/layout/layout1/Layout3';
 import AxiosC from '@/helper/AxiosC';
 
@@ -45,18 +43,18 @@ const MypageRoutes = () => {
       <Route
         path="/login"
         element={
-          <Layout8>
+          <Layout3>
             <LoginComponent />
-          </Layout8>
+          </Layout3>
         }
       />
       {/* 회원가입 */}
       <Route
         path="/signup"
         element={
-          <Layout8>
+          <Layout3>
             <SignupComponent />
-          </Layout8>
+          </Layout3>
         }
       />
       {/* 회원가입 성공 */}
@@ -72,9 +70,9 @@ const MypageRoutes = () => {
       <Route
         path="/user/deleteaccount"
         element={
-          <Layout8>
+          <Layout3>
             <DeleteAccountComponent />
-          </Layout8>
+          </Layout3>
         }
       />
       {/* 마이페이지/내모임 */}
@@ -108,9 +106,9 @@ const MypageRoutes = () => {
       <Route
         path="/user/mypage/editprofile"
         element={
-          <Layout8>
+          <Layout3>
             <EditProfileComponent />
-          </Layout8>
+          </Layout3>
         }
       />
 
@@ -127,18 +125,18 @@ const MypageRoutes = () => {
       <Route
         path="/user/mypage/inquiry"
         element={
-          <Layout6>
+          <Layout1>
             <InquiryComponent />
-          </Layout6>
+          </Layout1>
         }
       />
       {/* 마이페이지 */}
       <Route
         path="/user/mypage"
         element={
-          <Layout8>
+          <Layout3>
             <MyPageComponent />
-          </Layout8>
+          </Layout3>
         }
       />
     </Routes>

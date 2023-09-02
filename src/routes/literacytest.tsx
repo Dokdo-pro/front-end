@@ -38,9 +38,9 @@ const LiteracytestRoute = () => {
       <Route
         path="/literacy-test/screen"
         element={
-          <Layout8>
+          <Layout1>
             <LiteracyTestScreen setUserAnswers={handleSetLiteracyUserAnswers} />
-          </Layout8>
+          </Layout1>
         }
       />
       <Route
@@ -62,9 +62,9 @@ const LiteracytestRoute = () => {
       <Route
         path="/ox-quiz/screen"
         element={
-          <Layout8>
+          <Layout1>
             <OXTestScreen setUserAnswers={handleSetOXUserAnswers} />
-          </Layout8>
+          </Layout1>
         }
       />
       <Route
