@@ -8,8 +8,8 @@ export const LayoutContainer = styled.div`
 export const Left = styled.div`
   flex: 1;
   background-color: #fff7ec;
-  z-index: -1; /* 배경으로 보내기 위한 z-index 설정 */
-
+  z-index: -1;
+  width: 100%;
   & img {
     margin-left: 50px;
     max-width: 80%;

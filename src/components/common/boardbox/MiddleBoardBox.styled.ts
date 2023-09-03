@@ -7,6 +7,13 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
+    &:hover {
+    transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export const Border = styled.div`
@@ -28,7 +35,6 @@ export const TextImgBox = styled.div`
   width: 100%;
   height: 230px;
   & div {
-    padding: 4px;
     font-size: 15px;
   }
 `;
@@ -42,12 +48,12 @@ export const ImgBox = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   object-fit: cover;
+  border-bottom: 1px solid #ddd;
 
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
   }
 `;
 

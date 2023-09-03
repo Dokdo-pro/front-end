@@ -1,166 +1,164 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import * as GBW from '@/pages/group/groupboardwrite/GroupBoardWrite.styled';
-import BoardWriteSection from '@/components/common/boardwritesection/BoardWriteSection';
-import Camera from '@/assets/icon/Camera.png';
-import { useParams } from 'react-router-dom';
-import GroupHeader from '@/components/layout/header/GroupHeader';
-import { getCookie } from '@/helper/Cookie';
+import React from 'react';
+import * as BC from '@/pages/bookrec/BookRec.styled';
+import bookImg1 from '../../assets/img/chucheon12.png';
+import bookImg2 from '../../assets/img/chucheon13.png';
+import bookImg3 from '../../assets/img/chucheon3.png';
+import bookImg4 from '../../assets/img/chucheon4.png';
+import bookImg5 from '../../assets/img/chucheon5.png';
+import bookImg6 from '../../assets/img/chucheon6.png';
+import bookImg7 from '../../assets/img/chucheon7.png';
+import bookImg8 from '../../assets/img/chucheon8.png';
+import bookImg9 from '../../assets/img/chucheon9.png';
+import bookImg10 from '../../assets/img/chucheon2.png';
 
-const GroupBoardWrite: React.FC = () => {
-  const [responseMessage, setResponseMessage] = useState('');
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [images, setImages] = useState<File[]>([]); // 이미지 파일 배열
-  const [userData, setUserData] = useState<any>(null); // User data
 
-  const { groupId } = useParams<{ groupId: string }>();
-
-  useEffect(() => {
-    const loginToken = getCookie('loginToken'); // Assuming getCookie is defined somewhere
-
-    axios
-      .get('/api/v1/auth/me', {
-        headers: {
-          Authorization: `Bearer ${loginToken}`,
-        },
-        withCredentials: true,
-      })
-      .then(response => {
-        if (response.status === 200) {
-          setUserData(response.data.data.getUser);
-        } else {
-          window.location.href = '/signup'; // Simulating page navigation
-        }
-      })
-      .catch(error => {
-        console.error('myposts유저 정보 가져오기 에러:', error);
-        window.location.href = '/'; // Simulating page navigation
-      });
-  }, []);
-
-  const handleCreatePost = async () => {
-    try {
-      if (!userData) {
-        setResponseMessage('로그인이 필요합니다.');
-        return;
-      }
-      const uploadedImageNames = await uploadImages(); // Modified this line
-
-      const payload = {
-        title: title,
-        content: content,
-        images: uploadedImageNames, // Use the uploaded image names directly
-      };
-
-      const response = await axios.post(
-        `/api/v1/group/${groupId}/posts`,
-        payload,
-        { withCredentials: true },
-      );
-
-      if (response.status === 200) {
-        setResponseMessage('성공적으로 작성되었습니다!');
-      } else {
-        setResponseMessage(`오류 발생: ${response.statusText}`);
-      }
-    } catch (error: any) {
-      console.error('Error:', error);
-      setResponseMessage(`요청 실패: ${error.message}`);
-    }
-  };
-
-  const uploadImages = async () => {
-    const uploadedImageNames: string[] = [];
-
-    for (const imageFile of images) {
-      try {
-        const formData = new FormData();
-        formData.append('img', imageFile, 'img'); // 'img'로 키 값을 설정
-
-        const uploadResponse = await axios.post(
-          `/api/v1/group/images`,
-          formData,
-          { withCredentials: true },
-        );
-
-        if (uploadResponse.data.error === null) {
-          uploadedImageNames.push(uploadResponse.data.data[0]);
-        } else {
-          console.error('이미지 업로드 실패:', uploadResponse.data.error);
-        }
-      } catch (error) {
-        console.error('이미지 업로드 에러:', error);
-      }
-    }
-
-    return uploadedImageNames;
-  };
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (files && files.length > 0) {
-      setImages([...images, files[0]]);
-    }
-  };
-
+const BookRec = () => {
   return (
-    <GBW.Wrapper>
-      <GBW.GroupHeader>
-        <GroupHeader data={{ group: Number(groupId) }} />
-      </GBW.GroupHeader>
-      <BoardWriteSection />
-
-      <GBW.TitleWrite>
-        <textarea
-          placeholder="제목을 입력해주세요. (40자)"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-          rows={2}
-          maxLength={40}
-        />
-      </GBW.TitleWrite>
-
-      <GBW.WriteBox>
-        <textarea
-          placeholder="하고있던건데 다 지우고 다시 하셔도 됩니다"
-          value={content}
-          onChange={e => setContent(e.target.value)}
-          rows={15}
-          maxLength={1000}
-        />
-      </GBW.WriteBox>
-
-      <GBW.ImgFileTitle>
-        <div>사진 등록(선택)</div>
-        <div>500MB 이하의 jpg, gif 파일만 3개까지 업로드 가능합니다</div>
-      </GBW.ImgFileTitle>
-      <GBW.ImgUpload>
-        <div>
-          <GBW.CameraBox>
-            {images.map((image, index) => (
-              <GBW.UploadImage
-                key={index}
-                src={URL.createObjectURL(image)}
-                alt="업로드된 이미지"
-              />
-            ))}
-          </GBW.CameraBox>
-          <GBW.ImgChoice>
-            <input
-              type="file"
-              id="image-upload"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
-            <div>{content.length}/1000자</div>
-          </GBW.ImgChoice>
-        </div>
-      </GBW.ImgUpload>
-      <button onClick={handleCreatePost}>포스트 작성</button>
-      <p>{responseMessage}</p>
-    </GBW.Wrapper>
+    <BC.Wrapper>
+      <BC.Box>
+        <BC.BoxTitleBox>
+          <BC.BoxTitle>
+            독도에서 추천하는
+            <br /> 독서 토론 추천도서!
+          </BC.BoxTitle>
+        </BC.BoxTitleBox>
+        <BC.SliederBox>
+          <BC.Wrapper>
+            <BC.List>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000201142283">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg1} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>메리골드 마음 세탁소</div>
+                    <div>윤정은/북로망스</div>
+                    <div>2023.03.06</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000000781176">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg2} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>H마트에서 울다</div>
+                    <div>미셀자우너/문학동네</div>
+                    <div>2022.02.28</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+            </BC.List>{' '}
+            <BC.List>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000208590459">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg3} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>1%를 읽는 힘</div>
+                    <div>메르토네이도</div>
+                    <div>2023.08.30</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000202687816">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg4} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>아메리칸 프로메테우스</div>
+                    <div>카이버드외/사이언스북스</div>
+                    <div>2023.06.12</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+            </BC.List>{' '}
+            <BC.List>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000208698551">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg5} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>일론머스크</div>
+                    <div>월터 아이작슨/21세기북스</div>
+                    <div>2023.09.19(예정)</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000202340164">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg6} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>역행자</div>
+                    <div>자청/웅진지식하우스</div>
+                    <div>2023.05.29</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+            </BC.List>{' '}
+            <BC.List>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000201621022">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg7} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>도둑 맞은 집중력</div>
+                    <div>요한 하리/어크로스</div>
+                    <div>2023.04.28</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000202671445">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg8} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>문과 남자의 과학 공부</div>
+                    <div>유시민/돌베개</div>
+                    <div>2023.06.23</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+            </BC.List>{' '}
+            <BC.List>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000203331812">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg9} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>아주 희미한 빛만으로도</div>
+                    <div>최은영/문학동네</div>
+                    <div>2023.08.07</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+              <BC.StyledLink to="https://product.kyobobook.co.kr/detail/S000208603716">
+                <BC.ImgBox>
+                  <BC.Img>
+                    <img src={bookImg10} alt="도서이미지" />
+                  </BC.Img>
+                  <BC.Info>
+                    <div>슈퍼노멀</div>
+                    <div>주언규/웅진지식하우스</div>
+                    <div>2023.08.30</div>
+                  </BC.Info>
+                </BC.ImgBox>
+              </BC.StyledLink>
+            </BC.List>
+          </BC.Wrapper>
+        </BC.SliederBox>
+      </BC.Box>
+    </BC.Wrapper>
   );
 };
 
-export default GroupBoardWrite;
+export default BookRec;

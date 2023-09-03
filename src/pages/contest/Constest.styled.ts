@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,7 +19,7 @@ export const BoxTitleBox = styled.div`
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-evenly;
   margin: 10px 0;
   width: 90%;
   height: 100%;
@@ -44,13 +45,15 @@ export const ImgBox = styled.div`
 
 export const Img = styled.div`
   width: 200px;
-  height: 296px;
-  border: 1px solid #ddd;
+  height: 100%;
 
   & img {
     width: 100%;
     height: 100%;
+
   }
+
+  background-color: #fff7ec;
 `;
 
 export const Info = styled.div`
@@ -66,7 +69,6 @@ export const Info = styled.div`
 
 export const SliederBox = styled.div`
   display: flex;
-  justify-content: center;
   width: 100%;
 `;
 export const StyledLink = styled(Link)`

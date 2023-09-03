@@ -13,10 +13,9 @@ export const StyleHeader = styled.div`
   z-index: 9999;
   font-family: Pretendard;
   font-weight: 500;
-border-left: 1px solid #ddd;
-border-right: 1px solid #ddd;
-font-size: 15px;
-
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  font-size: 15px;
 `;
 
 export const Logo = styled.h1`
@@ -28,12 +27,12 @@ export const Logo = styled.h1`
 `;
 
 export const StyleLogo = styled.img`
-<<<<<<< HEAD
   width: 65px;
   height: 27px;
-=======
-  height: 32px;
->>>>>>> style
+
+  & hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const Nav = styled.nav`
@@ -54,7 +53,7 @@ export const Up = styled.div`
 `;
 
 export const Down = styled.div`
-padding-top: 10px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -74,6 +73,11 @@ export const StyledLink = styled(NavLink)`
   color: black;
   border-bottom: 2px solid transparent;
   height: 100%;
+
+  &:hover {
+    color: #7c6250;
+    font-weight: 700;
+  }
 
   &.active {
     border-bottom: 5px solid #7c6250;

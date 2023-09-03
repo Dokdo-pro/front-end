@@ -6,6 +6,15 @@ export const Wrapper = styled.div`
   gap: 20px;
   align-items: center;
   margin: 30px 0;
+  cursor: pointer;;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
 export const Container = styled.div`
   width: 88px;

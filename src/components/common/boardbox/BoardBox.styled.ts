@@ -6,12 +6,21 @@ export const Border = styled.div`
   align-items: center;
   box-sizing: border-box;
   border: solid 1px #ddd;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 0 10px rgba(0, 0, 0, 0.15);
   border-radius: 15px;
   height: 131px;
   padding: 10px;
   margin: 10px 0;
   background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
 
 export const TextBox = styled.div`
@@ -35,6 +44,8 @@ export const ImgBox = styled.div`
   align-items: center; // 추가
   justify-content: center; // 추가
   box-sizing: border-box;
+  border: 1px solid #ddd;
+
 `;
 
 export const Img = styled.img`
@@ -42,7 +53,6 @@ export const Img = styled.img`
   height: 100%;
   object-fit: cover; // 이미지 비율 유지하면서 컨테이너에 꽉 차도록 설정
   border-radius: 20px;
-  border-radius: 1px solid #ddd;
 `;
 export const HashTagDisplay = styled.div`
   display: flex;
