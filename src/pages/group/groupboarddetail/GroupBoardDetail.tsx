@@ -1,10 +1,10 @@
-import React, { SyntheticEvent, useState, useEffect } from 'react';
+import React, { SyntheticEvent, useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import * as GBD from '@/pages/group/groupboarddetail/GroupBoaderDetail.styled';
 import { getCookie } from '@/helper/Cookie';
 import { useParams, useNavigate } from 'react-router-dom';
 import UserImg from '@/assets/img/userbasicimg.png';
-import EditImage from '@/components/group/editimage/EditImage';
+import ClipboardJS from 'clipboard';
 
 interface GroupDetailData {
   error: null | string;
@@ -113,6 +113,7 @@ const GroupBoardDetail: React.FC<
   const [groupData, setGroupData] = useState<GroupData | null>(null);
   const [images, setImages] = useState<File[]>([]); // 이미지 파일 배열
 
+  const btnRef = useRef<HTMLButtonElement>(null);
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
@@ -321,7 +322,7 @@ const GroupBoardDetail: React.FC<
       );
 
       if (response.status === 200) {
-        fetchLikeStatus(group_Id, post_Id); // 다시 좋아요 상태를 가져옵니다.
+        // fetchLikeStatus(group_Id, post_Id); // 다시 좋아요 상태를 가져옵니다.
       } else {
         console.error('Error liking/unliking post:', response.status);
       }
@@ -459,15 +460,26 @@ const GroupBoardDetail: React.FC<
   };
 
   const handleShareBtn = () => {
-    const url = window.location.href; // 현재 페이지의 URL을 가져옵니다.
-    navigator.clipboard.writeText(url).then(
-      () => {
-        alert('현재 게시글이 복사되었습니다!'); // 복사 성공 시 알림
+    const url = window.location.href;
+
+    const clipboard = new ClipboardJS(btnRef.current!, {
+      text: function (trigger) {
+        return url;
       },
-      err => {
-        console.error('URL 복사에 실패했습니다!:', err); // 복사 실패 시 에러 출력
-      },
-    );
+    });
+
+    clipboard.on('success', function (e) {
+      alert('현재 게시글이 복사되었습니다!');
+      e.clearSelection();
+      clipboard.destroy();
+    });
+
+    clipboard.on('error', function (e) {
+      console.error('URL 복사에 실패했습니다!', e);
+      clipboard.destroy();
+    });
+
+    btnRef.current!.click();
   };
 
   return (
@@ -497,11 +509,11 @@ const GroupBoardDetail: React.FC<
       )}
       <GBD.EditButton onClick={toggleDropdown}>●●●</GBD.EditButton>
       <GBD.User>
-          <GBD.ProfileImg
-            src={`/api/v1/image/profile/${groupDetail?.data.user.profilePic}`}
-            alt=""
-            onError={defaultUserImg}
-          ></GBD.ProfileImg>
+        <GBD.ProfileImg
+          src={`/api/v1/image/profile/${groupDetail?.data.user.profilePic}`}
+          alt=""
+          onError={defaultUserImg}
+        ></GBD.ProfileImg>
         <GBD.Desc>
           <GBD.DescDisplay>
             <GBD.UserName>{groupDetail?.data.user.name}</GBD.UserName>
@@ -533,7 +545,9 @@ const GroupBoardDetail: React.FC<
         <button onClick={handleLikeBtn}>
           {isLiked ? `❤️ ${likeCounter} 취소` : `❤️ 좋아요`} {likeCounter}
         </button>
-        <button onClick={handleShareBtn}>공유하기</button>
+        <button ref={btnRef} onClick={handleShareBtn}>
+          공유하기
+        </button>
       </GBD.Button>
       <GBD.Comment>
         <GBD.CommentsTitle>
