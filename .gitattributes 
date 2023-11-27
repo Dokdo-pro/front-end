@@ -1,3 +1,0 @@
-*.html linguist-detectable=false
-*.tsx linguist-language=TypeScript
-public/index.html linguist-generated=true
